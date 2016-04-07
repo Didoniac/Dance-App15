@@ -3,6 +3,13 @@
   <component name="EntryPointsManager">
     <entry_points version="2.0" />
   </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="mavenHome" value="Bundled (Maven 3)" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
   <component name="NullableNotNullManager">
     <option name="myDefaultNullable" value="android.support.annotation.Nullable" />
     <option name="myDefaultNotNull" value="android.support.annotation.NonNull" />
@@ -26,11 +33,6 @@
         </list>
       </value>
     </option>
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-=======
->>>>>>> 521c4e1a96a3173c89aee8bd7978eb6f1a599090
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -47,7 +49,6 @@
         </selected-state>
       </profile-state>
     </entry>
->>>>>>> 0a73786de4381c9c98442050b4aec1234c2c731e
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />

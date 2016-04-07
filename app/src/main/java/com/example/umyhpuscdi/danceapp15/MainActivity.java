@@ -13,6 +13,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         String kanAllaSeDet = "Hej önskar Johan";
+        String str_dhana = "Hej alla Dance grupp";
     }
 
     @Override
