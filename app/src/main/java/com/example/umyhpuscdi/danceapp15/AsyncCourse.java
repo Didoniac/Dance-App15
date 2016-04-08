@@ -1,8 +1,10 @@
-package com.l2minigames.umyhlarsle.todolistapi;
+package com.example.umyhpuscdi.danceapp15;
 
 import android.os.AsyncTask;
 
 
+import com.example.umyhpuscdi.danceapp15.AdminActivity;
+import com.example.umyhpuscdi.danceapp15.Course;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -27,13 +29,13 @@ public class AsyncCourse extends AsyncTask<String, Void, String> {
     HttpURLConnection connection;
     URL url;
 
-    SecondActivity secondActivity; ///Namnet på second activity
+    AdminActivity adminActivity; ///Namnet på second activity
     JSONObject json;
     int responseCode;
     private String URLEN = "http://api.cmdemo.se/";
 
-    public AsyncCourse(SecondActivity secondActivity, JSONObject json, int removeId){
-        this.secondActivity=secondActivity;
+    public AsyncCourse(AdminActivity secondActivity, JSONObject json, int removeId){
+        this.adminActivity=secondActivity;
         this.json = json;
     }
 
@@ -73,11 +75,11 @@ public class AsyncCourse extends AsyncTask<String, Void, String> {
                     }
                     in.close();
 
-                    if (params[1].equals("lists/"+secondActivity.currentListID+"/tasks/")) {
+                    if (params[1].equals("lists/"+"258"+"/tasks/")) {
 
-                        JSONArray lists = new JSONArray(response.toString());
+                       /// JSONArray lists = new JSONArray(response.toString());
 
-                        secondActivity.tasklist.clear();
+                      /*  adminActivity.tasklist.clear();
                         for (int i = 0; i < lists.length(); i++) {
                             JSONObject thelist = (JSONObject) lists.get(i);
                             Course mCourse = new Course();
@@ -85,9 +87,10 @@ public class AsyncCourse extends AsyncTask<String, Void, String> {
                             mCourse.id = thelist.getInt("id");
                             mCourse.title = thelist.getString("title");
                             mCourse.done = thelist.getBoolean("done");
-                            secondActivity.tasklist.add(mTask);
+                            adminActivity.tasklist.add(mTask);
 
                         }
+                        */
                     }
 
                     connection.disconnect();
@@ -174,9 +177,9 @@ public class AsyncCourse extends AsyncTask<String, Void, String> {
             e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
+        } ///catch (JSONException e) {
+           /// e.printStackTrace();
+        ///}
 
         return null;
     }
@@ -185,8 +188,8 @@ public class AsyncCourse extends AsyncTask<String, Void, String> {
     protected void onPostExecute (String result){
 
         //uppdatera gränssnittet här
-        secondActivity.showServerErrors(responseCode); ///Egen metod som visar fel
-        secondActivity.adapter.notifyDataSetChanged(); ///Uppdaatera adapter till ListView
+        ///adminActivity.showServerErrors(responseCode); ///Egen metod som visar fel
+       /// adminActivity.adapter.notifyDataSetChanged(); ///Uppdaatera adapter till ListView
     }
 
 
