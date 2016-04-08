@@ -2,5 +2,6 @@
     <string name="app_name">Dance App15</string>
 
     <string name="hello_world">Hello world!</string>
+    <string name="action_log_in">Log in (Admin)</string>
     <string name="action_settings">Settings</string>
 </resources>
