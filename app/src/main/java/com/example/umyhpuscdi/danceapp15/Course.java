@@ -16,7 +16,7 @@ public class Course {
 
     public Course(){}
 
-    public Course(boolean done, String title, String description, int id,){
+    public Course(boolean done, String title, String description, int id){
 
         this.done = done;
         this.title = title;

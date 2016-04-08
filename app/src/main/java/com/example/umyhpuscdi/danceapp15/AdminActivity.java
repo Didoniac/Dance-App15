@@ -24,17 +24,13 @@ import java.util.ArrayList;
 /**
  * Created by umyhpuscdi on 2016-04-08.
  */
-<<<<<<< HEAD
 public class AdminActivity extends AppCompatActivity {
     ListView listView;
     ArrayList<String> danceCourseList;
     ArrayAdapter adapterDanceListView;
-=======
-public class AdminActivity extends AppCompatActivity{
 
     String contextTestJohan = "Hej";
 
->>>>>>> origin/Johans_branch
     @Override
 
     protected void onCreate(Bundle savedInstanceState) {
