@@ -73,7 +73,7 @@ public class CreateEditCourse extends Fragment {
             @Override
             public void onClick(View v) {
 
-                getFragmentManager().popBackStack();
+                adminActivity.getSupportFragmentManager().popBackStack();
             }
         });
 
