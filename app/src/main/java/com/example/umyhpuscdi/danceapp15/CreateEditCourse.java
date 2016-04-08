@@ -37,7 +37,10 @@ public class CreateEditCourse extends Fragment {
 
         adminActivity = (AdminActivity)getActivity();
 
-        contextTestTitle = adminActivity.contextTestJohan;
+        Bundle bundle = getArguments();
+        int i = bundle.getInt("KEY");
+
+        String s = adminActivity.danceCourseList.get(i);
 
 
         View v = inflater.inflate(R.layout.fragment_create_edit_course, container, false);
@@ -51,7 +54,7 @@ public class CreateEditCourse extends Fragment {
         buttonCancel = (Button)v.findViewById(R.id.buttonCancel);
         buttonDone = (Button)v.findViewById(R.id.buttonDone);
 
-        editTitle.setText(contextTestTitle);
+        editTitle.setText(s);
 
         buttonDone.setOnClickListener(new View.OnClickListener() {
             @Override

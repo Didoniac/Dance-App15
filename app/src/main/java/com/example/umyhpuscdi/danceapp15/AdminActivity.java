@@ -5,6 +5,8 @@ import android.content.Context;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -29,6 +31,10 @@ public class AdminActivity extends AppCompatActivity {
     ArrayList<String> danceCourseList;
     ArrayAdapter adapterDanceListView;
 
+    FragmentManager fm;
+    FragmentTransaction transaction;
+    Fragment fragment;
+
     String contextTestJohan = "Hej";
 
     @Override
@@ -50,12 +56,24 @@ public class AdminActivity extends AppCompatActivity {
         danceCourseList.add("HumpaBumpa");
         adapterDanceListView.notifyDataSetChanged();
 
+        fm = getSupportFragmentManager();
+        transaction = fm.beginTransaction();
+        fragment = new CreateEditCourse();
+
 
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
                 Toast.makeText(activity, "Vald kurs:\n" + danceCourseList.get(position), Toast.LENGTH_LONG).show();
+                Bundle bundle = new Bundle();
+                bundle.putInt("KEY", position);
+                fragment.setArguments(bundle);
+
+                transaction.replace(R.id.container,fragment);
+                transaction.addToBackStack(null);
+                transaction.commit();
+
 
             }
         });
