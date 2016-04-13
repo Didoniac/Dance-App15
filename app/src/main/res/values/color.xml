@@ -2,4 +2,6 @@
 <resources>
     <color name="blue">#668cff</color>
     <color name="lite_rose">#ffccff</color>
+    <color name="lite_red">#ffe6e6</color>
+    <color name="white">#ffffff</color>
 </resources>

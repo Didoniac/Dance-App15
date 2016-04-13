@@ -30,10 +30,11 @@ public class AdminActivity extends AppCompatActivity {
     ListView listView;
     ArrayList<String> danceCourseList;
     ArrayAdapter adapterDanceListView;
-
+    //Final
+    CreateEditCourse dialogFrag;
     FragmentManager fm;
-    FragmentTransaction transaction;
-    Fragment fragment;
+    //FragmentTransaction transaction;
+    //Fragment fragment;
 
     String contextTestJohan = "Hej";
 
@@ -57,8 +58,8 @@ public class AdminActivity extends AppCompatActivity {
         adapterDanceListView.notifyDataSetChanged();
 
         fm = getSupportFragmentManager();
-        transaction = fm.beginTransaction();
-        fragment = new CreateEditCourse();
+
+        dialogFrag = new CreateEditCourse();
 
 
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -68,11 +69,9 @@ public class AdminActivity extends AppCompatActivity {
                 Toast.makeText(activity, "Vald kurs:\n" + danceCourseList.get(position), Toast.LENGTH_LONG).show();
                 Bundle bundle = new Bundle();
                 bundle.putInt("KEY", position);
-                fragment.setArguments(bundle);
+                dialogFrag.setArguments(bundle);
 
-                transaction.replace(R.id.container,fragment);
-                transaction.addToBackStack(null);
-                transaction.commit();
+                dialogFrag.show(fm, "DialogFrag");
 
 
             }
@@ -85,7 +84,7 @@ public class AdminActivity extends AppCompatActivity {
         FAB.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                JSONObject json = new JSONObject();
+                /*JSONObject json = new JSONObject();
                 String tmpTitle = "Vår första danskurs";
                 try {
                     json.put("title",tmpTitle);
@@ -96,6 +95,10 @@ public class AdminActivity extends AppCompatActivity {
 
                 AsyncCourse asynk = new AsyncCourse(activity, json, 0);
                 asynk.execute("POST", "lists/" + "258" + "/tasks/"); ///Det här är String... params-arrayen
+                */
+
+                dialogFrag.show(fm, "DialogFrag");
+
             }
         });
     }

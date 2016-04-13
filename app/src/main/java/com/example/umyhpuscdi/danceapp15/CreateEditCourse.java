@@ -2,6 +2,7 @@ package com.example.umyhpuscdi.danceapp15;
 
 
 import android.os.Bundle;
+import android.support.v4.app.DialogFragment;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -16,7 +17,7 @@ import org.json.JSONObject;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class CreateEditCourse extends Fragment {
+public class CreateEditCourse extends DialogFragment {
 
     EditText editTitle, editTeacher, editTimeAndDate, editLocation, editDescription, editLevel;
     Button buttonDone, buttonCancel;
@@ -37,10 +38,13 @@ public class CreateEditCourse extends Fragment {
 
         adminActivity = (AdminActivity)getActivity();
 
-        Bundle bundle = getArguments();
-        int i = bundle.getInt("KEY");
+        String s = "";
 
-        String s = adminActivity.danceCourseList.get(i);
+        Bundle bundle = getArguments();
+        if (bundle != null) {
+            int i = bundle.getInt("KEY");
+            s = adminActivity.danceCourseList.get(i);
+        }
 
 
         View v = inflater.inflate(R.layout.fragment_create_edit_course, container, false);
@@ -86,7 +90,8 @@ public class CreateEditCourse extends Fragment {
             @Override
             public void onClick(View v) {
 
-                adminActivity.getSupportFragmentManager().popBackStack();
+                adminActivity.dialogFrag.dismiss();
+                //adminActivity.getSupportFragmentManager().popBackStack();
             }
         });
 
