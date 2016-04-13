@@ -11,6 +11,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RelativeLayout;
+import android.widget.Toast;
 
 
 /**
@@ -31,18 +32,36 @@ public class login_Dialog_Fragment extends DialogFragment {
       View view = inflater.inflate(R.layout.fragment_login__dialog_, container, false);
 
         RelativeLayout rely_diagfrag = (RelativeLayout)view.findViewById(R.id.rely_dig_frag);
-        EditText username = (EditText)view.findViewById(R.id.edittxt_användernamn);
-        EditText password = (EditText)view.findViewById(R.id.edittxt_lösenord);
+        final EditText username = (EditText)view.findViewById(R.id.edittxt_användernamn);
+        final EditText password = (EditText)view.findViewById(R.id.edittxt_lösenord);
         Button btn_login = (Button)view.findViewById(R.id.btn_loggain);
         Button btn_createaccount = (Button)view.findViewById(R.id.btn_skapakonto);
 
+        // Logga in
         btn_login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                Intent intent = new Intent(getContext(), AdminActivity.class);
-                startActivity(intent);
+
+                if (username.getText().toString().equals("admin") &&
+                        password.getText().toString().equals("admin")) {
+
+                    Toast.makeText(getContext(), "Redirecting...", Toast.LENGTH_SHORT).show();
+
+                    //Går till lists av course vy////
+                    Intent intent = new Intent(getContext(), AdminActivity.class);
+                    startActivity(intent);
+
+
+                } else {
+
+                    Toast.makeText(getContext(), "Wrong password.", Toast.LENGTH_SHORT).show();
+                }
+
+                username.setText("");
+                password.setText("");
             }
+
         });
 
       return view;
