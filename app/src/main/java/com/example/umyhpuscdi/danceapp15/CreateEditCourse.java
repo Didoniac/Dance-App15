@@ -60,8 +60,21 @@ public class CreateEditCourse extends Fragment {
             @Override
             public void onClick(View v) {
                 JSONObject object = new JSONObject();
+                JSONObject descriptionObject = new JSONObject();
                 try {
-                    object.put("title", contextTestTitle);
+                    object.put("title", editTitle.getText().toString());
+
+                    //TODO ändra till riktigt värde
+                    object.put("done", true);
+
+                    descriptionObject.put("teacher", editTeacher.getText().toString());
+                    descriptionObject.put("description", editDescription.getText().toString());
+                    descriptionObject.put("level", editLevel.getText().toString());
+                    descriptionObject.put("location", editLocation.getText().toString());
+                    descriptionObject.put("timeAndDate", editTimeAndDate.getText().toString());
+
+                    object.put("description",descriptionObject.toString());
+
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
