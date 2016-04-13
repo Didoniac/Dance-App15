@@ -2,46 +2,46 @@
 <items version="2" >
 
     <item
-        jar="C:\Users\umyhhedbjo\AppData\Local\Android\sdk\extras\android\m2repository\com\android\support\support-annotations\23.1.1\support-annotations-23.1.1.jar"
-        jumboMode="false"
-        revision="23.0.2"
-        sha1="8d680ba5a623724d1fb0e81c36a790f023a6cede">
-        <dex dex="C:\Users\umyhhedbjo\AndroidStudioProjects\Dance-App15\app\build\intermediates\pre-dexed\debug\support-annotations-23.1.1-3f842f14f3e3d96ebef04c2640d30b1700cf2a62.jar" />
-    </item>
-    <item
-        jar="C:\Users\umyhhedbjo\AndroidStudioProjects\Dance-App15\app\build\intermediates\exploded-aar\com.android.support\recyclerview-v7\23.1.1\jars\classes.jar"
-        jumboMode="false"
-        revision="23.0.2"
-        sha1="09c5e804bc67fc0580360043dff067df574a60d4">
-        <dex dex="C:\Users\umyhhedbjo\AndroidStudioProjects\Dance-App15\app\build\intermediates\pre-dexed\debug\classes-19e48cdcd65b7158ba852c021774258ab10f0be0.jar" />
-    </item>
-    <item
-        jar="C:\Users\umyhhedbjo\AndroidStudioProjects\Dance-App15\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.1.1\jars\libs\internal_impl-23.1.1.jar"
+        jar="C:\Users\umyharumdh\AndroidStudioProjects\Final Dance App15\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.1.1\jars\libs\internal_impl-23.1.1.jar"
         jumboMode="false"
         revision="23.0.2"
         sha1="a4de9c81ae239414e1ed0f86441b02abaf29bca9">
-        <dex dex="C:\Users\umyhhedbjo\AndroidStudioProjects\Dance-App15\app\build\intermediates\pre-dexed\debug\internal_impl-23.1.1-35238c456ff870d6d1c9d0f457379062b0b3c9ef.jar" />
+        <dex dex="C:\Users\umyharumdh\AndroidStudioProjects\Final Dance App15\app\build\intermediates\pre-dexed\debug\internal_impl-23.1.1-3f3e82ec311be924c6f21a11eee59eadf9cdcf05.jar" />
     </item>
     <item
-        jar="C:\Users\umyhhedbjo\AndroidStudioProjects\Dance-App15\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.1.1\jars\classes.jar"
+        jar="C:\Users\umyharumdh\AppData\Local\Android\sdk\extras\android\m2repository\com\android\support\support-annotations\23.1.1\support-annotations-23.1.1.jar"
         jumboMode="false"
         revision="23.0.2"
-        sha1="6cbc7773921fcfedbe55657578f0cbfe614778dc">
-        <dex dex="C:\Users\umyhhedbjo\AndroidStudioProjects\Dance-App15\app\build\intermediates\pre-dexed\debug\classes-146ffee1a600909f1ba1a67ede77b1f63f67bbf8.jar" />
+        sha1="8d680ba5a623724d1fb0e81c36a790f023a6cede">
+        <dex dex="C:\Users\umyharumdh\AndroidStudioProjects\Final Dance App15\app\build\intermediates\pre-dexed\debug\support-annotations-23.1.1-0cf74eda678c5ca07a37172c6e3ef7b2e98ac4dc.jar" />
     </item>
     <item
-        jar="C:\Users\umyhhedbjo\AndroidStudioProjects\Dance-App15\app\build\intermediates\exploded-aar\com.android.support\design\23.1.1\jars\classes.jar"
-        jumboMode="false"
-        revision="23.0.2"
-        sha1="379471b2bd17d9737c050345c08e8c7d16589784">
-        <dex dex="C:\Users\umyhhedbjo\AndroidStudioProjects\Dance-App15\app\build\intermediates\pre-dexed\debug\classes-9bf1b77c085618edd7f2cf4daf32d156e72e091e.jar" />
-    </item>
-    <item
-        jar="C:\Users\umyhhedbjo\AndroidStudioProjects\Dance-App15\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\23.1.1\jars\classes.jar"
+        jar="C:\Users\umyharumdh\AndroidStudioProjects\Final Dance App15\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\23.1.1\jars\classes.jar"
         jumboMode="false"
         revision="23.0.2"
         sha1="5c5699834e9722f1c288fea2de82725d078ba127">
-        <dex dex="C:\Users\umyhhedbjo\AndroidStudioProjects\Dance-App15\app\build\intermediates\pre-dexed\debug\classes-c365b7299d3d926fe98409f6c4f167a736c7b3b5.jar" />
+        <dex dex="C:\Users\umyharumdh\AndroidStudioProjects\Final Dance App15\app\build\intermediates\pre-dexed\debug\classes-a949210b5b1ef6e2453c023d63e360f56a8a63e4.jar" />
+    </item>
+    <item
+        jar="C:\Users\umyharumdh\AndroidStudioProjects\Final Dance App15\app\build\intermediates\exploded-aar\com.android.support\recyclerview-v7\23.1.1\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="09c5e804bc67fc0580360043dff067df574a60d4">
+        <dex dex="C:\Users\umyharumdh\AndroidStudioProjects\Final Dance App15\app\build\intermediates\pre-dexed\debug\classes-e8a7da2176749cc8ae66dc2949425f9dccb0c25e.jar" />
+    </item>
+    <item
+        jar="C:\Users\umyharumdh\AndroidStudioProjects\Final Dance App15\app\build\intermediates\exploded-aar\com.android.support\design\23.1.1\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="379471b2bd17d9737c050345c08e8c7d16589784">
+        <dex dex="C:\Users\umyharumdh\AndroidStudioProjects\Final Dance App15\app\build\intermediates\pre-dexed\debug\classes-f674cd3f80799effce3a999ac85241e805655323.jar" />
+    </item>
+    <item
+        jar="C:\Users\umyharumdh\AndroidStudioProjects\Final Dance App15\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.1.1\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="6cbc7773921fcfedbe55657578f0cbfe614778dc">
+        <dex dex="C:\Users\umyharumdh\AndroidStudioProjects\Final Dance App15\app\build\intermediates\pre-dexed\debug\classes-f053b7217bf69971887de8480cf2ebcfbf3abb14.jar" />
     </item>
 
 </items>
