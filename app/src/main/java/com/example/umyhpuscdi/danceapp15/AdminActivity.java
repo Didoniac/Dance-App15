@@ -84,7 +84,7 @@ public class AdminActivity extends AppCompatActivity {
         FAB.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                JSONObject json = new JSONObject();
+                /*JSONObject json = new JSONObject();
                 String tmpTitle = "Vår första danskurs";
                 try {
                     json.put("title",tmpTitle);
@@ -95,6 +95,10 @@ public class AdminActivity extends AppCompatActivity {
 
                 AsyncCourse asynk = new AsyncCourse(activity, json, 0);
                 asynk.execute("POST", "lists/" + "258" + "/tasks/"); ///Det här är String... params-arrayen
+                */
+
+                dialogFrag.show(fm, "DialogFrag");
+
             }
         });
     }
