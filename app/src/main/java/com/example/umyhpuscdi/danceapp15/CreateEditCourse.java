@@ -21,7 +21,7 @@ public class CreateEditCourse extends DialogFragment {
 
     EditText editTitle, editTeacher, editTimeAndDate, editLocation, editDescription, editLevel;
     Button buttonDone, buttonCancel;
-    AdminActivity adminActivity;
+    MainActivity mainActivity;
     String contextTestTitle;
 
 
@@ -36,14 +36,14 @@ public class CreateEditCourse extends DialogFragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
 
-        adminActivity = (AdminActivity)getActivity();
+        mainActivity = (MainActivity)getActivity();
 
         String s = "";
 
         Bundle bundle = getArguments();
         if (bundle != null) {
             int i = bundle.getInt("KEY");
-            s = adminActivity.danceCourseList.get(i);
+            s = mainActivity.courses.get(i).title;
         }
 
 
@@ -82,7 +82,9 @@ public class CreateEditCourse extends DialogFragment {
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
-                AsyncCourse asyncCourse = new AsyncCourse(adminActivity, object,0);
+
+                //TODO check if the course has an id already and if so, PUT to its URI instead of POST.
+                AsyncCourse asyncCourse = new AsyncCourse(mainActivity, object,0);
                 asyncCourse.execute("POST", "lists/" + "258/" + "tasks/");
             }
         });
@@ -90,7 +92,7 @@ public class CreateEditCourse extends DialogFragment {
             @Override
             public void onClick(View v) {
 
-                adminActivity.dialogFrag.dismiss();
+                dismiss();
                 //adminActivity.getSupportFragmentManager().popBackStack();
             }
         });

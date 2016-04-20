@@ -48,9 +48,7 @@ public class login_Dialog_Fragment extends DialogFragment {
 
                     Toast.makeText(getContext(), "Redirecting...", Toast.LENGTH_SHORT).show();
 
-                    //Går till lists av course vy////
-                    Intent intent = new Intent(getContext(), AdminActivity.class);
-                    startActivity(intent);
+                    //TODO change to admin view.
 
 
                 } else {

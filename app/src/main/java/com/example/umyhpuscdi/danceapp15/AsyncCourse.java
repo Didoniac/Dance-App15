@@ -1,10 +1,8 @@
 package com.example.umyhpuscdi.danceapp15;
 
 import android.os.AsyncTask;
+import android.util.Log;
 
-
-import com.example.umyhpuscdi.danceapp15.AdminActivity;
-import com.example.umyhpuscdi.danceapp15.Course;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -29,13 +27,13 @@ public class AsyncCourse extends AsyncTask<String, Void, String> {
     HttpURLConnection connection;
     URL url;
 
-    AdminActivity adminActivity; ///Namnet på second activity
+    MainActivity mainActivity; ///Namnet på second activity
     JSONObject json;
     int responseCode;
     private String URLEN = "http://api.cmdemo.se/";
 
-    public AsyncCourse(AdminActivity secondActivity, JSONObject json, int removeId){
-        this.adminActivity=secondActivity;
+    public AsyncCourse(MainActivity mainActivity, JSONObject json, int removeId){
+        this.mainActivity = mainActivity;
         this.json = json;
     }
 
@@ -77,20 +75,29 @@ public class AsyncCourse extends AsyncTask<String, Void, String> {
 
                     if (params[1].equals("lists/"+"258"+"/tasks/")) {
 
-                       /// JSONArray lists = new JSONArray(response.toString());
+                        JSONArray jsonCourses = new JSONArray(response.toString());
+                        Log.i("TAG", jsonCourses.toString());
 
-                      /*  adminActivity.tasklist.clear();
-                        for (int i = 0; i < lists.length(); i++) {
-                            JSONObject thelist = (JSONObject) lists.get(i);
+                        mainActivity.courses.clear();
+                        JSONObject jsonCourse, jsonDescription;
+                        for (int i = 0; i < jsonCourses.length(); i++) {
+                            jsonCourse = (JSONObject) jsonCourses.get(i);
                             Course mCourse = new Course();
-                            mCourse.description = thelist.getString("description");
-                            mCourse.id = thelist.getInt("id");
-                            mCourse.title = thelist.getString("title");
-                            mCourse.done = thelist.getBoolean("done");
-                            adminActivity.tasklist.add(mTask);
+                            mCourse.id = jsonCourse.getInt("id");
+                            mCourse.title = jsonCourse.getString("title");
+                            mCourse.done = jsonCourse.getBoolean("done");
+                            mCourse.description = jsonCourse.getString("description");
 
+                            jsonDescription = new JSONObject(mCourse.description);
+                            mCourse.teacher = jsonDescription.getString("teacher");
+                            mCourse.description = jsonDescription.getString("description");
+                            mCourse.level = jsonDescription.getString("level");
+                            mCourse.location = jsonDescription.getString("location");
+                            mCourse.timeAndDate = jsonDescription.getString("timeAndDate");
+
+
+                            mainActivity.courses.add(mCourse);
                         }
-                        */
                     }
 
                     connection.disconnect();
@@ -178,7 +185,10 @@ public class AsyncCourse extends AsyncTask<String, Void, String> {
         } catch (IOException e) {
             e.printStackTrace();
         } ///catch (JSONException e) {
-           /// e.printStackTrace();
+        catch (JSONException e) {
+            e.printStackTrace();
+        }
+        /// e.printStackTrace();
         ///}
 
         return null;
@@ -190,8 +200,8 @@ public class AsyncCourse extends AsyncTask<String, Void, String> {
         //uppdatera gränssnittet här
         ///adminActivity.showServerErrors(responseCode); ///Egen metod som visar fel
        /// adminActivity.adapter.notifyDataSetChanged(); ///Uppdaatera adapter till ListView
+
+        Log.i("TAG","courses list size: " + mainActivity.courses.size() + "\n");
+        Log.i("TAG","course 0 teacher: " + mainActivity.courses.get(0).teacher);
     }
-
-
-
 }
