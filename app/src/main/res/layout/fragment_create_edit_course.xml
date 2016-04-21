@@ -29,31 +29,57 @@
                 android:id="@+id/title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Title" />
+                android:text="Danstitel" />
 
-            <EditText
-                android:id="@+id/timeAndDate"
+            <Button
+                android:id="@+id/dateTimeButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Time / Date" />
+                android:text="Tid/ Datum" />
+
+        !-- Kommentar --!
+            <EditText
+                android:id="@+id/durationOfOneCourse"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Längd på kurstillfällen" />
+
+            <EditText
+                android:id="@+id/priceOfCourse"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Kurspris" />
 
             <EditText
                 android:id="@+id/place"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Location" />
+                android:text="Plats" />
 
-            <EditText
-                android:id="@+id/teacher"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Teacher" />
+            <Spinner
+                android:id="@+id/teacherSpinner"
+                android:textSize="30sp"
+                android:layout_width="150dp"
+                android:layout_height="40dp"/>
 
-            <EditText
-                android:id="@+id/level"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Level" />
+            <Spinner
+                android:id="@+id/statusSpinner"
+                android:textSize="30sp"
+                android:layout_width="150dp"
+                android:layout_height="40dp"/>
+
+            <Spinner
+                android:id="@+id/levelSpinner"
+
+                android:textSize="30sp"
+                android:layout_width="150dp"
+                android:layout_height="40dp"/>
+
+            <Spinner
+                android:id="@+id/danceStyleSpinner"
+                android:textSize="30sp"
+                android:layout_width="150dp"
+                android:layout_height="50dp"/>
 
             <EditText
                 android:padding="20dp"

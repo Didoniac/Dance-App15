@@ -225,8 +225,5 @@ public class AsyncCourse extends AsyncTask<String, Void, String> {
         //uppdatera gränssnittet här
         ///adminActivity.showServerErrors(responseCode); ///Egen metod som visar fel
        /// adminActivity.adapter.notifyDataSetChanged(); ///Uppdaatera adapter till ListView
-
-        Log.i("TAG","courses list size: " + mainActivity.courses.size() + "\n");
-        Log.i("TAG","course 0 teacher: " + mainActivity.courses.get(0).getTeacher());
     }
 }
