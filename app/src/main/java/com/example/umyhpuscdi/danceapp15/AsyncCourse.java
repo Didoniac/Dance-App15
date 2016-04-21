@@ -17,6 +17,7 @@ import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.ProtocolException;
 import java.net.URL;
+import java.util.ArrayList;
 
 
 /**
@@ -80,22 +81,42 @@ public class AsyncCourse extends AsyncTask<String, Void, String> {
 
                         mainActivity.courses.clear();
                         JSONObject jsonCourse, jsonDescription;
+                        JSONArray jsonDates, jsonParticipants;
+                        ArrayList<String> tempDates;
+                        ArrayList<CourseParticipant> tempParticipants;
                         for (int i = 0; i < jsonCourses.length(); i++) {
+                            tempDates = new ArrayList<>();
+                            tempParticipants = new ArrayList<>();
+
                             jsonCourse = (JSONObject) jsonCourses.get(i);
                             Course mCourse = new Course();
-                            mCourse.id = jsonCourse.getInt("id");
-                            mCourse.title = jsonCourse.getString("title");
-                            mCourse.done = jsonCourse.getBoolean("done");
-                            mCourse.description = jsonCourse.getString("description");
+                            mCourse.setId(jsonCourse.getInt("id"));
+                            mCourse.setTitle(jsonCourse.getString("title"));
+                            mCourse.setDescription(jsonCourse.getString("description"));
 
-                            jsonDescription = new JSONObject(mCourse.description);
-                            mCourse.teacher = jsonDescription.getString("teacher");
-                            mCourse.description = jsonDescription.getString("description");
-                            mCourse.level = jsonDescription.getString("level");
-                            mCourse.location = jsonDescription.getString("location");
-                            mCourse.timeAndDate = jsonDescription.getString("timeAndDate");
+                            jsonDescription = new JSONObject(mCourse.getDescription());
+                            mCourse.setTeacher(jsonDescription.getString("teacher"));
+                            mCourse.setDescription(jsonDescription.getString("description"));
+                            mCourse.setLevel(jsonDescription.getString("level"));
+                            mCourse.setLocation(jsonDescription.getString("location"));
+                            mCourse.setTimeAndDate(jsonDescription.getString("timeAndDate"));
+                            mCourse.setStatus(jsonDescription.getString("status"));
+                            mCourse.setDanceStyle(jsonDescription.getString("danceStyle"));
 
+                            jsonDates = new JSONArray(jsonDescription.getString("dates"));
+                            int j;
+                            for (j = 0; j < jsonDates.length(); j++) {
+                                tempDates.add((String)jsonDates.get(j));
+                            }
 
+                            mCourse.setCourseDurationInMinutes(jsonDescription.getInt("courseDurationInMinutes"));
+
+                            jsonParticipants = new JSONArray(jsonDescription.getString("courseParticipants"));
+                            for (j = 0; j < jsonParticipants.length(); j++) {
+                                tempParticipants.add((CourseParticipant) jsonParticipants.get(j));
+                            }
+
+                            mCourse.setDates(tempDates);
                             mainActivity.courses.add(mCourse);
                         }
                     }
@@ -181,11 +202,14 @@ public class AsyncCourse extends AsyncTask<String, Void, String> {
 
 
         } catch (ProtocolException e) {
+            connection.disconnect();
             e.printStackTrace();
         } catch (IOException e) {
+            connection.disconnect();
             e.printStackTrace();
         } ///catch (JSONException e) {
         catch (JSONException e) {
+            connection.disconnect();
             e.printStackTrace();
         }
         /// e.printStackTrace();
@@ -202,6 +226,6 @@ public class AsyncCourse extends AsyncTask<String, Void, String> {
        /// adminActivity.adapter.notifyDataSetChanged(); ///Uppdaatera adapter till ListView
 
         Log.i("TAG","courses list size: " + mainActivity.courses.size() + "\n");
-        Log.i("TAG","course 0 teacher: " + mainActivity.courses.get(0).teacher);
+        Log.i("TAG","course 0 teacher: " + mainActivity.courses.get(0).getTeacher());
     }
 }

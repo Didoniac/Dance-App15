@@ -160,7 +160,7 @@ public class MainActivity extends AppCompatActivity {
             View blowupmenu = inflater.inflate(R.layout.dance_list_item, listView, false); //Bestämmer vad som ska blåsas upp och vart
 
             TextView danceCourseTitle = (TextView)blowupmenu.findViewById(R.id.textView);  // Namnet på danskursen
-            danceCourseTitle.setText(courses.get(position).title);
+            danceCourseTitle.setText(courses.get(position).getTitle());
 
             return blowupmenu;                                                      // Här returnerars menuitemblowup.xmls root-layout
         }

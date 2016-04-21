@@ -43,7 +43,7 @@ public class CreateEditCourse extends DialogFragment {
         Bundle bundle = getArguments();
         if (bundle != null) {
             int i = bundle.getInt("KEY");
-            s = mainActivity.courses.get(i).title;
+            s = mainActivity.courses.get(i).getTitle();
         }
 
 
@@ -68,14 +68,10 @@ public class CreateEditCourse extends DialogFragment {
                 try {
                     object.put("title", editTitle.getText().toString());
 
-                    //TODO ändra till riktigt värde
-                    object.put("done", true);
-
                     descriptionObject.put("teacher", editTeacher.getText().toString());
                     descriptionObject.put("description", editDescription.getText().toString());
                     descriptionObject.put("level", editLevel.getText().toString());
                     descriptionObject.put("location", editLocation.getText().toString());
-                    descriptionObject.put("timeAndDate", editTimeAndDate.getText().toString());
 
                     object.put("description",descriptionObject.toString());
 
