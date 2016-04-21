@@ -102,6 +102,7 @@ public class AsyncCourse extends AsyncTask<String, Void, String> {
                             mCourse.setTimeAndDate(jsonDescription.getString("timeAndDate"));
                             mCourse.setStatus(jsonDescription.getString("status"));
                             mCourse.setDanceStyle(jsonDescription.getString("danceStyle"));
+                            mCourse.setPrice((float)jsonDescription.getDouble("price"));
 
                             jsonDates = new JSONArray(jsonDescription.getString("dates"));
                             int j;

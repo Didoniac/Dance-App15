@@ -18,6 +18,7 @@ public class Course {
     private ArrayList<String> dates = new ArrayList<>();
     private int courseDurationInMinutes;
     private ArrayList<CourseParticipant> courseParticipants = new ArrayList<>();
+    private float price;
 
     public String getTitle() {
         return title;
@@ -125,5 +126,13 @@ public class Course {
 
     public void setCourseParticipants(ArrayList<CourseParticipant> courseParticipants) {
         this.courseParticipants = courseParticipants;
+    }
+
+    public float getPrice() {
+        return price;
+    }
+
+    public void setPrice(float price) {
+        this.price = price;
     }
 }
