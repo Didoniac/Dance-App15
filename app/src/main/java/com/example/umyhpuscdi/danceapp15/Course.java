@@ -68,16 +68,6 @@ public class Course {
         this.level = level;
     }
 
-    public String getTimeAndDate() {
-        return timeAndDate;
-    }
-
-    public void setTimeAndDate(String timeAndDate) {
-        this.timeAndDate = timeAndDate;
-    }
-
-    String timeAndDate;
-
     public Course(){}
 
     public Course(boolean done, String title, String description, int id){

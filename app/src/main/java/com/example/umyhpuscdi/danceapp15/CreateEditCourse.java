@@ -17,6 +17,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -207,10 +208,34 @@ public class CreateEditCourse extends DialogFragment {
                 try {
                     object.put("title", editTitle.getText().toString());
 
-      //TODO              descriptionObject.put("teacher", teacherSpinner.get);
+                    descriptionObject.put("teacher", teacherName);
                     descriptionObject.put("description", editDescription.getText().toString());
-       //TODO             descriptionObject.put("level", levelSpinner.get);
+                    descriptionObject.put("level", courseLevel);
                     descriptionObject.put("location", editLocation.getText().toString());
+                    descriptionObject.put("status", courseStatus);
+                    descriptionObject.put("danceStyle", danceStyle);
+                    descriptionObject.put("location", editLocation.getText().toString());
+                    descriptionObject.put("price", priceOfCourse.getText().toString());
+                    descriptionObject.put("courseDurationInMinutes",
+                            Integer.parseInt(durationOfOneCourse.getText().toString()));
+
+                    //TODO add multiple dates functionality.
+                    ArrayList<String> dates = new ArrayList<>();
+                    dates.add(buttonTime.getText().toString());
+                    JSONArray tempDatesJsonArray = new JSONArray();
+                    for (int i=0; i<dates.size(); i++) {
+                        tempDatesJsonArray.put(dates.get(i));
+                    }
+                    descriptionObject.put("dates",tempDatesJsonArray);
+
+                    //TODO add actual participants
+                    ArrayList<String> participants = new ArrayList<>();
+                    dates.add(buttonTime.getText().toString());
+                    JSONArray tempParticipantsJsonArray = new JSONArray();
+                    for (int i=0; i<participants.size(); i++) {
+                        tempParticipantsJsonArray.put(participants.get(i));
+                    }
+                    descriptionObject.put("courseParticipants",tempParticipantsJsonArray);
 
                     object.put("description",descriptionObject.toString());
 
@@ -221,6 +246,7 @@ public class CreateEditCourse extends DialogFragment {
                 //TODO check if the course has an id already and if so, PUT to its URI instead of POST.
                 AsyncCourse asyncCourse = new AsyncCourse(mainActivity, object,0);
                 asyncCourse.execute("POST", "lists/" + "258/" + "tasks/");
+                dismiss();
             }
         });
         buttonCancel.setOnClickListener(new View.OnClickListener() {

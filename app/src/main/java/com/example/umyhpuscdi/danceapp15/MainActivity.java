@@ -54,8 +54,6 @@ public class MainActivity extends AppCompatActivity {
 
        // View view = inflater.inflate(R.layout.fragment_login__dialog_,null);
 
-        getCoursesFromServer();
-
         ////////////Här lägger Mats in kod-nedan ////////////////
         listView =  (ListView)findViewById(R.id.listView);
         courses = new ArrayList<>();
@@ -108,6 +106,11 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
+    }
+
+    protected void onResume() {
+        super.onResume();
+        getCoursesFromServer();
     }
 
     @Override

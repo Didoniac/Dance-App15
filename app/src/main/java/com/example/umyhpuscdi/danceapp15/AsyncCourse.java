@@ -33,6 +33,8 @@ public class AsyncCourse extends AsyncTask<String, Void, String> {
     int responseCode;
     private String URLEN = "http://api.cmdemo.se/";
 
+    private String verb;
+
     public AsyncCourse(MainActivity mainActivity, JSONObject json, int removeId){
         this.mainActivity = mainActivity;
         this.json = json;
@@ -43,6 +45,8 @@ public class AsyncCourse extends AsyncTask<String, Void, String> {
 
     @Override //task.execute("POST", "lists/")
     protected String doInBackground(String... params) { ///params[0]=method, t.ex. GET, params[1]=URI, t.ex. "lists/"
+
+        verb = params[0];
 
         try {
             url = new URL(URLEN + params[1]);
@@ -99,7 +103,6 @@ public class AsyncCourse extends AsyncTask<String, Void, String> {
                             mCourse.setDescription(jsonDescription.getString("description"));
                             mCourse.setLevel(jsonDescription.getString("level"));
                             mCourse.setLocation(jsonDescription.getString("location"));
-                            mCourse.setTimeAndDate(jsonDescription.getString("timeAndDate"));
                             mCourse.setStatus(jsonDescription.getString("status"));
                             mCourse.setDanceStyle(jsonDescription.getString("danceStyle"));
                             mCourse.setPrice((float)jsonDescription.getDouble("price"));
@@ -123,7 +126,6 @@ public class AsyncCourse extends AsyncTask<String, Void, String> {
                     }
 
                     connection.disconnect();
-
                     break;
                 case "POST":
                     connection.setDoOutput(true);
@@ -223,7 +225,12 @@ public class AsyncCourse extends AsyncTask<String, Void, String> {
     protected void onPostExecute (String result){
 
         //uppdatera gränssnittet här
-        ///adminActivity.showServerErrors(responseCode); ///Egen metod som visar fel
-       /// adminActivity.adapter.notifyDataSetChanged(); ///Uppdaatera adapter till ListView
+        Log.i("TAG","" + responseCode); ///Egen metod som visar fel
+
+        if (verb.equals("POST") || verb.equals("PUT")) {
+            mainActivity.getCoursesFromServer();
+        }
+
+        mainActivity.adapterDanceListView.notifyDataSetChanged(); ///Uppdaatera adapter till ListView
     }
 }
