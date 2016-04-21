@@ -159,8 +159,14 @@ public class MainActivity extends AppCompatActivity {
             LayoutInflater inflater = getLayoutInflater();
             View blowupmenu = inflater.inflate(R.layout.dance_list_item, listView, false); //Bestämmer vad som ska blåsas upp och vart
 
-            TextView danceCourseTitle = (TextView)blowupmenu.findViewById(R.id.textView);  // Namnet på danskursen
+            TextView danceCourseTitle = (TextView)blowupmenu.findViewById(R.id.titleTextView);  // Namnet på danskursen
+            TextView teacherTextView = (TextView)blowupmenu.findViewById(R.id.teacherTextView);
+            TextView danceStyleTextView = (TextView)blowupmenu.findViewById(R.id.danceStyleTextView);
+            TextView statusTextView = (TextView)blowupmenu.findViewById(R.id.statusTextView);
             danceCourseTitle.setText(courses.get(position).getTitle());
+            teacherTextView.setText(courses.get(position).getTeacher());
+            danceStyleTextView.setText(courses.get(position).getDanceStyle());
+            statusTextView.setText(courses.get(position).getStatus());
 
             return blowupmenu;                                                      // Här returnerars menuitemblowup.xmls root-layout
         }
