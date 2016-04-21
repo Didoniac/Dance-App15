@@ -2,60 +2,60 @@
 <items version="2" >
 
     <item
-        jar="C:\Users\umyhpuscdi\Documents\agilt\DanceApp15\app\build\intermediates\exploded-aar\com.android.support\design\23.1.1\jars\classes.jar"
+        jar="C:\Agil projektledning 2\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
         jumboMode="true"
         revision="23.0.2"
-        sha1="379471b2bd17d9737c050345c08e8c7d16589784">
-        <dex dex="C:\Users\umyhpuscdi\Documents\agilt\DanceApp15\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-design-23.1.1_7757df4edcdecaea86713dca874263f44eaf3993\classes.dex" />
+        sha1="a67eb83af6421ea437b83f59ad332ee32675f687">
+        <dex dex="C:\Agil projektledning 2\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run-bootstrap_d0c8731621280e2519e0eea8fc2e9da2ccdc79c5\classes.dex" />
     </item>
     <item
-        jar="C:\Users\umyhpuscdi\Documents\agilt\DanceApp15\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.1.1\jars\classes.jar"
+        jar="C:\Agil projektledning 2\app\build\intermediates\incremental-runtime-classes\debug\instant-run.jar"
         jumboMode="true"
         revision="23.0.2"
-        sha1="6cbc7773921fcfedbe55657578f0cbfe614778dc">
-        <dex dex="C:\Users\umyhpuscdi\Documents\agilt\DanceApp15\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-v4-23.1.1_99819c2515afdeb463cf3045749a7e7bebacc94a\classes.dex" />
+        sha1="bc11dd0d01fc07133439e112de34f9a3628b7dec">
+        <dex dex="C:\Agil projektledning 2\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run_c87accc39430eceabc8941808f00b60c456872e4\classes.dex" />
     </item>
     <item
-        jar="C:\Users\umyhpuscdi\AppData\Local\Android\sdk1\extras\android\m2repository\com\android\support\support-annotations\23.1.1\support-annotations-23.1.1.jar"
-        jumboMode="true"
-        revision="23.0.2"
-        sha1="8d680ba5a623724d1fb0e81c36a790f023a6cede">
-        <dex dex="C:\Users\umyhpuscdi\Documents\agilt\DanceApp15\app\build\intermediates\transforms\dex\debug\folders\1000\10\support-annotations-23.1.1_c6ab4d6b4292698a597e643067f7de16d9b7fbee\classes.dex" />
-    </item>
-    <item
-        jar="C:\Users\umyhpuscdi\Documents\agilt\DanceApp15\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.1.1\jars\libs\internal_impl-23.1.1.jar"
-        jumboMode="true"
-        revision="23.0.2"
-        sha1="a4de9c81ae239414e1ed0f86441b02abaf29bca9">
-        <dex dex="C:\Users\umyhpuscdi\Documents\agilt\DanceApp15\app\build\intermediates\transforms\dex\debug\folders\1000\10\internal_impl-23.1.1_94c8e821b945640189633de6ed42641f929618e1\classes.dex" />
-    </item>
-    <item
-        jar="C:\Users\umyhpuscdi\Documents\agilt\DanceApp15\app\build\intermediates\exploded-aar\com.android.support\recyclerview-v7\23.1.1\jars\classes.jar"
+        jar="C:\Agil projektledning 2\app\build\intermediates\exploded-aar\com.android.support\recyclerview-v7\23.1.1\jars\classes.jar"
         jumboMode="true"
         revision="23.0.2"
         sha1="09c5e804bc67fc0580360043dff067df574a60d4">
-        <dex dex="C:\Users\umyhpuscdi\Documents\agilt\DanceApp15\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-recyclerview-v7-23.1.1_c473ea78517cda311e4cd25a463d8714561f97a1\classes.dex" />
+        <dex dex="C:\Agil projektledning 2\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-recyclerview-v7-23.1.1_94613cbce160a91f06cc6cd8dba3b3fc335d65db\classes.dex" />
     </item>
     <item
-        jar="C:\Users\umyhpuscdi\Documents\agilt\DanceApp15\app\build\intermediates\incremental-runtime-classes\debug\instant-run.jar"
+        jar="C:\Agil projektledning 2\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.1.1\jars\classes.jar"
         jumboMode="true"
         revision="23.0.2"
-        sha1="48a4048cd06ae7c934f3f5b7fe09234dffc44248">
-        <dex dex="C:\Users\umyhpuscdi\Documents\agilt\DanceApp15\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run_478a9b2110c39cbbb56e810cdd4401a82e10450f\classes.dex" />
+        sha1="6cbc7773921fcfedbe55657578f0cbfe614778dc">
+        <dex dex="C:\Agil projektledning 2\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-v4-23.1.1_e8ce1ab87f565e70b6f7c6f71142a0e93cf895fa\classes.dex" />
     </item>
     <item
-        jar="C:\Users\umyhpuscdi\Documents\agilt\DanceApp15\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\23.1.1\jars\classes.jar"
+        jar="C:\Agil projektledning 2\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.1.1\jars\libs\internal_impl-23.1.1.jar"
+        jumboMode="true"
+        revision="23.0.2"
+        sha1="a4de9c81ae239414e1ed0f86441b02abaf29bca9">
+        <dex dex="C:\Agil projektledning 2\app\build\intermediates\transforms\dex\debug\folders\1000\10\internal_impl-23.1.1_d5ffb6fc1ccf1389eff87f0e6b1aacd9af9561a0\classes.dex" />
+    </item>
+    <item
+        jar="C:\Agil projektledning 2\app\build\intermediates\exploded-aar\com.android.support\design\23.1.1\jars\classes.jar"
+        jumboMode="true"
+        revision="23.0.2"
+        sha1="379471b2bd17d9737c050345c08e8c7d16589784">
+        <dex dex="C:\Agil projektledning 2\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-design-23.1.1_bf8ca7003a333f118e26b077b6ef73fe5c3b1da5\classes.dex" />
+    </item>
+    <item
+        jar="C:\Users\umyhnystma\AppData\Local\Android\sdk\extras\android\m2repository\com\android\support\support-annotations\23.1.1\support-annotations-23.1.1.jar"
+        jumboMode="true"
+        revision="23.0.2"
+        sha1="8d680ba5a623724d1fb0e81c36a790f023a6cede">
+        <dex dex="C:\Agil projektledning 2\app\build\intermediates\transforms\dex\debug\folders\1000\10\support-annotations-23.1.1_2458b4d3aadd38969ffd614202500a35abaa63d9\classes.dex" />
+    </item>
+    <item
+        jar="C:\Agil projektledning 2\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\23.1.1\jars\classes.jar"
         jumboMode="true"
         revision="23.0.2"
         sha1="5c5699834e9722f1c288fea2de82725d078ba127">
-        <dex dex="C:\Users\umyhpuscdi\Documents\agilt\DanceApp15\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-appcompat-v7-23.1.1_7e5e2222f0f837c63018a769cfb0725e257b3a3d\classes.dex" />
-    </item>
-    <item
-        jar="C:\Users\umyhpuscdi\Documents\agilt\DanceApp15\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
-        jumboMode="true"
-        revision="23.0.2"
-        sha1="628f87c2f71d7e3cbd86bc90e4fc96dfe19c522b">
-        <dex dex="C:\Users\umyhpuscdi\Documents\agilt\DanceApp15\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run-bootstrap_687cd0d9145664c6bb56f6185665b87e0e86ebf7\classes.dex" />
+        <dex dex="C:\Agil projektledning 2\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-appcompat-v7-23.1.1_35dd0aa7459d2c56b6feba9632c8f0c100100881\classes.dex" />
     </item>
 
 </items>

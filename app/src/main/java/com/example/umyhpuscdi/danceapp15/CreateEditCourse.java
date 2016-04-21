@@ -11,6 +11,7 @@ import android.support.v4.app.FragmentManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
@@ -30,6 +31,8 @@ public class CreateEditCourse extends DialogFragment {
 
     EditText editTitle, durationOfOneCourse, priceOfCourse, editLocation, editDescription;
     Button buttonDone, buttonCancel;
+
+    String teacherName,courseStatus,courseLevel,danceStyle;
 
     MainActivity mainActivity;
 
@@ -60,7 +63,7 @@ public class CreateEditCourse extends DialogFragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
 
-        mainActivity = (MainActivity)getActivity();
+        mainActivity = (MainActivity) getActivity();
 
         String s = "";
 
@@ -72,22 +75,22 @@ public class CreateEditCourse extends DialogFragment {
 
         View v = inflater.inflate(R.layout.fragment_create_edit_course, container, false);
         //editTeacher = (EditText)v.findViewById(R.id.teacher);
-        editDescription = (EditText)v.findViewById(R.id.description);
-        durationOfOneCourse = (EditText)v.findViewById(R.id.durationOfOneCourse);
-        priceOfCourse = (EditText)v.findViewById(R.id.priceOfCourse);
+        editDescription = (EditText) v.findViewById(R.id.description);
+        durationOfOneCourse = (EditText) v.findViewById(R.id.durationOfOneCourse);
+        priceOfCourse = (EditText) v.findViewById(R.id.priceOfCourse);
 
-        teacherSpinner = (Spinner)v.findViewById(R.id.teacherSpinner);
-        statusSpinner  = (Spinner)v.findViewById(R.id.statusSpinner);
-        levelSpinner  = (Spinner)v.findViewById(R.id.levelSpinner);
-        danceStyleSpinner  = (Spinner)v.findViewById(R.id.danceStyleSpinner);
+        teacherSpinner = (Spinner) v.findViewById(R.id.teacherSpinner);
+        statusSpinner = (Spinner) v.findViewById(R.id.statusSpinner);
+        levelSpinner = (Spinner) v.findViewById(R.id.levelSpinner);
+        danceStyleSpinner = (Spinner) v.findViewById(R.id.danceStyleSpinner);
 
-        editLocation = (EditText)v.findViewById(R.id.place);
+        editLocation = (EditText) v.findViewById(R.id.place);
         //editTimeAndDate = (EditText)v.findViewById(R.id.timeAndDate);
-        editTitle = (EditText)v.findViewById(R.id.title);
+        editTitle = (EditText) v.findViewById(R.id.title);
 
-        buttonCancel = (Button)v.findViewById(R.id.buttonCancel);
-        buttonDone = (Button)v.findViewById(R.id.buttonDone);
-        buttonTime= (Button)v.findViewById(R.id.dateTimeButton);
+        buttonCancel = (Button) v.findViewById(R.id.buttonCancel);
+        buttonDone = (Button) v.findViewById(R.id.buttonDone);
+        buttonTime = (Button) v.findViewById(R.id.dateTimeButton);
 
 
         teacherList.add("Danslärare");
@@ -114,24 +117,21 @@ public class CreateEditCourse extends DialogFragment {
         danceStyleList.add("Slow");
         danceStyleList.add("Autentisk jazz");
 
-        adapterForTeacherSpinner = new ArrayAdapter(getActivity(),android.R.layout.simple_spinner_item,teacherList);
-        adapterForTeacherSpinner.setDropDownViewResource(android.R.layout. simple_spinner_dropdown_item);
-        teacherSpinner.setAdapter( adapterForTeacherSpinner);
+        adapterForTeacherSpinner = new ArrayAdapter(getActivity(), android.R.layout.simple_spinner_item, teacherList);
+        adapterForTeacherSpinner.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        teacherSpinner.setAdapter(adapterForTeacherSpinner);
 
-        adapterForStatusSpinner = new ArrayAdapter(getActivity(),android.R.layout.simple_spinner_item,statusList);
-        adapterForStatusSpinner.setDropDownViewResource(android.R.layout. simple_spinner_dropdown_item);
-        statusSpinner.setAdapter( adapterForStatusSpinner);
+        adapterForStatusSpinner = new ArrayAdapter(getActivity(), android.R.layout.simple_spinner_item, statusList);
+        adapterForStatusSpinner.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        statusSpinner.setAdapter(adapterForStatusSpinner);
 
-        adapterForLevelSpinner = new ArrayAdapter(getActivity(),android.R.layout.simple_spinner_item,levelList);
-        adapterForLevelSpinner.setDropDownViewResource(android.R.layout. simple_spinner_dropdown_item);
-        levelSpinner.setAdapter( adapterForLevelSpinner);
+        adapterForLevelSpinner = new ArrayAdapter(getActivity(), android.R.layout.simple_spinner_item, levelList);
+        adapterForLevelSpinner.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        levelSpinner.setAdapter(adapterForLevelSpinner);
 
-        adapterForDanceStyleSpinner = new ArrayAdapter(getActivity(),android.R.layout.simple_spinner_item,danceStyleList);
-        adapterForDanceStyleSpinner.setDropDownViewResource(android.R.layout. simple_spinner_dropdown_item);
-        danceStyleSpinner.setAdapter( adapterForDanceStyleSpinner);
-
-
-
+        adapterForDanceStyleSpinner = new ArrayAdapter(getActivity(), android.R.layout.simple_spinner_item, danceStyleList);
+        adapterForDanceStyleSpinner.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        danceStyleSpinner.setAdapter(adapterForDanceStyleSpinner);
 
         editTitle.setText(s);
 
@@ -140,9 +140,64 @@ public class CreateEditCourse extends DialogFragment {
             public void onClick(View v) {
 
                 showDatePickerDialog(v);
-
             }
         });
+
+        teacherSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+             @Override
+             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                 teacherName = parent.getItemAtPosition(position).toString();
+
+             }
+
+             @Override
+             public void onNothingSelected(AdapterView<?> parent) {
+
+             }
+        }
+        );
+
+        statusSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+             @Override
+             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                 courseStatus = parent.getItemAtPosition(position).toString();
+             }
+
+             @Override
+             public void onNothingSelected(AdapterView<?> parent) {
+
+             }
+         }
+        );
+
+        levelSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                @Override
+                public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                    courseLevel = parent.getItemAtPosition(position).toString();
+                }
+
+                @Override
+                public void onNothingSelected(AdapterView<?> parent) {
+
+                }
+            }
+        );
+
+        danceStyleSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+               @Override
+               public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                   danceStyle = parent.getItemAtPosition(position).toString();
+               }
+
+               @Override
+               public void onNothingSelected(AdapterView<?> parent) {
+
+               }
+           }
+        );
+
+
+
 
         buttonDone.setOnClickListener(new View.OnClickListener() {
             @Override

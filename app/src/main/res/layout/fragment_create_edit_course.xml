@@ -29,32 +29,32 @@
                 android:id="@+id/title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Danstitel" />
+                android:hint="Danstitel" />
 
             <Button
                 android:id="@+id/dateTimeButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Tid/ Datum" />
+                android:hint="Tid/ Datum" />
 
         !-- Kommentar --!
             <EditText
                 android:id="@+id/durationOfOneCourse"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Längd på kurstillfällen" />
+                android:hint="Längd på kurstillfällen" />
 
             <EditText
                 android:id="@+id/priceOfCourse"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Kurspris" />
+                android:hint="Kurspris" />
 
             <EditText
                 android:id="@+id/place"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Plats" />
+                android:hint="Plats" />
 
             <Spinner
                 android:id="@+id/teacherSpinner"
@@ -86,7 +86,7 @@
                 android:id="@+id/description"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Description is longer than all of the other elements in ths list and should therefore be at the bottom" />
+                android:hint="Description..." />
 
 
 
