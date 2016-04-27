@@ -73,13 +73,16 @@ public class CreateEditCourse extends DialogFragment {
 
         mainActivity = (MainActivity) getActivity();
 
-        String s = "";
+        String courseTitle = "";
 
         Bundle bundle = getArguments();
         if (bundle != null) {
             int i = bundle.getInt("KEY");
-            s = mainActivity.courses.get(i).getTitle();
+            courseTitle = mainActivity.courses.get(i).getTitle(); //Borde gå att hämta från intetet
+            Log.i("TAG", courseTitle);
         }
+
+
 
         View v = inflater.inflate(R.layout.fragment_create_edit_course, container, false);
         //editTeacher = (EditText)v.findViewById(R.id.teacher);
@@ -162,7 +165,7 @@ public class CreateEditCourse extends DialogFragment {
         });
 
 
-        editTitle.setText(s);
+        editTitle.setText(courseTitle);
 
         buttonTime.setOnClickListener(new View.OnClickListener() {
             @Override
