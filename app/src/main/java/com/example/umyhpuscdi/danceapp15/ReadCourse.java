@@ -1,7 +1,6 @@
 package com.example.umyhpuscdi.danceapp15;
 
 
-import android.app.Activity;
 import android.app.DatePickerDialog;
 import android.app.Dialog;
 import android.content.Context;
@@ -19,11 +18,8 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
-import android.widget.ScrollView;
 import android.widget.Spinner;
-import android.widget.Toast;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -36,7 +32,7 @@ import java.util.Calendar;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class CreateEditCourse extends DialogFragment {
+public class ReadCourse extends DialogFragment {
 
     EditText editTitle, durationOfOneCourse, priceOfCourse, editLocation, editDescription;
     Button buttonDone, buttonCancel;
@@ -63,32 +59,27 @@ public class CreateEditCourse extends DialogFragment {
 
     FragmentManager fm;
 
-    private Course course;
-
-    public CreateEditCourse() {
+    public ReadCourse() {
         // Required empty public constructor
     }
 
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle bundle) {
+                             Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        bundle = getArguments();
 
         mainActivity = (MainActivity) getActivity();
 
-        String courseTitle = "";
+        String s = "";
+
+        Bundle bundle = getArguments();
         if (bundle != null) {
             int i = bundle.getInt("KEY");
-            courseTitle = mainActivity.courses.get(i).getTitle(); //Borde gå att hämta från intetet
-            Log.i("TAG", courseTitle);
+            s = mainActivity.courses.get(i).getTitle();
         }
 
-
-
-
-        View v = inflater.inflate(R.layout.fragment_create_edit_course, container, false);
+        View v = inflater.inflate(R.layout.fragment_read_course, container, false);
         //editTeacher = (EditText)v.findViewById(R.id.teacher);
         editDescription = (EditText) v.findViewById(R.id.description);
         durationOfOneCourse = (EditText) v.findViewById(R.id.durationOfOneCourse);
@@ -168,7 +159,8 @@ public class CreateEditCourse extends DialogFragment {
             }
         });
 
-        editTitle.setText(courseTitle);
+
+        editTitle.setText(s);
 
         buttonTime.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -237,58 +229,50 @@ public class CreateEditCourse extends DialogFragment {
         buttonDone.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (fieldsAreFilled()) {
-                    JSONObject object = new JSONObject();
-                    JSONObject descriptionObject = new JSONObject();
-                    try {
-                        object.put("title", editTitle.getText().toString());
+                JSONObject object = new JSONObject();
+                JSONObject descriptionObject = new JSONObject();
+                try {
+                    object.put("title", editTitle.getText().toString());
 
-                        descriptionObject.put("teacher", teacherName);
-                        descriptionObject.put("description", editDescription.getText().toString());
-                        descriptionObject.put("level", courseLevel);
-                        descriptionObject.put("location", editLocation.getText().toString());
-                        descriptionObject.put("status", courseStatus);
-                        descriptionObject.put("danceStyle", danceStyle);
-                        descriptionObject.put("price", priceOfCourse.getText().toString());
-                        descriptionObject.put("courseDurationInMinutes",
-                                Integer.parseInt(durationOfOneCourse.getText().toString()));
+                    descriptionObject.put("teacher", teacherName);
+                    descriptionObject.put("description", editDescription.getText().toString());
+                    descriptionObject.put("level", courseLevel);
+                    descriptionObject.put("location", editLocation.getText().toString());
+                    descriptionObject.put("status", courseStatus);
+                    descriptionObject.put("danceStyle", danceStyle);
+                    descriptionObject.put("location", editLocation.getText().toString());
+                    descriptionObject.put("price", priceOfCourse.getText().toString());
+                    descriptionObject.put("courseDurationInMinutes",
+                            Integer.parseInt(durationOfOneCourse.getText().toString()));
 
-                        //TODO add multiple dates functionality.
-                        ArrayList<String> dates = new ArrayList<>();
-                        dates.add(buttonTime.getText().toString());
-                        JSONArray tempDatesJsonArray = new JSONArray();
-                        for (int i = 0; i < dates.size(); i++) {
-                            tempDatesJsonArray.put(dates.get(i));
-                        }
-                        descriptionObject.put("dates", tempDatesJsonArray);
-
-                        //TODO add actual participants
-                        ArrayList<String> participants = new ArrayList<>();
-                        dates.add(buttonTime.getText().toString());
-                        JSONArray tempParticipantsJsonArray = new JSONArray();
-                        for (int i = 0; i < participants.size(); i++) {
-                            tempParticipantsJsonArray.put(participants.get(i));
-                        }
-                        descriptionObject.put("courseParticipants", tempParticipantsJsonArray);
-
-                        object.put("description", descriptionObject.toString());
-
-                    } catch (JSONException e) {
-                        e.printStackTrace();
+                    //TODO add multiple dates functionality.
+                    ArrayList<String> dates = new ArrayList<>();
+                    dates.add(buttonTime.getText().toString());
+                    JSONArray tempDatesJsonArray = new JSONArray();
+                    for (int i=0; i<dates.size(); i++) {
+                        tempDatesJsonArray.put(dates.get(i));
                     }
+                    descriptionObject.put("dates",tempDatesJsonArray);
 
-                    if (course == null) {
-                        Log.i("TAG", "POST");
-                        AsyncCourse asyncCourse = new AsyncCourse(mainActivity, object, 0);
-                        asyncCourse.execute("POST", "lists/" + "258/" + "tasks/");
-                        dismiss();
-                    } else {
-                        Log.i("TAG", "PUT to id: " + course.getId());
-                        AsyncCourse asyncCourse = new AsyncCourse(mainActivity, object, 0);
-                        asyncCourse.execute("PUT", "lists/" + "258/" + "tasks/" + course.getId() + "/");
-                        dismiss();
+                    //TODO add actual participants
+                    ArrayList<String> participants = new ArrayList<>();
+                    dates.add(buttonTime.getText().toString());
+                    JSONArray tempParticipantsJsonArray = new JSONArray();
+                    for (int i=0; i<participants.size(); i++) {
+                        tempParticipantsJsonArray.put(participants.get(i));
                     }
+                    descriptionObject.put("courseParticipants",tempParticipantsJsonArray);
+
+                    object.put("description",descriptionObject.toString());
+
+                } catch (JSONException e) {
+                    e.printStackTrace();
                 }
+
+                //TODO check if the course has an id already and if so, PUT to its URI instead of POST.
+                AsyncCourse asyncCourse = new AsyncCourse(mainActivity, object,0);
+                asyncCourse.execute("POST", "lists/" + "258/" + "tasks/");
+                dismiss();
             }
         });
         buttonCancel.setOnClickListener(new View.OnClickListener() {
@@ -300,89 +284,9 @@ public class CreateEditCourse extends DialogFragment {
             }
         });
 
-        if (bundle != null) {
-            int i = bundle.getInt("KEY");
-            course = mainActivity.courses.get(i);
-            fillInfo();
-        }
+
 
         return v;
-    }
-
-    private boolean fieldsAreFilled() {
-        String errorString = "Du måste fylla i dessa fält:";
-        boolean allFieldsAreFilled = true;
-   /*   editTitle
-        teacherName
-        editDescription
-        courseLevel
-        editLocation
-        courseStatus
-        danceStyle
-        editLocation
-        priceOfCourse
-        durationOfOneCourse
-        buttonTime
-        */
-
-        if (editTitle.getText().toString().length() == 0) {
-            errorString += "\nDanstitel";
-            allFieldsAreFilled = false;
-        }
-
-        if (buttonTime.getText().toString().length() == 0) {
-            errorString += "\nTid/Datum";
-            allFieldsAreFilled = false;
-        }
-
-        if(durationOfOneCourse.getText().toString().length() == 0) {
-            errorString += "\nLängd på kurstillfällen";
-            allFieldsAreFilled = false;
-        }
-
-        if (priceOfCourse.getText().toString().length() == 0) {
-            errorString += "\nKurspris";
-            allFieldsAreFilled = false;
-        }
-
-        if (editLocation.getText().toString().length() == 0) {
-            errorString += "\nPlats";
-            allFieldsAreFilled = false;
-        }
-
-        if (teacherSpinner.getSelectedItem() == null
-                || teacherSpinner.getSelectedItem().equals("Danslärare")) {
-            errorString += "\nDanslärare";
-            allFieldsAreFilled = false;
-        }
-
-        if (statusSpinner.getSelectedItem() == null
-                || statusSpinner.getSelectedItem().equals("Kursstatus")) {
-            errorString += "\nKursstatus";
-            allFieldsAreFilled = false;
-        }
-
-        if (levelSpinner.getSelectedItem() == null
-                || levelSpinner.getSelectedItem().equals("Nivå")) {
-            errorString += "\nNivå";
-            allFieldsAreFilled = false;
-        }
-
-        if (danceStyleSpinner.getSelectedItem() == null
-                || danceStyleSpinner.getSelectedItem().equals("Dansstil")) {
-            errorString += "\nDansstil";
-            allFieldsAreFilled = false;
-        }
-
-        if (editDescription.getText().toString().length() == 0) {
-            errorString += "\nBeskrivning";
-            allFieldsAreFilled = false;
-        }
-
-        if (!allFieldsAreFilled) {
-            Toast.makeText(mainActivity, errorString, Toast.LENGTH_LONG).show();
-        }
-        return allFieldsAreFilled;
     }
 
     public void showDatePickerDialog(View v) {
@@ -425,51 +329,6 @@ public class CreateEditCourse extends DialogFragment {
         }
     }
 
-    public void fillInfo() {
-        editTitle.setText(course.getTitle());
-        editDescription.setText(course.getDescription());
-        editLocation.setText(course.getLocation());
-        String s = "" + course.getPrice();
-        priceOfCourse.setText(s);
-        s = "" + course.getCourseDurationInMinutes();
-        durationOfOneCourse.setText(s);
-        buttonTime.setText(course.getDates().get(0));
-        int i;
-        for (i=0; i<levelSpinner.getCount(); i++) {
-            if (levelSpinner.getItemAtPosition(i).equals(course.getLevel())) {
-                levelSpinner.setSelection(i);
-            }
-        }
-        for (i=0; i<danceStyleSpinner.getCount(); i++) {
-            if (danceStyleSpinner.getItemAtPosition(i).equals(course.getDanceStyle())) {
-                danceStyleSpinner.setSelection(i);
-            }
-        }
-        for (i=0; i<statusSpinner.getCount(); i++) {
-            if (statusSpinner.getItemAtPosition(i).equals(course.getStatus())) {
-                statusSpinner.setSelection(i);
-            }
-        }
-        for (i=0; i<teacherSpinner.getCount(); i++) {
-            if (teacherSpinner.getItemAtPosition(i).equals(course.getTeacher())) {
-                teacherSpinner.setSelection(i);
-            }
-        }
-    }
 
-    @Override
-    public void onCreate(Bundle bundle) {
-        super.onCreate(bundle);
-    }
 
-    @Override
-    public void onAttach(Activity activity) {
-        mainActivity = (MainActivity) activity;
-        super.onAttach(activity);
-    }
-
-    @Override
-    public void onResume() {
-        super.onResume();
-    }
 }

@@ -4,4 +4,6 @@
     <color name="lite_rose">#ffccff</color>
     <color name="lite_red">#ffe6e6</color>
     <color name="white">#ffffff</color>
+    <color name="green">#45AC34</color>
+    <color name="grey">#EEEFED</color>
 </resources>
