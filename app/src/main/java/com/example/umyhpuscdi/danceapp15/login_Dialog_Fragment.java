@@ -46,7 +46,7 @@ public class login_Dialog_Fragment extends DialogFragment {
                 if (username.getText().toString().equals("admin") &&
                         password.getText().toString().equals("admin")) {
 
-                    Toast.makeText(getContext(), "Redirecting...", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getContext(), "Logged In...", Toast.LENGTH_SHORT).show();
 
                     //TODO change to admin view.
 
@@ -58,6 +58,7 @@ public class login_Dialog_Fragment extends DialogFragment {
 
                 username.setText("");
                 password.setText("");
+                dismiss();
             }
 
         });
