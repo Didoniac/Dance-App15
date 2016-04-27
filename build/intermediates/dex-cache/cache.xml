@@ -1,3 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<items version="2" />
+<items version="2" >
 
+    <item
+        jar="C:\Users\umyhpuscdi\Documents\agilt\DanceApp15\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
+        jumboMode="true"
+        revision="23.0.2"
+        sha1="d150b2cb2c74a17cf68b1fa1826a5108ef0bd5cb">
+        <dex dex="C:\Users\umyhpuscdi\Documents\agilt\DanceApp15\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run-bootstrap_687cd0d9145664c6bb56f6185665b87e0e86ebf7\classes.dex" />
+    </item>
+
+</items>

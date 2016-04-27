@@ -1,0 +1,21 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/water_blue"
+    tools:context="com.example.umyhpuscdi.danceapp15.Info_TabView">
+
+    <!-- TODO: Update blank fragment layout -->
+
+    <TextView
+        android:layout_gravity="center_horizontal"
+        android:id="@+id/txtview_calender"
+        android:textColor="@color/black"
+        android:paddingTop="100dp"
+        android:paddingLeft="60dp"
+        android:text="Info TabView"
+        android:textSize="30dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+</LinearLayout>
