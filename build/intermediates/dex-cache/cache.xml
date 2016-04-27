@@ -2,11 +2,74 @@
 <items version="2" >
 
     <item
+        jar="C:\Users\umyhpuscdi\Documents\agilt\DanceApp15\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.2.1\jars\classes.jar"
+        jumboMode="true"
+        revision="23.0.2"
+        sha1="3be474b1b21b31cf2fa93fe6bd641ae108d96452">
+        <dex dex="C:\Users\umyhpuscdi\Documents\agilt\DanceApp15\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-v4-23.2.1_98fec6179219f6ffec0bedfccbd53a5e4544651b\classes.dex" />
+    </item>
+    <item
+        jar="C:\Users\umyhpuscdi\Documents\agilt\DanceApp15\app\build\intermediates\exploded-aar\com.android.support\design\23.2.1\jars\classes.jar"
+        jumboMode="true"
+        revision="23.0.2"
+        sha1="72961d8b453b46e277702f18de9d210bc019e36e">
+        <dex dex="C:\Users\umyhpuscdi\Documents\agilt\DanceApp15\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-design-23.2.1_ec78388be426dac2613c5ed927581a1e696ef8bb\classes.dex" />
+    </item>
+    <item
+        jar="C:\Users\umyhpuscdi\Documents\agilt\DanceApp15\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\23.2.1\jars\classes.jar"
+        jumboMode="true"
+        revision="23.0.2"
+        sha1="e4d0cbb0b999604b349062f0214a0a228a7fd151">
+        <dex dex="C:\Users\umyhpuscdi\Documents\agilt\DanceApp15\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-appcompat-v7-23.2.1_8675d00af8a998f1b39d2ff0b36714765adf1a20\classes.dex" />
+    </item>
+    <item
+        jar="C:\Users\umyhpuscdi\AppData\Local\Android\sdk1\extras\android\m2repository\com\android\support\support-annotations\23.2.1\support-annotations-23.2.1.jar"
+        jumboMode="true"
+        revision="23.0.2"
+        sha1="ccb693bc0774fcb637246f7360de25b4af7df318">
+        <dex dex="C:\Users\umyhpuscdi\Documents\agilt\DanceApp15\app\build\intermediates\transforms\dex\debug\folders\1000\10\support-annotations-23.2.1_2a424ff0fbccf466801d17c9411f36438faaa6c3\classes.dex" />
+    </item>
+    <item
+        jar="C:\Users\umyhpuscdi\Documents\agilt\DanceApp15\app\build\intermediates\incremental-runtime-classes\debug\instant-run.jar"
+        jumboMode="true"
+        revision="23.0.2"
+        sha1="378b065dba2a70506e86b5bf855f02df43fd9ab9">
+        <dex dex="C:\Users\umyhpuscdi\Documents\agilt\DanceApp15\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run_478a9b2110c39cbbb56e810cdd4401a82e10450f\classes.dex" />
+    </item>
+    <item
+        jar="C:\Users\umyhpuscdi\Documents\agilt\DanceApp15\app\build\intermediates\exploded-aar\com.android.support\recyclerview-v7\23.2.1\jars\classes.jar"
+        jumboMode="true"
+        revision="23.0.2"
+        sha1="e3885783ff8926ed9e2fdcd16816c2e1e73e7aee">
+        <dex dex="C:\Users\umyhpuscdi\Documents\agilt\DanceApp15\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-recyclerview-v7-23.2.1_f0c206bbb4c65d72018883baf614e5cf9595028b\classes.dex" />
+    </item>
+    <item
+        jar="C:\Users\umyhpuscdi\Documents\agilt\DanceApp15\app\build\intermediates\exploded-aar\com.android.support\support-vector-drawable\23.2.1\jars\classes.jar"
+        jumboMode="true"
+        revision="23.0.2"
+        sha1="673d77a5bbddd766037f088e775df525c46407f0">
+        <dex dex="C:\Users\umyhpuscdi\Documents\agilt\DanceApp15\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-vector-drawable-23.2.1_6c44d903d5157dab329f3d0adc611a56595fe90e\classes.dex" />
+    </item>
+    <item
         jar="C:\Users\umyhpuscdi\Documents\agilt\DanceApp15\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
         jumboMode="true"
         revision="23.0.2"
-        sha1="d150b2cb2c74a17cf68b1fa1826a5108ef0bd5cb">
+        sha1="fb38388aadad7bbd913bdda003cfa769c9e0c55d">
         <dex dex="C:\Users\umyhpuscdi\Documents\agilt\DanceApp15\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run-bootstrap_687cd0d9145664c6bb56f6185665b87e0e86ebf7\classes.dex" />
+    </item>
+    <item
+        jar="C:\Users\umyhpuscdi\Documents\agilt\DanceApp15\app\build\intermediates\exploded-aar\com.android.support\animated-vector-drawable\23.2.1\jars\classes.jar"
+        jumboMode="true"
+        revision="23.0.2"
+        sha1="3469cb457f10f74c28cbc05f069b6c894f6cbdd0">
+        <dex dex="C:\Users\umyhpuscdi\Documents\agilt\DanceApp15\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-animated-vector-drawable-23.2.1_c3fc8e8810456599f32e0c005f291e4e8a3492df\classes.dex" />
+    </item>
+    <item
+        jar="C:\Users\umyhpuscdi\Documents\agilt\DanceApp15\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.2.1\jars\libs\internal_impl-23.2.1.jar"
+        jumboMode="true"
+        revision="23.0.2"
+        sha1="607a3d0b8013b4ccbfeb0b7cb293351994e021fb">
+        <dex dex="C:\Users\umyhpuscdi\Documents\agilt\DanceApp15\app\build\intermediates\transforms\dex\debug\folders\1000\10\internal_impl-23.2.1_594aaef3037c84878013cc1ff47ed745fdafcf9e\classes.dex" />
     </item>
 
 </items>
