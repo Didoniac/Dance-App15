@@ -64,12 +64,11 @@ public class MainActivity extends AppCompatActivity {
 
         fm = getSupportFragmentManager();
 
-        dialogFrag = new CreateEditCourse();
-
-
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
+                dialogFrag = new CreateEditCourse();
 
                 Toast.makeText(activity, "Vald kurs:\n" + courses.get(position), Toast.LENGTH_LONG).show();
                 Bundle bundle = new Bundle();
@@ -102,6 +101,7 @@ public class MainActivity extends AppCompatActivity {
                 asynk.execute("POST", "lists/" + "258" + "/tasks/"); ///Det här är String... params-arrayen
                 */
 
+                dialogFrag = new CreateEditCourse();
                 dialogFrag.show(fm, "DialogFrag");
 
             }

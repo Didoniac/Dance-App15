@@ -2,6 +2,7 @@ package com.example.umyhpuscdi.danceapp15;
 
 import android.os.AsyncTask;
 import android.util.Log;
+import android.widget.Toast;
 
 
 import org.json.JSONArray;
@@ -225,12 +226,45 @@ public class AsyncCourse extends AsyncTask<String, Void, String> {
     protected void onPostExecute (String result){
 
         //uppdatera gränssnittet här
-        Log.i("TAG","" + responseCode); ///Egen metod som visar fel
 
-        if (verb.equals("POST") || verb.equals("PUT")) {
+
+        if (verb.equals("POST")) {
+
+            if (responseCode>=200 && responseCode<=299) {
+                Toast.makeText(mainActivity, "Danskurs skapad.", Toast.LENGTH_SHORT).show();
+            } else if ((responseCode>=400 && responseCode<=499)) {
+                Toast.makeText(mainActivity, "Kopplingen till servern misslyckades. (" + responseCode + ")", Toast.LENGTH_SHORT).show();
+            } else if ((responseCode>=500 && responseCode<=599)) {
+                Toast.makeText(mainActivity, "Internt fel på servern. (" + responseCode + ")", Toast.LENGTH_SHORT).show();
+            }
+
+            Toast.makeText(mainActivity, "", Toast.LENGTH_SHORT).show();
+
             mainActivity.getCoursesFromServer();
-        }
 
-        mainActivity.adapterDanceListView.notifyDataSetChanged(); ///Uppdaatera adapter till ListView
+        } else if(verb.equals("PUT")) {
+
+            if (responseCode>=200 && responseCode<=299) {
+                Toast.makeText(mainActivity, "Danskurs uppdaterad.", Toast.LENGTH_SHORT).show();
+            } else if ((responseCode>=400 && responseCode<=499)) {
+                Toast.makeText(mainActivity, "Kopplingen till servern misslyckades. (" + responseCode + ")", Toast.LENGTH_SHORT).show();
+            } else if ((responseCode>=500 && responseCode<=599)) {
+                Toast.makeText(mainActivity, "Internt fel på servern. (" + responseCode + ")", Toast.LENGTH_SHORT).show();
+            }
+
+            mainActivity.getCoursesFromServer();
+
+        } else if (verb.equals("GET")){
+
+            //Om något gick fel vid GET, visa felmeddelande
+            if ((responseCode>=400 && responseCode<=499)) {
+                Toast.makeText(mainActivity, "Kopplingen till servern misslyckades. (" + responseCode + ")", Toast.LENGTH_SHORT).show();
+            } else if ((responseCode>=500 && responseCode<=599)) {
+                Toast.makeText(mainActivity, "Internt fel på servern. (" + responseCode + ")", Toast.LENGTH_SHORT).show();
+            }
+
+            //Uppdatera listview alltid
+            mainActivity.adapterDanceListView.notifyDataSetChanged(); ///Uppdaatera adapter till ListView
+        }
     }
 }
