@@ -33,7 +33,8 @@ public class MainActivity extends AppCompatActivity {
 
     protected ArrayAdapter adapterDanceListView;
     protected ListView listView;
-    protected CreateEditCourse dialogFrag;
+   // protected CreateEditCourse dialogFrag;
+   protected ReadCourse dialogFrag;
     protected FragmentManager fm;
 
 
@@ -64,8 +65,8 @@ public class MainActivity extends AppCompatActivity {
 
         fm = getSupportFragmentManager();
 
-        dialogFrag = new CreateEditCourse();
-
+       // dialogFrag = new CreateEditCourse(); // Denna bortkommenterad när Mats testar
+        dialogFrag = new ReadCourse(); // Denna bortkommenterad när Mats testar
 
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -161,6 +162,7 @@ public class MainActivity extends AppCompatActivity {
 
             LayoutInflater inflater = getLayoutInflater();
             View blowupmenu = inflater.inflate(R.layout.dance_list_item, listView, false); //Bestämmer vad som ska blåsas upp och vart
+
 
             TextView danceCourseTitle = (TextView)blowupmenu.findViewById(R.id.titleTextView);  // Namnet på danskursen
             TextView teacherTextView = (TextView)blowupmenu.findViewById(R.id.teacherTextView);
