@@ -3,18 +3,24 @@ package com.example.umyhpuscdi.danceapp15;
 
 import android.app.DatePickerDialog;
 import android.app.Dialog;
+import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.app.DialogFragment;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
+import android.widget.ScrollView;
 import android.widget.Spinner;
 
 import org.json.JSONArray;
@@ -32,8 +38,9 @@ public class CreateEditCourse extends DialogFragment {
 
     EditText editTitle, durationOfOneCourse, priceOfCourse, editLocation, editDescription;
     Button buttonDone, buttonCancel;
-
+    RelativeLayout fragment;
     String teacherName,courseStatus,courseLevel,danceStyle;
+
 
     MainActivity mainActivity;
 
@@ -92,6 +99,8 @@ public class CreateEditCourse extends DialogFragment {
         buttonCancel = (Button) v.findViewById(R.id.buttonCancel);
         buttonDone = (Button) v.findViewById(R.id.buttonDone);
         buttonTime = (Button) v.findViewById(R.id.dateTimeButton);
+        fragment = (RelativeLayout) v.findViewById(R.id.fragment);
+
 
 
         teacherList.add("Danslärare");
@@ -118,21 +127,40 @@ public class CreateEditCourse extends DialogFragment {
         danceStyleList.add("Slow");
         danceStyleList.add("Autentisk jazz");
 
-        adapterForTeacherSpinner = new ArrayAdapter(getActivity(), android.R.layout.simple_spinner_item, teacherList);
+      //  adapterForTeacherSpinner = new ArrayAdapter(getActivity(), android.R.layout.simple_spinner_item, teacherList);
+        adapterForTeacherSpinner = new ArrayAdapter(getActivity(), R.layout.spinnerlayout, teacherList);
         adapterForTeacherSpinner.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+     //   adapterForTeacherSpinner.setDropDownViewResource(R.layout.spinnerlayout);
         teacherSpinner.setAdapter(adapterForTeacherSpinner);
 
-        adapterForStatusSpinner = new ArrayAdapter(getActivity(), android.R.layout.simple_spinner_item, statusList);
+       // adapterForStatusSpinner = new ArrayAdapter(getActivity(), android.R.layout.simple_spinner_item, statusList);
+        adapterForStatusSpinner = new ArrayAdapter(getActivity(), R.layout.spinnerlayout, statusList);
         adapterForStatusSpinner.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         statusSpinner.setAdapter(adapterForStatusSpinner);
 
-        adapterForLevelSpinner = new ArrayAdapter(getActivity(), android.R.layout.simple_spinner_item, levelList);
+       // adapterForLevelSpinner = new ArrayAdapter(getActivity(), android.R.layout.simple_spinner_item, levelList);
+        adapterForLevelSpinner = new ArrayAdapter(getActivity(), R.layout.spinnerlayout, levelList);
         adapterForLevelSpinner.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         levelSpinner.setAdapter(adapterForLevelSpinner);
 
-        adapterForDanceStyleSpinner = new ArrayAdapter(getActivity(), android.R.layout.simple_spinner_item, danceStyleList);
+        //adapterForDanceStyleSpinner = new ArrayAdapter(getActivity(), android.R.layout.simple_spinner_item, danceStyleList);
+        adapterForDanceStyleSpinner = new ArrayAdapter(getActivity(), R.layout.spinnerlayout, danceStyleList);
         adapterForDanceStyleSpinner.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         danceStyleSpinner.setAdapter(adapterForDanceStyleSpinner);
+
+        //fragment.setClickable(true); // För att testa
+
+        fragment.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ((InputMethodManager)mainActivity.getSystemService(Context.INPUT_METHOD_SERVICE)).hideSoftInputFromWindow(fragment.getWindowToken(), 0);
+
+                // Här ska tgt-bord döljas
+                Log.i("TAG", "TGT ska döljas");
+
+            }
+        });
+
 
         editTitle.setText(s);
 
