@@ -171,10 +171,14 @@ public class MainActivity extends AppCompatActivity {
             TextView teacherTextView = (TextView)blowupmenu.findViewById(R.id.teacherTextView);
             TextView danceStyleTextView = (TextView)blowupmenu.findViewById(R.id.danceStyleTextView);
             TextView statusTextView = (TextView)blowupmenu.findViewById(R.id.statusTextView);
+            TextView levelTextView = (TextView)blowupmenu.findViewById(R.id.levelTextView);
+            TextView datesTextView = (TextView)blowupmenu.findViewById(R.id.datesTextView);
             danceCourseTitle.setText(courses.get(position).getTitle());
             teacherTextView.setText(courses.get(position).getTeacher());
             danceStyleTextView.setText(courses.get(position).getDanceStyle());
             statusTextView.setText(courses.get(position).getStatus());
+            levelTextView.setText(courses.get(position).getLevel());
+            datesTextView.setText(courses.get(position).getDates().get(0));
 
             return blowupmenu;                                                      // Här returnerars menuitemblowup.xmls root-layout
         }
