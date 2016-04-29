@@ -28,4 +28,16 @@
         android:layout_height="wrap_content"
         android:text="@string/status"
         android:id="@+id/statusTextView"/>
+    <TextView
+        android:padding="@dimen/activity_horizontal_margin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/status"
+        android:id="@+id/levelTextView"/>
+    <TextView
+        android:padding="@dimen/activity_horizontal_margin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/status"
+        android:id="@+id/datesTextView"/>
 </LinearLayout>

@@ -29,8 +29,11 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.text.Format;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Date;
 
 
 /**
@@ -420,7 +423,15 @@ public class CreateEditCourse extends DialogFragment {
         @Override
         public void onDateSet(android.widget.DatePicker view, int year, int monthOfYear, int dayOfMonth) {
             // Do something with the date chosen by the user
-            String time = ""+year+"/"+monthOfYear+"/"+dayOfMonth+"  ";
+            Calendar calendar = Calendar.getInstance();
+            calendar.clear();
+            calendar.set(year, monthOfYear, dayOfMonth, 0, 0);
+            Date date = calendar.getTime();
+
+            Format formatter =
+                    new SimpleDateFormat("E yyyy-MM-dd", getResources().getConfiguration().locale); //TODO HH:mm:ss
+
+            String time = formatter.format(date);
             buttonTime.setText(time);
         }
     }
