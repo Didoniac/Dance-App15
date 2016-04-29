@@ -7,6 +7,7 @@ import android.support.v4.app.DialogFragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -33,9 +34,12 @@ public class MainActivity extends AppCompatActivity {
 
     protected ArrayAdapter adapterDanceListView;
     protected ListView listView;
-    protected CreateEditCourse dialogFrag;
-    //protected ReadCourse dialogFrag;
+    protected CreateEditCourse dialogFragCreateEditCourse;
+    protected ReadCourse dialogFragReadCourse;
+    protected FloatingActionButton FAB;
+
     protected FragmentManager fm;
+    protected boolean loggedIn;
 
 
     @Override
@@ -43,6 +47,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         final MainActivity activity = this;
+        loggedIn = false;
 
         String kanAllaSeDet = "Hej önskar Johan";
         String str_dhana = "Hej alla Dance grupp";
@@ -71,15 +76,28 @@ public class MainActivity extends AppCompatActivity {
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                if (loggedIn) {
+                    Log.i("TAG_FRAG","boolean"+ loggedIn);
+                    dialogFragCreateEditCourse = new CreateEditCourse(); // ska vara ReadCousrse om man ej är inloggad
+                    Toast.makeText(activity, "Vald kurs:\n" + courses.get(position), Toast.LENGTH_LONG).show();
+                    Bundle bundle = new Bundle();
+                    bundle.putInt("KEY", position);
+                    dialogFragCreateEditCourse.setArguments(bundle);
+                    dialogFragCreateEditCourse.show(fm, "dialogFragCreateEditCourse");
 
-                dialogFrag = new CreateEditCourse();
 
-                Toast.makeText(activity, "Vald kurs:\n" + courses.get(position), Toast.LENGTH_LONG).show();
-                Bundle bundle = new Bundle();
-                bundle.putInt("KEY", position);
-                dialogFrag.setArguments(bundle);
+                }
+                else {
+                    Log.i("TAG_FRAG","boolean"+ loggedIn);
+                    dialogFragReadCourse = new ReadCourse();
+                    Bundle bundle = new Bundle();
+                    bundle.putInt("KEY", position);
+                    dialogFragReadCourse.setArguments(bundle);
+                    dialogFragReadCourse.show(fm, "dialogFragReadCourse");
 
-                dialogFrag.show(fm, "DialogFrag");
+                }
+
+
 
 
             }
@@ -88,7 +106,11 @@ public class MainActivity extends AppCompatActivity {
 
         ////////////Här lägger Mats in kod-ovan ////////////////
 
-        FloatingActionButton FAB = (FloatingActionButton) findViewById(R.id.addCourseFAB);
+        FAB = (FloatingActionButton) findViewById(R.id.addCourseFAB);
+        if (!loggedIn)
+            FAB.hide();
+
+
         FAB.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -105,8 +127,8 @@ public class MainActivity extends AppCompatActivity {
                 asynk.execute("POST", "lists/" + "258" + "/tasks/"); ///Det här är String... params-arrayen
                 */
 
-                dialogFrag = new CreateEditCourse();
-                dialogFrag.show(fm, "DialogFrag");
+                dialogFragCreateEditCourse = new CreateEditCourse();
+                dialogFragCreateEditCourse.show(fm, "DialogFrag");
 
             }
         });

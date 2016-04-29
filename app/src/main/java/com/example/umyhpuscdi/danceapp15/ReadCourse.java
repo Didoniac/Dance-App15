@@ -5,7 +5,6 @@ import android.app.DatePickerDialog;
 import android.app.Dialog;
 import android.content.Context;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
 import android.support.v4.app.DialogFragment;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -91,8 +90,6 @@ public class ReadCourse extends DialogFragment {
         location = (TextView) v.findViewById(R.id.place);
         titleOfCourse = (TextView) v.findViewById(R.id.title);
 
-        buttonTime = (Button) v.findViewById(R.id.dateTimeButton);
-
         titleOfCourse.setText(courseTitle);
         priceOfCourse.setText(priceString);
         location.setText(locationString);
@@ -101,51 +98,13 @@ public class ReadCourse extends DialogFragment {
         level.setText(courseLevelString);
         danceStyle.setText(danceStyleString);
 
-        buttonTime.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                showDatePickerDialog(v);
-            }
-        });
 
         return v;
     }
 
-    public void showDatePickerDialog(View v) {
-        fm = getActivity().getSupportFragmentManager();// Hämtar fragmentManager från aktiviteten
-        DialogFragment newFragment = new DatePicker();
-        newFragment.show(fm,"datePicker");
-    }
-
-    public static class DatePicker extends DialogFragment
-            implements DatePickerDialog.OnDateSetListener {
 
 
-        public DatePicker(){
-        }
 
-        @NonNull
-        @Override
-        public Dialog onCreateDialog(Bundle savedInstanceState) {
-            // Use the current date as the default date in the picker
-            final Calendar c = Calendar.getInstance();
-            int year = c.get(Calendar.YEAR);
-            int month = c.get(Calendar.MONTH);
-            int day = c.get(Calendar.DAY_OF_MONTH);
-
-            // Create a new instance of DatePickerDialog and return it
-            return new DatePickerDialog(getActivity(), this, year, month, day);
-        }
-
-
-        @Override
-        public void onDateSet(android.widget.DatePicker view, int year, int monthOfYear, int dayOfMonth) {
-            // Do something with the date chosen by the user
-            String time = ""+year+"/"+monthOfYear+"/"+dayOfMonth+"  ";
-            buttonTime.setText(time);
-        }
-    }
 
 
 
