@@ -469,11 +469,11 @@ public class CreateEditCourse extends DialogFragment {
         @Override
         public void onDismiss(DialogInterface dialog) {
             if (isDataSet) {  // [IF time was picked
-                //do something, time now selected
+                //set text of button, time now selected
                 buttonTime.setText(chosenTime);
             } else {
-                //do something else, dialog cancelled or exited
-                buttonTime.setText(getResources().getText(R.string.tid_datum));
+                //show hint on the button again and remove its text, dialog cancelled or exited
+                buttonTime.setText(null);
             }
         }
     }

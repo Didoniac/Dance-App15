@@ -13,13 +13,9 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.10/taskArtifacts/cache.properties.lock" afterPath="$PROJECT_DIR$/.gradle/2.10/taskArtifacts/cache.properties.lock" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.10/taskArtifacts/fileHashes.bin" afterPath="$PROJECT_DIR$/.gradle/2.10/taskArtifacts/fileHashes.bin" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.10/taskArtifacts/fileSnapshots.bin" afterPath="$PROJECT_DIR$/.gradle/2.10/taskArtifacts/fileSnapshots.bin" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.10/taskArtifacts/outputFileStates.bin" afterPath="$PROJECT_DIR$/.gradle/2.10/taskArtifacts/outputFileStates.bin" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.10/taskArtifacts/taskArtifacts.bin" afterPath="$PROJECT_DIR$/.gradle/2.10/taskArtifacts/taskArtifacts.bin" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/example/umyhpuscdi/danceapp15/CreateEditCourse.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/umyhpuscdi/danceapp15/CreateEditCourse.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_create_edit_course.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_create_edit_course.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" afterPath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/local.properties" afterPath="$PROJECT_DIR$/local.properties" />
     </list>
     <ignored path="Final Dance App15.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -125,11 +121,9 @@
       <file leaf-file-name="CreateEditCourse.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/umyhpuscdi/danceapp15/CreateEditCourse.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.46434784">
-              <caret line="475" column="79" selection-start-line="475" selection-start-column="79" selection-end-line="475" selection-end-column="79" />
-              <folding>
-                <element signature="e#17875#17917#0" expanded="true" />
-              </folding>
+            <state vertical-scroll-proportion="0.42608696">
+              <caret line="471" column="55" selection-start-line="471" selection-start-column="55" selection-end-line="471" selection-end-column="55" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -1978,9 +1972,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="434" column="37" selection-start-line="434" selection-start-column="37" selection-end-line="434" selection-end-column="37" />
-          <folding>
-            <element signature="e#17875#17917#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -2044,9 +2036,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="434" column="37" selection-start-line="434" selection-start-column="37" selection-end-line="434" selection-end-column="37" />
-          <folding>
-            <element signature="e#17875#17917#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -2110,9 +2100,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="434" column="37" selection-start-line="434" selection-start-column="37" selection-end-line="434" selection-end-column="37" />
-          <folding>
-            <element signature="e#17875#17917#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -2168,9 +2156,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="434" column="37" selection-start-line="434" selection-start-column="37" selection-end-line="434" selection-end-column="37" />
-          <folding>
-            <element signature="e#17875#17917#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -2226,9 +2212,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="434" column="37" selection-start-line="434" selection-start-column="37" selection-end-line="434" selection-end-column="37" />
-          <folding>
-            <element signature="e#17875#17917#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -2276,9 +2260,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="434" column="37" selection-start-line="434" selection-start-column="37" selection-end-line="434" selection-end-column="37" />
-          <folding>
-            <element signature="e#17875#17917#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -2310,9 +2292,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="434" column="37" selection-start-line="434" selection-start-column="37" selection-end-line="434" selection-end-column="37" />
-          <folding>
-            <element signature="e#17875#17917#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -2388,11 +2368,9 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/umyhpuscdi/danceapp15/CreateEditCourse.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.46434784">
-          <caret line="475" column="79" selection-start-line="475" selection-start-column="79" selection-end-line="475" selection-end-column="79" />
-          <folding>
-            <element signature="e#17875#17917#0" expanded="true" />
-          </folding>
+        <state vertical-scroll-proportion="0.42608696">
+          <caret line="471" column="55" selection-start-line="471" selection-start-column="55" selection-end-line="471" selection-end-column="55" />
+          <folding />
         </state>
       </provider>
     </entry>
