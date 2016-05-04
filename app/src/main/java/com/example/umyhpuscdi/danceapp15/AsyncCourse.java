@@ -1,5 +1,6 @@
 package com.example.umyhpuscdi.danceapp15;
 
+import android.app.Activity;
 import android.os.AsyncTask;
 import android.util.Log;
 import android.widget.Toast;
@@ -30,14 +31,19 @@ public class AsyncCourse extends AsyncTask<String, Void, String> {
     URL url;
 
     MainActivity mainActivity; ///Namnet på second activity
+    AdminDetailActivity adminDetailActivity;
     JSONObject json;
     int responseCode;
     private String URLEN = "http://api.cmdemo.se/";
-
     private String verb;
 
-    public AsyncCourse(MainActivity mainActivity, JSONObject json, int removeId){
-        this.mainActivity = mainActivity;
+    public AsyncCourse(Activity activity, JSONObject json, int removeId){
+        if (activity instanceof MainActivity) {
+            this.mainActivity = (MainActivity) activity;
+
+        } else if (activity instanceof AdminDetailActivity) {
+            this.adminDetailActivity = (AdminDetailActivity) activity;
+        }
         this.json = json;
     }
 
@@ -50,7 +56,11 @@ public class AsyncCourse extends AsyncTask<String, Void, String> {
         verb = params[0];
 
         try {
-            url = new URL(URLEN + params[1]);
+            if (params.length <= 2) {
+                url = new URL(URLEN + params[1]);
+            } else {
+                url = new URL(URLEN + params[1] + params[2] + "/");
+            }
         } catch (MalformedURLException e) {
             e.printStackTrace();
         }
@@ -79,7 +89,7 @@ public class AsyncCourse extends AsyncTask<String, Void, String> {
                     }
                     in.close();
 
-                    if (params[1].equals("lists/"+"258"+"/tasks/")) {
+                    if (params[1].equals("lists/"+"258"+"/tasks/") && params.length <= 2) {
 
                         JSONArray jsonCourses = new JSONArray(response.toString());
                         Log.i("TAG", jsonCourses.toString());
@@ -124,6 +134,47 @@ public class AsyncCourse extends AsyncTask<String, Void, String> {
                             mCourse.setDates(tempDates);
                             mainActivity.courses.add(mCourse);
                         }
+                    } else {
+                        JSONObject jsonCourse = new JSONObject(response.toString());
+                        Log.i("TAG", jsonCourse.toString());
+
+                        JSONObject jsonDescription;
+                        JSONArray jsonDates, jsonParticipants;
+                        ArrayList<String> tempDates;
+                        ArrayList<CourseParticipant> tempParticipants;
+
+                        tempDates = new ArrayList<>();
+                        tempParticipants = new ArrayList<>();
+
+                        Course mCourse = new Course();
+                        mCourse.setId(jsonCourse.getInt("id"));
+                        mCourse.setTitle(jsonCourse.getString("title"));
+                        mCourse.setDescription(jsonCourse.getString("description"));
+
+                        jsonDescription = new JSONObject(mCourse.getDescription());
+                        mCourse.setTeacher(jsonDescription.getString("teacher"));
+                        mCourse.setDescription(jsonDescription.getString("description"));
+                        mCourse.setLevel(jsonDescription.getString("level"));
+                        mCourse.setLocation(jsonDescription.getString("location"));
+                        mCourse.setStatus(jsonDescription.getString("status"));
+                        mCourse.setDanceStyle(jsonDescription.getString("danceStyle"));
+                        mCourse.setPrice((float)jsonDescription.getDouble("price"));
+
+                        jsonDates = new JSONArray(jsonDescription.getString("dates"));
+                        int j;
+                        for (j = 0; j < jsonDates.length(); j++) {
+                            tempDates.add((String)jsonDates.get(j));
+                        }
+
+                        mCourse.setCourseDurationInMinutes(jsonDescription.getInt("courseDurationInMinutes"));
+
+                        jsonParticipants = new JSONArray(jsonDescription.getString("courseParticipants"));
+                        for (j = 0; j < jsonParticipants.length(); j++) {
+                            tempParticipants.add((CourseParticipant) jsonParticipants.get(j));
+                        }
+
+                        mCourse.setDates(tempDates);
+                        adminDetailActivity.course = mCourse; //TODO ta reda på varför den aldrig gör detta!!!!!!!
                     }
 
                     connection.disconnect();
@@ -223,48 +274,50 @@ public class AsyncCourse extends AsyncTask<String, Void, String> {
     }
 
     @Override
-    protected void onPostExecute (String result){
+    protected void onPostExecute (String result) {
 
-        //uppdatera gränssnittet här
+        if (adminDetailActivity == null) {
+            //uppdatera gränssnittet här
 
 
-        if (verb.equals("POST")) {
+            if (verb.equals("POST")) {
 
-            if (responseCode>=200 && responseCode<=299) {
-                Toast.makeText(mainActivity, "Danskurs skapad.", Toast.LENGTH_SHORT).show();
-            } else if ((responseCode>=400 && responseCode<=499)) {
-                Toast.makeText(mainActivity, "Kopplingen till servern misslyckades. (" + responseCode + ")", Toast.LENGTH_SHORT).show();
-            } else if ((responseCode>=500 && responseCode<=599)) {
-                Toast.makeText(mainActivity, "Internt fel på servern. (" + responseCode + ")", Toast.LENGTH_SHORT).show();
+                if (responseCode >= 200 && responseCode <= 299) {
+                    Toast.makeText(mainActivity, "Danskurs skapad.", Toast.LENGTH_SHORT).show();
+                } else if ((responseCode >= 400 && responseCode <= 499)) {
+                    Toast.makeText(mainActivity, "Kopplingen till servern misslyckades. (" + responseCode + ")", Toast.LENGTH_SHORT).show();
+                } else if ((responseCode >= 500 && responseCode <= 599)) {
+                    Toast.makeText(mainActivity, "Internt fel på servern. (" + responseCode + ")", Toast.LENGTH_SHORT).show();
+                }
+
+                Toast.makeText(mainActivity, "", Toast.LENGTH_SHORT).show();
+
+                mainActivity.getCoursesFromServer();
+
+            } else if (verb.equals("PUT")) {
+
+                if (responseCode >= 200 && responseCode <= 299) {
+                    Toast.makeText(mainActivity, "Danskurs uppdaterad.", Toast.LENGTH_SHORT).show();
+                } else if ((responseCode >= 400 && responseCode <= 499)) {
+                    Toast.makeText(mainActivity, "Kopplingen till servern misslyckades. (" + responseCode + ")", Toast.LENGTH_SHORT).show();
+                } else if ((responseCode >= 500 && responseCode <= 599)) {
+                    Toast.makeText(mainActivity, "Internt fel på servern. (" + responseCode + ")", Toast.LENGTH_SHORT).show();
+                }
+
+                mainActivity.getCoursesFromServer();
+
+            } else if (verb.equals("GET")) {
+
+                //Om något gick fel vid GET, visa felmeddelande
+                if ((responseCode >= 400 && responseCode <= 499)) {
+                    Toast.makeText(mainActivity, "Kopplingen till servern misslyckades. (" + responseCode + ")", Toast.LENGTH_SHORT).show();
+                } else if ((responseCode >= 500 && responseCode <= 599)) {
+                    Toast.makeText(mainActivity, "Internt fel på servern. (" + responseCode + ")", Toast.LENGTH_SHORT).show();
+                }
+
+                //Uppdatera listview alltid
+                mainActivity.adapterDanceListView.notifyDataSetChanged(); ///Uppdaatera adapter till ListView
             }
-
-            Toast.makeText(mainActivity, "", Toast.LENGTH_SHORT).show();
-
-            mainActivity.getCoursesFromServer();
-
-        } else if(verb.equals("PUT")) {
-
-            if (responseCode>=200 && responseCode<=299) {
-                Toast.makeText(mainActivity, "Danskurs uppdaterad.", Toast.LENGTH_SHORT).show();
-            } else if ((responseCode>=400 && responseCode<=499)) {
-                Toast.makeText(mainActivity, "Kopplingen till servern misslyckades. (" + responseCode + ")", Toast.LENGTH_SHORT).show();
-            } else if ((responseCode>=500 && responseCode<=599)) {
-                Toast.makeText(mainActivity, "Internt fel på servern. (" + responseCode + ")", Toast.LENGTH_SHORT).show();
-            }
-
-            mainActivity.getCoursesFromServer();
-
-        } else if (verb.equals("GET")){
-
-            //Om något gick fel vid GET, visa felmeddelande
-            if ((responseCode>=400 && responseCode<=499)) {
-                Toast.makeText(mainActivity, "Kopplingen till servern misslyckades. (" + responseCode + ")", Toast.LENGTH_SHORT).show();
-            } else if ((responseCode>=500 && responseCode<=599)) {
-                Toast.makeText(mainActivity, "Internt fel på servern. (" + responseCode + ")", Toast.LENGTH_SHORT).show();
-            }
-
-            //Uppdatera listview alltid
-            mainActivity.adapterDanceListView.notifyDataSetChanged(); ///Uppdaatera adapter till ListView
         }
     }
 }

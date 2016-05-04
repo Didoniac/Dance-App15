@@ -8,6 +8,7 @@ import android.support.v4.view.ViewPager;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Vector;
 
@@ -16,10 +17,18 @@ import java.util.Vector;
  */
 public class AdminDetailActivity extends AppCompatActivity {
 
+    protected Course course;
+    private int id;
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_admin_detail);
+
+        id = getIntent().getIntExtra("id",-1);
+
+        AsyncCourse asyncCourse = new AsyncCourse(this,null,0);
+        asyncCourse.execute("GET", "lists/"+"258"+"/tasks/", "" + id);
 
         //Adding Fragment java class here...
         List<Fragment> fragmentlist_tabview = new Vector<>();

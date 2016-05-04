@@ -78,13 +78,16 @@ public class MainActivity extends AppCompatActivity {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 if (loggedIn) {
                     Log.i("TAG_FRAG","boolean"+ loggedIn);
-                    dialogFragCreateEditCourse = new CreateEditCourse(); // ska vara ReadCousrse om man ej är inloggad
+     //               dialogFragCreateEditCourse = new CreateEditCourse(); // ska vara ReadCousrse om man ej är inloggad
                     Toast.makeText(activity, "Vald kurs:\n" + courses.get(position), Toast.LENGTH_LONG).show();
-                    Bundle bundle = new Bundle();
-                    bundle.putInt("KEY", position);
-                    dialogFragCreateEditCourse.setArguments(bundle);
-                    dialogFragCreateEditCourse.show(fm, "dialogFragCreateEditCourse");
+     //               Bundle bundle = new Bundle();
+     //               bundle.putInt("KEY", position);
+     //               dialogFragCreateEditCourse.setArguments(bundle);
+       //             dialogFragCreateEditCourse.show(fm, "dialogFragCreateEditCourse");
 
+                    Intent intent = new Intent(MainActivity.this, AdminDetailActivity.class);
+                    intent.putExtra("id",position);
+                    startActivity(intent);
 
                 }
                 else {
