@@ -4,7 +4,9 @@ package com.example.umyhpuscdi.danceapp15;
 import android.app.Activity;
 import android.app.DatePickerDialog;
 import android.app.Dialog;
+import android.app.TimePickerDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.app.DialogFragment;
@@ -23,6 +25,7 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.ScrollView;
 import android.widget.Spinner;
+import android.widget.TimePicker;
 import android.widget.Toast;
 
 import org.json.JSONArray;
@@ -433,6 +436,45 @@ public class CreateEditCourse extends DialogFragment {
 
             String time = formatter.format(date);
             buttonTime.setText(time);
+
+            TimePicker timePicker = new TimePicker();
+            timePicker.show(getFragmentManager(),"");
+        }
+    }
+
+    public static class TimePicker extends DialogFragment
+    implements TimePickerDialog.OnTimeSetListener, DialogInterface.OnDismissListener {
+
+        private boolean isDataSet = false;
+        private String chosenTime;
+
+        @NonNull
+        @Override
+        public Dialog onCreateDialog(Bundle savedInstanceState) {
+            // Use the current time as the default time in the picker
+            final Calendar c = Calendar.getInstance();
+            int hourOfDay = c.get(Calendar.HOUR_OF_DAY);
+            int minute = c.get(Calendar.MINUTE);
+
+            // Create a new instance of TimePickerDialog and return it
+            return new TimePickerDialog(getActivity(), this, hourOfDay, minute, true);
+        }
+
+        @Override
+        public void onTimeSet(android.widget.TimePicker view, int hourOfDay, int minute) {
+            isDataSet = true;
+            chosenTime = buttonTime.getText().toString() + " " + hourOfDay + ":" + minute;
+        }
+
+        @Override
+        public void onDismiss(DialogInterface dialog) {
+            if (isDataSet) {  // [IF time was picked
+                //do something, time now selected
+                buttonTime.setText(chosenTime);
+            } else {
+                //do something else, dialog cancelled or exited
+                buttonTime.setText(getResources().getText(R.string.tid_datum));
+            }
         }
     }
 
