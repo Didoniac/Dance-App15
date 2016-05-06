@@ -34,13 +34,17 @@ import java.util.Calendar;
  */
 public class ReadCourse extends DialogFragment {
 
-    TextView titleOfCourse,durationOfOneCourse, priceOfCourse, location, description,status,level,danceStyle,teacher;
-    String courseTitle;
-   // Button butt onDone, buttonCancel;
-    RelativeLayout fragment;
+    TextView titleOfCourse,level,danceStyle,
+            courseDate,durationOfOneCourse,numberOfCourses,
+            priceOfCourse,status,location,
+            teacher,description;
 
-    String courseTitleString, priceString, locationString, teacherNameString, danceStyleString, courseStatusString,courseLevelString;
+    String courseTitleString,courseLevelString,danceStyleString,
+            courseDateString,courseDurationString,numberOfCoursesString,
+            priceString,courseStatusString,locationString,
+            teacherNameString,descriptionString;
 
+    int courseDurationInt;
     float price;
 
     MainActivity mainActivity;
@@ -61,43 +65,65 @@ public class ReadCourse extends DialogFragment {
 
         mainActivity = (MainActivity) getActivity();
 
-        courseTitle = "";
+        courseTitleString = "";
 
         Bundle bundle = getArguments();
         if (bundle != null) {
             int i = bundle.getInt("KEY");
+
             courseTitleString = mainActivity.courses.get(i).getTitle();
-            price = mainActivity.courses.get(i).getPrice();
-            priceString = String.valueOf(price );
-            locationString = mainActivity.courses.get(i).getLocation();
-            teacherNameString = mainActivity.courses.get(i).getTeacher();
-            courseStatusString = mainActivity.courses.get(i).getStatus();
             courseLevelString = mainActivity.courses.get(i).getLevel();
             danceStyleString = mainActivity.courses.get(i).getDanceStyle();
+
+            courseDateString = mainActivity.courses.get(i).getDates().get(0);
+            courseDurationInt = mainActivity.courses.get(i).getCourseDurationInMinutes();
+            courseDurationString = String.valueOf(courseDurationInt);
+            //numberOfCourses
+
+            price = mainActivity.courses.get(i).getPrice();
+            priceString = String.valueOf(price);
+            courseStatusString = mainActivity.courses.get(i).getStatus();
+            locationString = mainActivity.courses.get(i).getLocation();
+
+            teacherNameString = mainActivity.courses.get(i).getTeacher();
+            descriptionString = mainActivity.courses.get(i).getDescription();
         }
 
         View v = inflater.inflate(R.layout.fragment_read_course, container, false);
 
-        durationOfOneCourse = (TextView) v.findViewById(R.id.durationOfOneCourse);
-        priceOfCourse = (TextView) v.findViewById(R.id.priceOfCourse);
-        description = (TextView) v.findViewById(R.id.description);
+        /////////////////////////////////////////////////////////////////
 
-        teacher = (TextView) v.findViewById(R.id.teacher);
-        status = (TextView) v.findViewById(R.id.status);
+        titleOfCourse = (TextView) v.findViewById(R.id.title);
         level = (TextView) v.findViewById(R.id.level);
         danceStyle = (TextView) v.findViewById(R.id.danceStyle);
 
+        courseDate = (TextView) v.findViewById(R.id.courseDate);
+        durationOfOneCourse = (TextView) v.findViewById(R.id.durationOfOneCourse);
+        numberOfCourses = (TextView) v.findViewById(R.id.numberOfCourses);
+
+        priceOfCourse = (TextView) v.findViewById(R.id.priceOfCourse);
+        status = (TextView) v.findViewById(R.id.status);
         location = (TextView) v.findViewById(R.id.place);
-        titleOfCourse = (TextView) v.findViewById(R.id.title);
 
-        titleOfCourse.setText(courseTitle);
-        priceOfCourse.setText(priceString);
-        location.setText(locationString);
-        teacher.setText(teacherNameString);
-        status.setText(courseStatusString);
-        level.setText(courseLevelString);
-        danceStyle.setText(danceStyleString);
+        teacher = (TextView) v.findViewById(R.id.teacher);
+        description = (TextView) v.findViewById(R.id.description);
 
+/////////////////////////////////////////////////////////////////
+
+        titleOfCourse.setText(courseTitleString); // ska ligga i tabbaren
+        level.setText("Nivå: "+courseLevelString);
+        danceStyle.setText("Dansstil: "+danceStyleString);
+
+        courseDate.setText("Startdatum: "+courseDateString);
+        durationOfOneCourse.setText("Längd per tillfälle: "+courseDurationString+" min.");
+        numberOfCourses.setText("Antal tillfällen: ");
+
+        priceOfCourse.setText("Pris: "+priceString+" kr");
+        status.setText("Status: "+courseStatusString);
+        location.setText("Plats: "+ locationString);
+
+        teacher.setText("Lärare: "+teacherNameString);
+        description.setText("Beskrivning: "+descriptionString);
 
         return v;
     }

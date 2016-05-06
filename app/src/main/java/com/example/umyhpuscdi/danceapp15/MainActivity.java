@@ -34,7 +34,6 @@ public class MainActivity extends AppCompatActivity {
 
     protected ArrayAdapter adapterDanceListView;
     protected ListView listView;
-    protected CreateEditCourse dialogFragCreateEditCourse;
     protected ReadCourse dialogFragReadCourse;
     protected FloatingActionButton FAB;
 

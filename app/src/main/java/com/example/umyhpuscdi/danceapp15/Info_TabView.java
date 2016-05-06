@@ -8,7 +8,6 @@ import android.app.TimePickerDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
 import android.support.v4.app.DialogFragment;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -399,7 +398,6 @@ public class Info_TabView extends Fragment {
         public DatePicker(){
         }
 
-        @NonNull
         @Override
         public Dialog onCreateDialog(Bundle savedInstanceState) {
             // Use the current date as the default date in the picker
@@ -422,7 +420,7 @@ public class Info_TabView extends Fragment {
             Date date = calendar.getTime();
 
             Format formatter =
-                    new SimpleDateFormat("E yyyy-MM-dd", getResources().getConfiguration().locale); //TODO HH:mm:ss
+                    new SimpleDateFormat("E yyyy-MM-dd", getResources().getConfiguration().locale);
 
             String time = formatter.format(date);
             buttonTime.setText(time);
@@ -438,7 +436,6 @@ public class Info_TabView extends Fragment {
         private boolean isDataSet = false;
         private String chosenTime;
 
-        @NonNull
         @Override
         public Dialog onCreateDialog(Bundle savedInstanceState) {
             // Use the current time as the default time in the picker
