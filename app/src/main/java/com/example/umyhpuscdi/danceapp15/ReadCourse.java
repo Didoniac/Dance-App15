@@ -114,7 +114,7 @@ public class ReadCourse extends Fragment {
 
         teacherNameString = userDetailActivity.course.getTeacher();
         descriptionString = userDetailActivity.course.getDescription();
-        
+
         level.setText("Nivå: "+courseLevelString);
         danceStyle.setText("Dansstil: "+danceStyleString);
 
