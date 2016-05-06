@@ -32,6 +32,7 @@ public class AsyncCourse extends AsyncTask<String, Void, String> {
 
     MainActivity mainActivity; ///Namnet på main activity
     AdminDetailActivity adminDetailActivity;
+    UserDetailActivity userDetailActivity;
     JSONObject json;
     int responseCode;
     private String URLEN = "http://api.cmdemo.se/";
@@ -43,6 +44,8 @@ public class AsyncCourse extends AsyncTask<String, Void, String> {
 
         } else if (activity instanceof AdminDetailActivity) {
             adminDetailActivity = (AdminDetailActivity) activity;
+        } else if (activity instanceof UserDetailActivity) {
+            userDetailActivity = (UserDetailActivity) activity;
         }
         this.json = json;
     }
@@ -177,7 +180,50 @@ public class AsyncCourse extends AsyncTask<String, Void, String> {
                         }
 
                         mCourse.setDates(tempDates);
-                        adminDetailActivity.course = mCourse; //TODO ta reda på varför den aldrig gör detta!!!!!!!
+                        adminDetailActivity.course = mCourse;
+
+                    } else if (userDetailActivity != null) {
+                        //GET för EN kurs i AdminDetailActivity
+                        JSONObject jsonCourse = new JSONObject(response.toString());
+                        Log.i("TAG", jsonCourse.toString());
+
+                        JSONObject jsonDescription;
+                        JSONArray jsonDates, jsonParticipants;
+                        ArrayList<String> tempDates;
+                        ArrayList<CourseParticipant> tempParticipants;
+
+                        tempDates = new ArrayList<>();
+                        tempParticipants = new ArrayList<>();
+
+                        Course mCourse = new Course();
+                        mCourse.setId(jsonCourse.getInt("id"));
+                        mCourse.setTitle(jsonCourse.getString("title"));
+                        mCourse.setDescription(jsonCourse.getString("description"));
+
+                        jsonDescription = new JSONObject(mCourse.getDescription());
+                        mCourse.setTeacher(jsonDescription.getString("teacher"));
+                        mCourse.setDescription(jsonDescription.getString("description"));
+                        mCourse.setLevel(jsonDescription.getString("level"));
+                        mCourse.setLocation(jsonDescription.getString("location"));
+                        mCourse.setStatus(jsonDescription.getString("status"));
+                        mCourse.setDanceStyle(jsonDescription.getString("danceStyle"));
+                        mCourse.setPrice((float)jsonDescription.getDouble("price"));
+
+                        jsonDates = new JSONArray(jsonDescription.getString("dates"));
+                        int j;
+                        for (j = 0; j < jsonDates.length(); j++) {
+                            tempDates.add((String)jsonDates.get(j));
+                        }
+
+                        mCourse.setCourseDurationInMinutes(jsonDescription.getInt("courseDurationInMinutes"));
+
+                        jsonParticipants = new JSONArray(jsonDescription.getString("courseParticipants"));
+                        for (j = 0; j < jsonParticipants.length(); j++) {
+                            tempParticipants.add((CourseParticipant) jsonParticipants.get(j));
+                        }
+
+                        mCourse.setDates(tempDates);
+                        userDetailActivity.course = mCourse;
                     }
 
                     connection.disconnect();
@@ -279,7 +325,7 @@ public class AsyncCourse extends AsyncTask<String, Void, String> {
     @Override
     protected void onPostExecute (String result) {
 
-        if (adminDetailActivity == null) {
+        if (mainActivity != null) {
             //uppdatera gränssnittet här
 
 
@@ -321,6 +367,8 @@ public class AsyncCourse extends AsyncTask<String, Void, String> {
                 //Uppdatera listview alltid
                 mainActivity.adapterDanceListView.notifyDataSetChanged(); ///Uppdaatera adapter till ListView
             }
+        } else if (userDetailActivity != null && verb.equals("GET")) {
+            userDetailActivity.readCourse.fillInfo();
         }
     }
 }

@@ -32,7 +32,7 @@ import java.util.Calendar;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class ReadCourse extends DialogFragment {
+public class ReadCourse extends Fragment {
 
     TextView titleOfCourse,level,danceStyle,
             courseDate,durationOfOneCourse,numberOfCourses,
@@ -47,7 +47,8 @@ public class ReadCourse extends DialogFragment {
     int courseDurationInt;
     float price;
 
-    MainActivity mainActivity;
+    UserDetailActivity userDetailActivity;
+    private View v;
 
     static Button buttonTime;
 
@@ -62,34 +63,7 @@ public class ReadCourse extends DialogFragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-
-        mainActivity = (MainActivity) getActivity();
-
-        courseTitleString = "";
-
-        Bundle bundle = getArguments();
-        if (bundle != null) {
-            int i = bundle.getInt("KEY");
-
-            courseTitleString = mainActivity.courses.get(i).getTitle();
-            courseLevelString = mainActivity.courses.get(i).getLevel();
-            danceStyleString = mainActivity.courses.get(i).getDanceStyle();
-
-            courseDateString = mainActivity.courses.get(i).getDates().get(0);
-            courseDurationInt = mainActivity.courses.get(i).getCourseDurationInMinutes();
-            courseDurationString = String.valueOf(courseDurationInt);
-            //numberOfCourses
-
-            price = mainActivity.courses.get(i).getPrice();
-            priceString = String.valueOf(price);
-            courseStatusString = mainActivity.courses.get(i).getStatus();
-            locationString = mainActivity.courses.get(i).getLocation();
-
-            teacherNameString = mainActivity.courses.get(i).getTeacher();
-            descriptionString = mainActivity.courses.get(i).getDescription();
-        }
-
-        View v = inflater.inflate(R.layout.fragment_read_course, container, false);
+        v = inflater.inflate(R.layout.fragment_read_course, container, false);
 
         /////////////////////////////////////////////////////////////////
 
@@ -110,6 +84,36 @@ public class ReadCourse extends DialogFragment {
 
 /////////////////////////////////////////////////////////////////
 
+        userDetailActivity = (UserDetailActivity) getActivity();
+
+        courseTitleString = "";
+
+        if (userDetailActivity.course != null) {
+            fillInfo();
+        }
+
+        return v;
+    }
+
+
+    public void fillInfo() {
+        courseTitleString = userDetailActivity.course.getTitle();
+        courseLevelString = userDetailActivity.course.getLevel();
+        danceStyleString = userDetailActivity.course.getDanceStyle();
+
+        courseDateString = userDetailActivity.course.getDates().get(0);
+        courseDurationInt = userDetailActivity.course.getCourseDurationInMinutes();
+        courseDurationString = String.valueOf(courseDurationInt);
+        //numberOfCourses
+
+        price = userDetailActivity.course.getPrice();
+        priceString = String.valueOf(price);
+        courseStatusString = userDetailActivity.course.getStatus();
+        locationString = userDetailActivity.course.getLocation();
+
+        teacherNameString = userDetailActivity.course.getTeacher();
+        descriptionString = userDetailActivity.course.getDescription();
+
         titleOfCourse.setText(courseTitleString); // ska ligga i tabbaren
         level.setText("Nivå: "+courseLevelString);
         danceStyle.setText("Dansstil: "+danceStyleString);
@@ -124,12 +128,7 @@ public class ReadCourse extends DialogFragment {
 
         teacher.setText("Lärare: "+teacherNameString);
         description.setText("Beskrivning: "+descriptionString);
-
-        return v;
     }
-
-
-
 
 
 

@@ -90,13 +90,19 @@ public class MainActivity extends AppCompatActivity {
 
                 }
                 else {
+
+                    Intent intent = new Intent(MainActivity.this, UserDetailActivity.class);
+                    intent.putExtra("id", courses.get(position).getId());
+                    startActivity(intent);
+
+             /* GAMMALT
                     Log.i("TAG_FRAG","boolean"+ loggedIn);
                     dialogFragReadCourse = new ReadCourse();
                     Bundle bundle = new Bundle();
                     bundle.putInt("KEY", position);
                     dialogFragReadCourse.setArguments(bundle);
                     dialogFragReadCourse.show(fm, "dialogFragReadCourse");
-
+*/
                 }
 
 

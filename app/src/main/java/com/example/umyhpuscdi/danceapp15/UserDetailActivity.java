@@ -15,15 +15,27 @@ import java.util.Vector;
  */
 public class UserDetailActivity extends AppCompatActivity {
 
+    protected Course course;
+    protected ReadCourse readCourse;
+    private int id;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_detail);
 
+        id = getIntent().getIntExtra("id",-1);
+
+        if (id != -1) {
+            AsyncCourse asyncCourse = new AsyncCourse(this, null, 0);
+            asyncCourse.execute("GET", "lists/" + "258" + "/tasks/", "" + id);
+        }
+
         //Adding Fragment java class here...
         List<Fragment> fragmentlist_tabview = new Vector<>();
-        fragmentlist_tabview.add(Fragment.instantiate(this,Info_TabView.class.getName()));
-        fragmentlist_tabview.add(Fragment.instantiate(this,Calender_TabView.class.getName()));
+        readCourse = (ReadCourse) Fragment.instantiate(this,ReadCourse.class.getName());
+        fragmentlist_tabview.add(readCourse);
+        fragmentlist_tabview.add(Fragment.instantiate(this,Participant_TabView.class.getName()));
 
         PageAdapter pageAdapter = new PageAdapter(getSupportFragmentManager(),fragmentlist_tabview);
         final ViewPager viewPager = (ViewPager)findViewById(R.id.user_detail_viewpager);
@@ -54,7 +66,7 @@ public class UserDetailActivity extends AppCompatActivity {
 
         // setting text to view in Tab
         actionBar.addTab(actionBar.newTab().setText("Info").setTabListener(tabListener));
-        actionBar.addTab(actionBar.newTab().setText("Kalender").setTabListener(tabListener));
+        actionBar.addTab(actionBar.newTab().setText("Deltagare").setTabListener(tabListener));
 
         // starts ViewPager changeListener here....
 
