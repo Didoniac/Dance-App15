@@ -466,6 +466,9 @@ public class Info_TabView extends Fragment {
     }
 
     public void fillInfo() {
+        assert adminDetailActivity.getSupportActionBar() != null;
+        adminDetailActivity.getSupportActionBar().setTitle(adminDetailActivity.course.getTitle());
+
         editTitle.setText(adminDetailActivity.course.getTitle());
         editDescription.setText(adminDetailActivity.course.getDescription());
         editLocation.setText(adminDetailActivity.course.getLocation());

@@ -34,7 +34,7 @@ import java.util.Calendar;
  */
 public class ReadCourse extends Fragment {
 
-    TextView titleOfCourse,level,danceStyle,
+    TextView level,danceStyle,
             courseDate,durationOfOneCourse,numberOfCourses,
             priceOfCourse,status,location,
             teacher,description;
@@ -66,8 +66,6 @@ public class ReadCourse extends Fragment {
         v = inflater.inflate(R.layout.fragment_read_course, container, false);
 
         /////////////////////////////////////////////////////////////////
-
-        titleOfCourse = (TextView) v.findViewById(R.id.title);
         level = (TextView) v.findViewById(R.id.level);
         danceStyle = (TextView) v.findViewById(R.id.danceStyle);
 
@@ -97,6 +95,9 @@ public class ReadCourse extends Fragment {
 
 
     public void fillInfo() {
+        assert userDetailActivity.getSupportActionBar() != null;
+        userDetailActivity.getSupportActionBar().setTitle(userDetailActivity.course.getTitle());
+
         courseTitleString = userDetailActivity.course.getTitle();
         courseLevelString = userDetailActivity.course.getLevel();
         danceStyleString = userDetailActivity.course.getDanceStyle();
@@ -113,8 +114,7 @@ public class ReadCourse extends Fragment {
 
         teacherNameString = userDetailActivity.course.getTeacher();
         descriptionString = userDetailActivity.course.getDescription();
-
-        titleOfCourse.setText(courseTitleString); // ska ligga i tabbaren
+        
         level.setText("Nivå: "+courseLevelString);
         danceStyle.setText("Dansstil: "+danceStyleString);
 

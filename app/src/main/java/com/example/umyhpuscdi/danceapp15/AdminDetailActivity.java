@@ -17,6 +17,7 @@ import java.util.Vector;
 public class AdminDetailActivity extends AppCompatActivity {
 
     protected Course course;
+    protected Info_TabView info_tabView;
     private int id;
 
     @Override
@@ -34,7 +35,8 @@ public class AdminDetailActivity extends AppCompatActivity {
 
         //Adding Fragment java class here...
         List<Fragment> fragmentlist_tabview = new Vector<>();
-        fragmentlist_tabview.add(Fragment.instantiate(this,Info_TabView.class.getName()));
+        info_tabView = (Info_TabView) Fragment.instantiate(this,Info_TabView.class.getName());
+        fragmentlist_tabview.add(info_tabView);
         fragmentlist_tabview.add(Fragment.instantiate(this,Participant_TabView.class.getName()));
 
         PageAdapter pageAdapter = new PageAdapter(getSupportFragmentManager(),fragmentlist_tabview);

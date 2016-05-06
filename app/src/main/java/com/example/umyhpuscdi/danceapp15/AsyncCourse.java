@@ -369,6 +369,8 @@ public class AsyncCourse extends AsyncTask<String, Void, String> {
             }
         } else if (userDetailActivity != null && verb.equals("GET")) {
             userDetailActivity.readCourse.fillInfo();
+        } else if (adminDetailActivity != null && verb.equals("GET")) {
+            adminDetailActivity.info_tabView.fillInfo();
         }
     }
 }
