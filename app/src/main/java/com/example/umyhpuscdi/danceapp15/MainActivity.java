@@ -86,7 +86,7 @@ public class MainActivity extends AppCompatActivity {
        //             dialogFragCreateEditCourse.show(fm, "dialogFragCreateEditCourse");
 
                     Intent intent = new Intent(MainActivity.this, AdminDetailActivity.class);
-                    intent.putExtra("id",position);
+                    intent.putExtra("id", courses.get(position).getId());
                     startActivity(intent);
 
                 }
@@ -130,8 +130,11 @@ public class MainActivity extends AppCompatActivity {
                 asynk.execute("POST", "lists/" + "258" + "/tasks/"); ///Det här är String... params-arrayen
                 */
 
-                dialogFragCreateEditCourse = new CreateEditCourse();
-                dialogFragCreateEditCourse.show(fm, "DialogFrag");
+        //        dialogFragCreateEditCourse = new CreateEditCourse();
+        //        dialogFragCreateEditCourse.show(fm, "DialogFrag");
+
+                Intent intent = new Intent(MainActivity.this, AdminDetailActivity.class);
+                startActivity(intent);
 
             }
         });

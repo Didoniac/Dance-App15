@@ -30,7 +30,7 @@ public class AsyncCourse extends AsyncTask<String, Void, String> {
     HttpURLConnection connection;
     URL url;
 
-    MainActivity mainActivity; ///Namnet på second activity
+    MainActivity mainActivity; ///Namnet på main activity
     AdminDetailActivity adminDetailActivity;
     JSONObject json;
     int responseCode;
@@ -39,10 +39,10 @@ public class AsyncCourse extends AsyncTask<String, Void, String> {
 
     public AsyncCourse(Activity activity, JSONObject json, int removeId){
         if (activity instanceof MainActivity) {
-            this.mainActivity = (MainActivity) activity;
+            mainActivity = (MainActivity) activity;
 
         } else if (activity instanceof AdminDetailActivity) {
-            this.adminDetailActivity = (AdminDetailActivity) activity;
+            adminDetailActivity = (AdminDetailActivity) activity;
         }
         this.json = json;
     }
@@ -56,10 +56,11 @@ public class AsyncCourse extends AsyncTask<String, Void, String> {
         verb = params[0];
 
         try {
-            if (params.length <= 2) {
-                url = new URL(URLEN + params[1]);
-            } else {
+            if (params.length == 3) {
                 url = new URL(URLEN + params[1] + params[2] + "/");
+
+            } else {
+                url = new URL(URLEN + params[1]);
             }
         } catch (MalformedURLException e) {
             e.printStackTrace();
@@ -89,7 +90,8 @@ public class AsyncCourse extends AsyncTask<String, Void, String> {
                     }
                     in.close();
 
-                    if (params[1].equals("lists/"+"258"+"/tasks/") && params.length <= 2) {
+                    if (params[1].equals("lists/"+"258"+"/tasks/") && mainActivity != null) {
+                        //GET för ALLA kurser i MainActivity
 
                         JSONArray jsonCourses = new JSONArray(response.toString());
                         Log.i("TAG", jsonCourses.toString());
@@ -134,7 +136,8 @@ public class AsyncCourse extends AsyncTask<String, Void, String> {
                             mCourse.setDates(tempDates);
                             mainActivity.courses.add(mCourse);
                         }
-                    } else {
+                    } else if (adminDetailActivity != null) {
+                        //GET för EN kurs i AdminDetailActivity
                         JSONObject jsonCourse = new JSONObject(response.toString());
                         Log.i("TAG", jsonCourse.toString());
 

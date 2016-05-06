@@ -67,8 +67,6 @@ public class Info_TabView extends Fragment {
 
     FragmentManager fm;
 
-    private Course course;
-
     public Info_TabView() {
         // Required empty public constructor
     }
@@ -81,7 +79,6 @@ public class Info_TabView extends Fragment {
         bundle = getArguments();
 
         adminDetailActivity = (AdminDetailActivity) getActivity();
-        course = adminDetailActivity.course;
 
         String courseTitle = "";
         if (bundle != null) {
@@ -278,15 +275,15 @@ public class Info_TabView extends Fragment {
                         e.printStackTrace();
                     }
 
-                    if (course == null) {
+                    if (adminDetailActivity.course == null) {
                         Log.i("TAG", "POST");
                         AsyncCourse asyncCourse = new AsyncCourse(adminDetailActivity, object, 0);
                         asyncCourse.execute("POST", "lists/" + "258/" + "tasks/");
                         adminDetailActivity.onBackPressed();
                     } else {
-                        Log.i("TAG", "PUT to id: " + course.getId());
+                        Log.i("TAG", "PUT to id: " + adminDetailActivity.course.getId());
                         AsyncCourse asyncCourse = new AsyncCourse(adminDetailActivity, object, 0);
-                        asyncCourse.execute("PUT", "lists/" + "258/" + "tasks/" + course.getId() + "/");
+                        asyncCourse.execute("PUT", "lists/" + "258/" + "tasks/" + adminDetailActivity.course.getId() + "/");
                         adminDetailActivity.onBackPressed();
                     }
                 }
@@ -301,7 +298,9 @@ public class Info_TabView extends Fragment {
             }
         });
 
-        fillInfo();
+        if (adminDetailActivity.course != null) {
+            fillInfo();
+        }
 
         return v;
     }
@@ -470,32 +469,32 @@ public class Info_TabView extends Fragment {
     }
 
     public void fillInfo() {
-        editTitle.setText(course.getTitle());
-        editDescription.setText(course.getDescription());
-        editLocation.setText(course.getLocation());
-        String s = "" + course.getPrice();
+        editTitle.setText(adminDetailActivity.course.getTitle());
+        editDescription.setText(adminDetailActivity.course.getDescription());
+        editLocation.setText(adminDetailActivity.course.getLocation());
+        String s = "" + adminDetailActivity.course.getPrice();
         priceOfCourse.setText(s);
-        s = "" + course.getCourseDurationInMinutes();
+        s = "" + adminDetailActivity.course.getCourseDurationInMinutes();
         durationOfOneCourse.setText(s);
-        buttonTime.setText(course.getDates().get(0));
+        buttonTime.setText(adminDetailActivity.course.getDates().get(0));
         int i;
         for (i=0; i<levelSpinner.getCount(); i++) {
-            if (levelSpinner.getItemAtPosition(i).equals(course.getLevel())) {
+            if (levelSpinner.getItemAtPosition(i).equals(adminDetailActivity.course.getLevel())) {
                 levelSpinner.setSelection(i);
             }
         }
         for (i=0; i<danceStyleSpinner.getCount(); i++) {
-            if (danceStyleSpinner.getItemAtPosition(i).equals(course.getDanceStyle())) {
+            if (danceStyleSpinner.getItemAtPosition(i).equals(adminDetailActivity.course.getDanceStyle())) {
                 danceStyleSpinner.setSelection(i);
             }
         }
         for (i=0; i<statusSpinner.getCount(); i++) {
-            if (statusSpinner.getItemAtPosition(i).equals(course.getStatus())) {
+            if (statusSpinner.getItemAtPosition(i).equals(adminDetailActivity.course.getStatus())) {
                 statusSpinner.setSelection(i);
             }
         }
         for (i=0; i<teacherSpinner.getCount(); i++) {
-            if (teacherSpinner.getItemAtPosition(i).equals(course.getTeacher())) {
+            if (teacherSpinner.getItemAtPosition(i).equals(adminDetailActivity.course.getTeacher())) {
                 teacherSpinner.setSelection(i);
             }
         }

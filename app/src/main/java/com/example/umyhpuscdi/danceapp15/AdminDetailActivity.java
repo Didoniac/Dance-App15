@@ -27,14 +27,16 @@ public class AdminDetailActivity extends AppCompatActivity {
 
         id = getIntent().getIntExtra("id",-1);
 
-        AsyncCourse asyncCourse = new AsyncCourse(this,null,0);
-        asyncCourse.execute("GET", "lists/"+"258"+"/tasks/", "" + id);
+        if (id != -1) {
+
+            AsyncCourse asyncCourse = new AsyncCourse(this, null, 0);
+            asyncCourse.execute("GET", "lists/" + "258" + "/tasks/", "" + id);
+        }
 
         //Adding Fragment java class here...
         List<Fragment> fragmentlist_tabview = new Vector<>();
-        fragmentlist_tabview.add(Fragment.instantiate(this,Participant_TabView.class.getName()));
-        fragmentlist_tabview.add(Fragment.instantiate(this,Calender_TabView.class.getName()));
         fragmentlist_tabview.add(Fragment.instantiate(this,Info_TabView.class.getName()));
+        fragmentlist_tabview.add(Fragment.instantiate(this,Participant_TabView.class.getName()));
 
         PageAdapter pageAdapter = new PageAdapter(getSupportFragmentManager(),fragmentlist_tabview);
         final ViewPager viewPager = (ViewPager)findViewById(R.id.admin_detail_viewpager);
@@ -64,9 +66,9 @@ public class AdminDetailActivity extends AppCompatActivity {
         // ends ActionBar Tablistener
 
                 // setting text to view in Tab
-             actionBar.addTab(actionBar.newTab().setText("Deltagare").setTabListener(tabListener));
-             actionBar.addTab(actionBar.newTab().setText("Kalender").setTabListener(tabListener));
              actionBar.addTab(actionBar.newTab().setText("Info").setTabListener(tabListener));
+             actionBar.addTab(actionBar.newTab().setText("Deltagare").setTabListener(tabListener));
+
 
         // starts ViewPager changeListener here....
 
