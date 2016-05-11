@@ -25,6 +25,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 
@@ -44,8 +45,12 @@ public class ReadCourse extends Fragment {
             priceString,courseStatusString,locationString,
             teacherNameString,descriptionString;
 
+    Button courseAttendButton;
+
     int courseDurationInt;
     float price;
+
+
 
     UserDetailActivity userDetailActivity;
     private View v;
@@ -66,6 +71,8 @@ public class ReadCourse extends Fragment {
         v = inflater.inflate(R.layout.fragment_read_course, container, false);
 
         /////////////////////////////////////////////////////////////////
+
+        courseAttendButton = (Button) v.findViewById(R.id.courseAttendButton);
         level = (TextView) v.findViewById(R.id.level);
         danceStyle = (TextView) v.findViewById(R.id.danceStyle);
 
@@ -85,6 +92,17 @@ public class ReadCourse extends Fragment {
         userDetailActivity = (UserDetailActivity) getActivity();
 
         courseTitleString = "";
+        DecimalFormat df = new DecimalFormat();
+
+        courseAttendButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                // Todo anmälan till kurs
+            }
+        });
+
+
 
         if (userDetailActivity.course != null) {
             fillInfo();
@@ -108,7 +126,20 @@ public class ReadCourse extends Fragment {
         //numberOfCourses
 
         price = userDetailActivity.course.getPrice();
-        priceString = String.valueOf(price);
+       // priceString = String.valueOf(price);
+
+        DecimalFormat df = new DecimalFormat();
+
+        if (Math.floor(price)== price) {
+            df.setMaximumFractionDigits(0);
+            priceString =  df.format(price);
+        }
+        else{
+            df.setMinimumFractionDigits(2);
+            df.setMaximumFractionDigits(2);
+            priceString =  df.format(price);
+        }
+
         courseStatusString = userDetailActivity.course.getStatus();
         locationString = userDetailActivity.course.getLocation();
 
