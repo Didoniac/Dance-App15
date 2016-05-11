@@ -10,7 +10,16 @@ public class Course {
     private String title; ///Den här använder vi för namnet på kursen
     private String description; ///Den här byter vi ut mot
     private int id; ///Används för att komma åt kursen via HTTP-anrop
-    private String teacher;
+
+    public ArrayList<String> getTeacher() {
+        return teacher;
+    }
+
+    public void setTeacher(ArrayList<String> teacher) {
+        this.teacher = teacher;
+    }
+
+    private ArrayList<String> teacher;
     private String location;
     private String level;
     private String status;
@@ -19,6 +28,15 @@ public class Course {
     private int courseDurationInMinutes;
     private ArrayList<CourseParticipant> courseParticipants = new ArrayList<>();
     private float price;
+    private int numberOfCourses;
+
+    public int getNumberOfCourses() {
+        return numberOfCourses;
+    }
+
+    public void setNumberOfCourses(int numberOfCourses) {
+        this.numberOfCourses = numberOfCourses;
+    }
 
     public String getTitle() {
         return title;
@@ -44,13 +62,6 @@ public class Course {
         this.id = id;
     }
 
-    public String getTeacher() {
-        return teacher;
-    }
-
-    public void setTeacher(String teacher) {
-        this.teacher = teacher;
-    }
 
     public String getLocation() {
         return location;

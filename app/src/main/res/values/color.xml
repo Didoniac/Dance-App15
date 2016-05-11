@@ -10,4 +10,5 @@
     <color name="black">#000000</color>
     <color name="light_green">#00e600</color>
     <color name="water_blue">#66ffff</color>
+    <color name="transparent">#10000000</color>
 </resources>

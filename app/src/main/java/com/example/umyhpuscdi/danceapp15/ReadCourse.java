@@ -70,7 +70,7 @@ public class ReadCourse extends DialogFragment {
             price = mainActivity.courses.get(i).getPrice();
             priceString = String.valueOf(price );
             locationString = mainActivity.courses.get(i).getLocation();
-            teacherNameString = mainActivity.courses.get(i).getTeacher();
+            teacherNameString = mainActivity.teacherString;
             courseStatusString = mainActivity.courses.get(i).getStatus();
             courseLevelString = mainActivity.courses.get(i).getLevel();
             danceStyleString = mainActivity.courses.get(i).getDanceStyle();

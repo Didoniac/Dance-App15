@@ -8,7 +8,7 @@ import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.app.DialogFragment;
-import android.support.v4.app.Fragment;
+
 import android.support.v4.app.FragmentManager;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -18,8 +18,12 @@ import android.view.inputmethod.InputMethodManager;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.LinearLayout;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.RelativeLayout;
 import android.widget.ScrollView;
 import android.widget.Spinner;
@@ -37,23 +41,28 @@ import java.util.Date;
 
 
 /**
- * A simple {@link Fragment} subclass.
+ * A simple {@link DialogFragment} subclass.
  */
 public class CreateEditCourse extends DialogFragment {
 
-    EditText editTitle, durationOfOneCourse, priceOfCourse, editLocation, editDescription;
+    EditText editTitle, durationOfOneCourse, priceOfCourse, editLocation, editDescription, numberOfCourses;
     Button buttonDone, buttonCancel;
     RelativeLayout fragment;
+
     String teacherName,courseStatus,courseLevel,danceStyle;
+
+    CheckBox bea, anna, cecilia, fia;
+    Boolean beaCheck, annaCheck, ceciliaCheck, fiaCheck;
+    ArrayList<String> checkedTeachers = new ArrayList<>();
+
 
 
     MainActivity mainActivity;
 
             static Button buttonTime;
-    Spinner statusSpinner, levelSpinner,danceStyleSpinner,teacherSpinner;
+    Spinner statusSpinner, levelSpinner,danceStyleSpinner;
 
-    ArrayAdapter<String> adapterForTeacherSpinner;
-    ArrayList<String> teacherList = new ArrayList<>();
+
 
     ArrayAdapter<String> adapterForStatusSpinner;
     ArrayList<String> statusList = new ArrayList<>();
@@ -78,6 +87,10 @@ public class CreateEditCourse extends DialogFragment {
                              Bundle bundle) {
         // Inflate the layout for this fragment
         bundle = getArguments();
+        annaCheck = false;
+        beaCheck = false;
+        ceciliaCheck = false;
+        fiaCheck = false;
 
         mainActivity = (MainActivity) getActivity();
 
@@ -96,8 +109,13 @@ public class CreateEditCourse extends DialogFragment {
         editDescription = (EditText) v.findViewById(R.id.description);
         durationOfOneCourse = (EditText) v.findViewById(R.id.durationOfOneCourse);
         priceOfCourse = (EditText) v.findViewById(R.id.priceOfCourse);
+        numberOfCourses = (EditText)v.findViewById(R.id.numberOfCourses);
 
-        teacherSpinner = (Spinner) v.findViewById(R.id.teacherSpinner);
+        fia = (CheckBox)v.findViewById(R.id.fiaDubbelsnurr);
+        anna = (CheckBox)v.findViewById(R.id.annaAndersson);
+        cecilia = (CheckBox)v.findViewById(R.id.ceciliaCitron);
+        bea = (CheckBox)v.findViewById(R.id.beaBearnaisesås);
+
         statusSpinner = (Spinner) v.findViewById(R.id.statusSpinner);
         levelSpinner = (Spinner) v.findViewById(R.id.levelSpinner);
         danceStyleSpinner = (Spinner) v.findViewById(R.id.danceStyleSpinner);
@@ -112,11 +130,6 @@ public class CreateEditCourse extends DialogFragment {
         fragment = (RelativeLayout) v.findViewById(R.id.fragment);
 
 
-
-        teacherList.add("Danslärare");
-        teacherList.add("Anna Andersson");
-        teacherList.add("Bea Bernaisesås");
-        teacherList.add("Cecilia Citron");
 
         statusList.add("Kursstatus");
         statusList.add("Inställd");
@@ -137,11 +150,8 @@ public class CreateEditCourse extends DialogFragment {
         danceStyleList.add("Slow");
         danceStyleList.add("Autentisk jazz");
 
-      //  adapterForTeacherSpinner = new ArrayAdapter(getActivity(), android.R.layout.simple_spinner_item, teacherList);
-        adapterForTeacherSpinner = new ArrayAdapter(getActivity(), R.layout.spinnerlayout, teacherList);
-        adapterForTeacherSpinner.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-     //   adapterForTeacherSpinner.setDropDownViewResource(R.layout.spinnerlayout);
-        teacherSpinner.setAdapter(adapterForTeacherSpinner);
+
+
 
        // adapterForStatusSpinner = new ArrayAdapter(getActivity(), android.R.layout.simple_spinner_item, statusList);
         adapterForStatusSpinner = new ArrayAdapter(getActivity(), R.layout.spinnerlayout, statusList);
@@ -181,19 +191,9 @@ public class CreateEditCourse extends DialogFragment {
             }
         });
 
-        teacherSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-             @Override
-             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                 teacherName = parent.getItemAtPosition(position).toString();
 
-             }
 
-             @Override
-             public void onNothingSelected(AdapterView<?> parent) {
 
-             }
-        }
-        );
 
         statusSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
              @Override
@@ -246,7 +246,7 @@ public class CreateEditCourse extends DialogFragment {
                     try {
                         object.put("title", editTitle.getText().toString());
 
-                        descriptionObject.put("teacher", teacherName);
+
                         descriptionObject.put("description", editDescription.getText().toString());
                         descriptionObject.put("level", courseLevel);
                         descriptionObject.put("location", editLocation.getText().toString());
@@ -255,6 +255,34 @@ public class CreateEditCourse extends DialogFragment {
                         descriptionObject.put("price", priceOfCourse.getText().toString());
                         descriptionObject.put("courseDurationInMinutes",
                                 Integer.parseInt(durationOfOneCourse.getText().toString()));
+                        descriptionObject.put("numberOfCourses", Integer.parseInt(numberOfCourses.getText().toString()));
+
+
+                        if(anna.isChecked()){
+                            checkedTeachers.add("Anna");
+                        }else {//Do nothing
+                        }
+                        if(cecilia.isChecked()){
+                            checkedTeachers.add("Cecilia");
+                        }else{//Do nothing
+                        }
+                        if(fia.isChecked()){
+                            checkedTeachers.add("Fia");
+                        }else{//Do nothing
+                        }
+                        if(bea.isChecked()){
+                            checkedTeachers.add("Bea");
+                        }else{//Do nothing
+                        }
+
+                        JSONArray tempTeachers = new JSONArray();
+                        for (int i = 0; i < checkedTeachers.size(); i++){
+
+                            tempTeachers.put(checkedTeachers.get(i));
+
+                        }
+                        descriptionObject.put("teacher", tempTeachers);
+
 
                         //TODO add multiple dates functionality.
                         ArrayList<String> dates = new ArrayList<>();
@@ -284,7 +312,7 @@ public class CreateEditCourse extends DialogFragment {
                         Log.i("TAG", "POST");
                         AsyncCourse asyncCourse = new AsyncCourse(mainActivity, object, 0);
                         asyncCourse.execute("POST", "lists/" + "258/" + "tasks/");
-                        dismiss();
+                                dismiss();
                     } else {
                         Log.i("TAG", "PUT to id: " + course.getId());
                         AsyncCourse asyncCourse = new AsyncCourse(mainActivity, object, 0);
@@ -308,6 +336,62 @@ public class CreateEditCourse extends DialogFragment {
             course = mainActivity.courses.get(i);
             fillInfo();
         }
+
+        cecilia.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if(isChecked){
+                    Toast.makeText(getActivity(), "Cecilia checkad", Toast.LENGTH_SHORT).show();
+                    ceciliaCheck = isChecked;
+                }else{
+                    ceciliaCheck = isChecked;
+                }
+
+            }
+        });
+        anna.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+
+
+                if (isChecked){
+                    annaCheck = isChecked;
+
+                    Toast.makeText(getActivity(), "Anna checkad", Toast.LENGTH_SHORT).show();
+                }else{
+
+                    annaCheck = isChecked;
+                }
+
+
+            }
+        });
+        bea.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if(isChecked){
+                    beaCheck = isChecked;
+                    Toast.makeText(getActivity(), "Bea checkad", Toast.LENGTH_SHORT).show();
+                }else{
+                    beaCheck = isChecked;
+                }
+
+
+            }
+        });
+        fia.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if(isChecked){
+                    fiaCheck = isChecked;
+                    Toast.makeText(getActivity(), "Fia checkad", Toast.LENGTH_SHORT).show();
+                }else{
+                    fiaCheck = isChecked;
+                }
+
+
+            }
+        });
 
         return v;
     }
@@ -338,6 +422,12 @@ public class CreateEditCourse extends DialogFragment {
             allFieldsAreFilled = false;
         }
 
+        if(numberOfCourses.getText().toString().length() == 0){
+            errorString += "\nAntal tillfällen";
+            allFieldsAreFilled = false;
+        }
+
+
         if(durationOfOneCourse.getText().toString().length() == 0) {
             errorString += "\nLängd på kurstillfällen";
             allFieldsAreFilled = false;
@@ -353,11 +443,6 @@ public class CreateEditCourse extends DialogFragment {
             allFieldsAreFilled = false;
         }
 
-        if (teacherSpinner.getSelectedItem() == null
-                || teacherSpinner.getSelectedItem().equals("Danslärare")) {
-            errorString += "\nDanslärare";
-            allFieldsAreFilled = false;
-        }
 
         if (statusSpinner.getSelectedItem() == null
                 || statusSpinner.getSelectedItem().equals("Kursstatus")) {
@@ -387,6 +472,9 @@ public class CreateEditCourse extends DialogFragment {
         }
         return allFieldsAreFilled;
     }
+
+
+
 
     public void showDatePickerDialog(View v) {
         fm = getActivity().getSupportFragmentManager();// Hämtar fragmentManager från aktiviteten
@@ -444,6 +532,8 @@ public class CreateEditCourse extends DialogFragment {
         priceOfCourse.setText(s);
         s = "" + course.getCourseDurationInMinutes();
         durationOfOneCourse.setText(s);
+        String tmpNumberOfCourses = Integer.toString (course.getNumberOfCourses());
+        numberOfCourses.setText(tmpNumberOfCourses);
         buttonTime.setText(course.getDates().get(0));
         int i;
         for (i=0; i<levelSpinner.getCount(); i++) {
@@ -461,11 +551,27 @@ public class CreateEditCourse extends DialogFragment {
                 statusSpinner.setSelection(i);
             }
         }
-        for (i=0; i<teacherSpinner.getCount(); i++) {
-            if (teacherSpinner.getItemAtPosition(i).equals(course.getTeacher())) {
-                teacherSpinner.setSelection(i);
+
+
+        for (i = 0; i < course.getTeacher().size(); i++){
+            if(course.getTeacher().get(i).toString().equals("Fia")){
+                fia.setChecked(true);
+
+            }
+            else if(course.getTeacher().get(i).toString().equals("Bea")){
+                bea.setChecked(true);
+
+            }
+            else if(course.getTeacher().get(i).toString().equals("Cecilia")){
+                cecilia.setChecked(true);
+
+            }
+            else if(course.getTeacher().get(i).toString().equals("Anna")){
+                anna.setChecked(true);
+
             }
         }
+
     }
 
     @Override
@@ -484,3 +590,4 @@ public class CreateEditCourse extends DialogFragment {
         super.onResume();
     }
 }
+
