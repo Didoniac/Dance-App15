@@ -69,6 +69,7 @@ public class ReadCourse extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         v = inflater.inflate(R.layout.fragment_read_course, container, false);
+        userDetailActivity = (UserDetailActivity) getActivity();
 
         /////////////////////////////////////////////////////////////////
 
@@ -88,8 +89,6 @@ public class ReadCourse extends Fragment {
         description = (TextView) v.findViewById(R.id.description);
 
 /////////////////////////////////////////////////////////////////
-
-        userDetailActivity = (UserDetailActivity) getActivity();
 
         courseTitleString = "";
         DecimalFormat df = new DecimalFormat();
@@ -143,7 +142,16 @@ public class ReadCourse extends Fragment {
         courseStatusString = userDetailActivity.course.getStatus();
         locationString = userDetailActivity.course.getLocation();
 
-        teacherNameString = userDetailActivity.course.getTeacher();
+        StringBuilder builder = new StringBuilder();
+
+        for (int i = 0; i < userDetailActivity.course.getTeacher().size(); i++){
+            builder.append(userDetailActivity.course.getTeacher().get(i));
+            builder.append(", ");
+        }
+
+        builder.delete(builder.length()-2, builder.length()-1);
+        teacherNameString = builder.toString();
+
         descriptionString = userDetailActivity.course.getDescription();
 
         level.setText("Nivå: "+courseLevelString);

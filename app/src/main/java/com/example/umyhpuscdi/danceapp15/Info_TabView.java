@@ -19,6 +19,8 @@ import android.view.inputmethod.InputMethodManager;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.RelativeLayout;
 import android.widget.Spinner;
@@ -41,19 +43,21 @@ import java.util.Date;
 public class Info_TabView extends Fragment {
 
 
-    EditText editTitle, durationOfOneCourse, priceOfCourse, editLocation, editDescription;
+    EditText editTitle, durationOfOneCourse, priceOfCourse, editLocation, editDescription, numberOfCourses;
     Button buttonDone, buttonCancel;
     RelativeLayout fragment;
     String teacherName,courseStatus,courseLevel,danceStyle;
+
+    CheckBox bea, anna, cecilia, fia;
+    ArrayList<String> checkedTeachers = new ArrayList<>();
+
+
 
 
     AdminDetailActivity adminDetailActivity;
 
     static Button buttonTime;
-    Spinner statusSpinner, levelSpinner,danceStyleSpinner,teacherSpinner;
-
-    ArrayAdapter<String> adapterForTeacherSpinner;
-    ArrayList<String> teacherList = new ArrayList<>();
+    Spinner statusSpinner, levelSpinner,danceStyleSpinner;
 
     ArrayAdapter<String> adapterForStatusSpinner;
     ArrayList<String> statusList = new ArrayList<>();
@@ -90,11 +94,16 @@ public class Info_TabView extends Fragment {
         editDescription = (EditText) v.findViewById(R.id.description);
         durationOfOneCourse = (EditText) v.findViewById(R.id.durationOfOneCourse);
         priceOfCourse = (EditText) v.findViewById(R.id.priceOfCourse);
+        numberOfCourses = (EditText)v.findViewById(R.id.numberOfCourses);
 
-        teacherSpinner = (Spinner) v.findViewById(R.id.teacherSpinner);
         statusSpinner = (Spinner) v.findViewById(R.id.statusSpinner);
         levelSpinner = (Spinner) v.findViewById(R.id.levelSpinner);
         danceStyleSpinner = (Spinner) v.findViewById(R.id.danceStyleSpinner);
+
+        fia = (CheckBox)v.findViewById(R.id.fiaDubbelsnurr);
+        anna = (CheckBox)v.findViewById(R.id.annaAndersson);
+        cecilia = (CheckBox)v.findViewById(R.id.ceciliaCitron);
+        bea = (CheckBox)v.findViewById(R.id.beaBearnaisesås);
 
         editLocation = (EditText) v.findViewById(R.id.place);
         //editTimeAndDate = (EditText)v.findViewById(R.id.timeAndDate);
@@ -104,13 +113,6 @@ public class Info_TabView extends Fragment {
         buttonDone = (Button) v.findViewById(R.id.buttonDone);
         buttonTime = (Button) v.findViewById(R.id.dateTimeButton);
         fragment = (RelativeLayout) v.findViewById(R.id.fragment);
-
-
-
-        teacherList.add("Danslärare");
-        teacherList.add("Anna Andersson");
-        teacherList.add("Bea Bernaisesås");
-        teacherList.add("Cecilia Citron");
 
         statusList.add("Kursstatus");
         statusList.add("Inställd");
@@ -130,12 +132,6 @@ public class Info_TabView extends Fragment {
         danceStyleList.add("Balboa");
         danceStyleList.add("Slow");
         danceStyleList.add("Autentisk jazz");
-
-        //  adapterForTeacherSpinner = new ArrayAdapter(getActivity(), android.R.layout.simple_spinner_item, teacherList);
-        adapterForTeacherSpinner = new ArrayAdapter(getActivity(), R.layout.spinnerlayout, teacherList);
-        adapterForTeacherSpinner.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        //   adapterForTeacherSpinner.setDropDownViewResource(R.layout.spinnerlayout);
-        teacherSpinner.setAdapter(adapterForTeacherSpinner);
 
         // adapterForStatusSpinner = new ArrayAdapter(getActivity(), android.R.layout.simple_spinner_item, statusList);
         adapterForStatusSpinner = new ArrayAdapter(getActivity(), R.layout.spinnerlayout, statusList);
@@ -174,20 +170,6 @@ public class Info_TabView extends Fragment {
                 showDatePickerDialog(v);
             }
         });
-
-        teacherSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-                                                     @Override
-                                                     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                                                         teacherName = parent.getItemAtPosition(position).toString();
-
-                                                     }
-
-                                                     @Override
-                                                     public void onNothingSelected(AdapterView<?> parent) {
-
-                                                     }
-                                                 }
-        );
 
         statusSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
                                                     @Override
@@ -249,6 +231,32 @@ public class Info_TabView extends Fragment {
                         descriptionObject.put("price", priceOfCourse.getText().toString());
                         descriptionObject.put("courseDurationInMinutes",
                                 Integer.parseInt(durationOfOneCourse.getText().toString()));
+                        descriptionObject.put("numberOfCourses", Integer.parseInt(numberOfCourses.getText().toString()));
+
+                        if(anna.isChecked()){
+                            checkedTeachers.add("Anna");
+                        }else {//Do nothing
+                        }
+                        if(cecilia.isChecked()){
+                            checkedTeachers.add("Cecilia");
+                        }else{//Do nothing
+                        }
+                        if(fia.isChecked()){
+                            checkedTeachers.add("Fia");
+                        }else{//Do nothing
+                        }
+                        if(bea.isChecked()){
+                            checkedTeachers.add("Bea");
+                        }else{//Do nothing
+                        }
+
+                        JSONArray tempTeachers = new JSONArray();
+                        for (int i = 0; i < checkedTeachers.size(); i++){
+
+                            tempTeachers.put(checkedTeachers.get(i));
+
+                        }
+                        descriptionObject.put("teacher", tempTeachers);
 
                         //TODO add multiple dates functionality.
                         ArrayList<String> dates = new ArrayList<>();
@@ -301,6 +309,32 @@ public class Info_TabView extends Fragment {
             fillInfo();
         }
 
+        cecilia.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+
+
+            }
+        });
+        anna.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+
+            }
+        });
+        bea.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+
+            }
+        });
+        fia.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+
+            }
+        });
+
         return v;
     }
 
@@ -345,12 +379,6 @@ public class Info_TabView extends Fragment {
             allFieldsAreFilled = false;
         }
 
-        if (teacherSpinner.getSelectedItem() == null
-                || teacherSpinner.getSelectedItem().equals("Danslärare")) {
-            errorString += "\nDanslärare";
-            allFieldsAreFilled = false;
-        }
-
         if (statusSpinner.getSelectedItem() == null
                 || statusSpinner.getSelectedItem().equals("Kursstatus")) {
             errorString += "\nKursstatus";
@@ -371,6 +399,16 @@ public class Info_TabView extends Fragment {
 
         if (editDescription.getText().toString().length() == 0) {
             errorString += "\nBeskrivning";
+            allFieldsAreFilled = false;
+        }
+
+        if(numberOfCourses.getText().toString().length() == 0){
+            errorString += "\nAntal tillfällen";
+            allFieldsAreFilled = false;
+        }
+
+        if (!anna.isChecked() && !fia.isChecked() && !cecilia.isChecked() && !bea.isChecked()) {
+            errorString += "\nLärare";
             allFieldsAreFilled = false;
         }
 
@@ -476,6 +514,8 @@ public class Info_TabView extends Fragment {
         priceOfCourse.setText(s);
         s = "" + adminDetailActivity.course.getCourseDurationInMinutes();
         durationOfOneCourse.setText(s);
+        String tmpNumberOfCourses = Integer.toString (adminDetailActivity.course.getNumberOfCourses());
+        numberOfCourses.setText(tmpNumberOfCourses);
         buttonTime.setText(adminDetailActivity.course.getDates().get(0));
         int i;
         for (i=0; i<levelSpinner.getCount(); i++) {
@@ -493,9 +533,23 @@ public class Info_TabView extends Fragment {
                 statusSpinner.setSelection(i);
             }
         }
-        for (i=0; i<teacherSpinner.getCount(); i++) {
-            if (teacherSpinner.getItemAtPosition(i).equals(adminDetailActivity.course.getTeacher())) {
-                teacherSpinner.setSelection(i);
+
+        for (i = 0; i < adminDetailActivity.course.getTeacher().size(); i++){
+            if(adminDetailActivity.course.getTeacher().get(i).toString().equals("Fia")){
+                fia.setChecked(true);
+
+            }
+            else if(adminDetailActivity.course.getTeacher().get(i).toString().equals("Bea")){
+                bea.setChecked(true);
+
+            }
+            else if(adminDetailActivity.course.getTeacher().get(i).toString().equals("Cecilia")){
+                cecilia.setChecked(true);
+
+            }
+            else if(adminDetailActivity.course.getTeacher().get(i).toString().equals("Anna")){
+                anna.setChecked(true);
+
             }
         }
     }
