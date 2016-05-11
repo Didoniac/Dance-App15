@@ -4,40 +4,55 @@
     android:orientation="vertical"
     android:layout_height="match_parent"
     android:layout_width="match_parent">
+
+    <LinearLayout
+        android:layout_gravity="center_horizontal"
+        android:orientation="vertical"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
     <TextView
-        android:padding="@dimen/activity_horizontal_margin"
+        android:padding="@dimen/activity_text_padding"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/titel"
+        android:textSize="@dimen/activity_text_size"
         android:id="@+id/titleTextView"/>
     <TextView
-        android:padding="@dimen/activity_horizontal_margin"
+        android:padding="@dimen/activity_text_padding"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/teacher"
+        android:textSize="@dimen/activity_text_size"
         android:id="@+id/teacherTextView"/>
     <TextView
-        android:padding="@dimen/activity_horizontal_margin"
+        android:padding="@dimen/activity_text_padding"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/dansstil"
+        android:textSize="@dimen/activity_text_size"
         android:id="@+id/danceStyleTextView"/>
     <TextView
-        android:padding="@dimen/activity_horizontal_margin"
+        android:padding="@dimen/activity_text_padding"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/status"
+        android:textSize="@dimen/activity_text_size"
         android:id="@+id/statusTextView"/>
     <TextView
-        android:padding="@dimen/activity_horizontal_margin"
+        android:padding="@dimen/activity_text_padding"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/status"
+        android:text="@string/level"
+        android:textSize="@dimen/activity_text_size"
         android:id="@+id/levelTextView"/>
     <TextView
-        android:padding="@dimen/activity_horizontal_margin"
+        android:padding="@dimen/activity_text_padding"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/status"
+        android:text="@string/date"
+        android:textSize="@dimen/activity_text_size"
         android:id="@+id/datesTextView"/>
+
+    </LinearLayout>
+
 </LinearLayout>

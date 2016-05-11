@@ -14,4 +14,5 @@
     <color name="primary_color_dark">#1a7ab7</color>
     <color name="accent_color">#dd3333</color>
     <color name="transparent">#10000000</color>
+    <color name="yellow">#FFCC00</color>
 </resources>
