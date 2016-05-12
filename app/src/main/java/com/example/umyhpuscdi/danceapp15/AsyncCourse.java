@@ -93,7 +93,7 @@ public class AsyncCourse extends AsyncTask<String, Void, String> {
                     }
                     in.close();
 
-                    if (params[1].equals("lists/"+"258"+"/tasks/") && mainActivity != null) {
+                    if (params[1].equals("lists/"+"2"+"/tasks/") && mainActivity != null) {
                         //GET för ALLA kurser i MainActivity
 
                         JSONArray jsonCourses = new JSONArray(response.toString());
