@@ -47,7 +47,9 @@ public class login_Dialog_Fragment extends DialogFragment {
                         password.getText().toString().equals("admin")) {
 
                     Toast.makeText(getContext(), "Logged In...", Toast.LENGTH_SHORT).show();
+
                     ((MainActivity)getActivity()).loggedIn = true;
+                    ((MainActivity)getActivity()).saveData();           // sparar login-variabel
 
                     ((MainActivity)getActivity()).FAB.show();
                     //TODO change to admin view.

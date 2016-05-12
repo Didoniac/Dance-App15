@@ -216,6 +216,8 @@ public class Info_TabView extends Fragment {
         buttonDone.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                ((MainActivity)getActivity()).loggedIn = true;
                 if (fieldsAreFilled()) {
                     JSONObject object = new JSONObject();
                     JSONObject descriptionObject = new JSONObject();
@@ -292,7 +294,7 @@ public class Info_TabView extends Fragment {
                         AsyncCourse asyncCourse = new AsyncCourse(adminDetailActivity, object, 0);
                         asyncCourse.execute("PUT", "lists/" + "258/" + "tasks/" + adminDetailActivity.course.getId() + "/");
                         adminDetailActivity.onBackPressed();
-                    }
+                }
                 }
             }
         });

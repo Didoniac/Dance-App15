@@ -2,6 +2,7 @@ package com.example.umyhpuscdi.danceapp15;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.DialogFragment;
 import android.support.v4.app.FragmentManager;
@@ -19,6 +20,7 @@ import android.widget.ListView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
+
 
 import java.util.ArrayList;
 
@@ -38,9 +40,11 @@ public class MainActivity extends AppCompatActivity {
     protected ReadCourse dialogFragReadCourse;
     protected FloatingActionButton FAB;
 
-    protected FragmentManager fm;
-    protected boolean loggedIn;
 
+    protected FragmentManager fm;
+    static protected boolean loggedIn;
+    public final String KEY_NAME = "KEY_NAME";
+    public static final String SAVE_AND_LOAD_LOGIN = "SAVE_AND_LOAD_LOGIN";
     String teacherString;
 
 
@@ -49,7 +53,8 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         final MainActivity activity = this;
-        loggedIn = false;
+        loadData();
+        Log.i("TAG_FRAG","onCreate i Main"+ loggedIn);
 
         String kanAllaSeDet = "Hej önskar Johan";
         String str_dhana = "Hej alla Dance grupp";
@@ -118,6 +123,7 @@ public class MainActivity extends AppCompatActivity {
         ////////////Här lägger Mats in kod-ovan ////////////////
 
         FAB = (FloatingActionButton) findViewById(R.id.addCourseFAB);
+        Log.i("TAG_FRAG","boolean i logged in"+ loggedIn);
         if (!loggedIn)
             FAB.hide();
 
@@ -185,7 +191,6 @@ public class MainActivity extends AppCompatActivity {
         asyncCourse.execute("GET","lists/258/tasks/");
     }
 
-    ////////////Här lägger Mats in kod-nedan ////////////////
     private void buildDanceCourseList(){
         adapterDanceListView = new MyArrayAdapter(this,R.layout.dance_list_item, courses);// Initsierar en arrayadapter
         listView.setAdapter(adapterDanceListView);
@@ -230,5 +235,27 @@ public class MainActivity extends AppCompatActivity {
             return blowupmenu;                                                      // Här returnerars menuitemblowup.xmls root-layout
         }
     }
-////////////Här lägger Mats in kod-ovan ////////////////
+
+    public void saveData(){                                                         // Sparar undan den boolan som visar om jag är inloggad
+        SharedPreferences prefs = getSharedPreferences(SAVE_AND_LOAD_LOGIN,0);
+        SharedPreferences.Editor editor = prefs.edit();                             // Skapar ett Editor-objekt
+        editor.putBoolean(KEY_NAME, loggedIn);                                        // Skapar post
+        editor.commit();                                                            // Sparar till fil
+    }
+
+
+    public void loadData(){                                                             // Laddar den boolan som visar om jag är inloggad
+        SharedPreferences prefs = getSharedPreferences(SAVE_AND_LOAD_LOGIN, 0);           // Prefs får filnamnet där SAVE_AND_LOAD_LOGIN sparas
+        loggedIn = prefs.getBoolean(KEY_NAME, false);
+        saveData();
+    }
+
+
+    protected void onDestroy()
+    {
+        super.onDestroy();
+        Log.i("TAG_FRAG"," onDestroy() körs");
+    }
+
+
 }
