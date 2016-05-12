@@ -116,20 +116,17 @@ public class Info_TabView extends Fragment {
         buttonTime = (Button) v.findViewById(R.id.dateTimeButton);
         fragment = (RelativeLayout) v.findViewById(R.id.fragment);
 
-        statusList.add("Kursstatus");
         statusList.add("Inställd");
         statusList.add("Pågående");
         statusList.add("Kommande");
         statusList.add("Avslutad");
 
-        levelList.add("Nivå");
         levelList.add("Nybörjare");
         levelList.add("Nybörjarmedel");
         levelList.add("Medelavancerad");
         levelList.add("Avancerad");
         levelList.add("Invitational");
 
-        danceStyleList.add("Dansstil");
         danceStyleList.add("Lindyhop");
         danceStyleList.add("Balboa");
         danceStyleList.add("Slow");

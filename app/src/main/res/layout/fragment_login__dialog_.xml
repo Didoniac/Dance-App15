@@ -1,7 +1,7 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/lite_red"
+    android:background="@color/white"
     tools:context="com.example.umyhpuscdi.danceapp15.login_Dialog_Fragment">
 
     <!-- TODO: Update blank fragment layout -->
@@ -9,6 +9,7 @@
     <RelativeLayout
         android:id="@+id/rely_dig_frag"
         android:layout_gravity="center"
+        android:gravity="center_horizontal"
         android:layout_width="330dp"
         android:layout_height="250dp">
 
@@ -16,7 +17,7 @@
         android:id="@+id/edittxt_användernamn"
         android:hint="Användarnamn"
         android:layout_marginTop="30dp"
-        android:layout_marginLeft="30dp"
+        android:layout_centerHorizontal="true"
         android:maxLines="1"
         android:lines="1"
         android:layout_width="270dp"
@@ -29,28 +30,38 @@
         android:maxLines="1"
         android:lines="1"
         android:password="true"
-        android:layout_marginLeft="30dp"
+        android:layout_centerHorizontal="true"
         android:layout_marginTop="15dp"
         android:layout_width="270dp"
         android:layout_height="wrap_content" />
 
-    <Button
-        android:id="@+id/btn_loggain"
-        android:text="Logga in"
-        android:layout_below="@+id/edittxt_lösenord"
-        android:layout_marginLeft="50dp"
-        android:layout_marginTop="15dp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
-
-        <Button
-            android:id="@+id/btn_avbryt"
-            android:text="Avbryt"
-            android:layout_marginLeft="160dp"
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:layout_marginTop="15dp"
-            android:layout_below="@+id/edittxt_lösenord"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:gravity="center_horizontal"
+            android:layout_below="@id/edittxt_lösenord">
+
+            <Button
+                android:id="@+id/btn_loggain"
+                android:text="Logga in"
+                android:background="@color/primary_color"
+                android:layout_gravity="center_horizontal"
+                android:textColor="@color/white"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <Button
+                android:id="@+id/btn_avbryt"
+                android:text="Avbryt"
+                android:background="@color/primary_color"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginLeft="30dp"
+                android:textColor="@color/white"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+        </LinearLayout>
 
     </RelativeLayout>
 

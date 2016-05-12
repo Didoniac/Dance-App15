@@ -3,9 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:id="@+id/fragment"
-
-    tools:context="com.example.umyhpuscdi.danceapp15.CreateEditCourse"
-    android:background="@color/lite_rose">
+    android:background="@color/white">
 
     <!-- TODO: Update blank fragment layout -->
 
@@ -20,22 +18,24 @@
             android:layout_height="match_parent"
             android:orientation="vertical">
 
-        <LinearLayout
-            android:id="@+id/linLay"
-            android:layout_margin="25dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:gravity="center">
-
             <TextView
-                android:layout_marginBottom="5dp"
+                android:padding="5dp"
+                android:textColor="@color/white"
+                android:background="@color/primary_color_dark"
                 android:gravity="center"
                 android:textSize="22sp"
                 android:id="@+id/textView_info"
                 android:text="Redigera kursens information"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
+
+        <LinearLayout
+            android:id="@+id/linLay"
+            android:padding="15dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center">
 
             <LinearLayout
                 android:orientation="horizontal"
@@ -45,12 +45,14 @@
 
                 <TextView
                     android:textSize="18sp"
+                    android:textColor="@color/black"
                     android:text="Kurstitel: "
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content" />
 
                 <EditText
                     android:textSize="20sp"
+                    android:textColor="@color/black"
                     android:id="@+id/title"
                     android:layout_marginLeft="53dp"
                     android:layout_width="match_parent"
@@ -70,12 +72,14 @@
                 <TextView
                     android:textSize="18sp"
                     android:text="Startdatum: "
+                    android:textColor="@color/black"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content" />
 
                 <Button
                     android:layout_marginLeft="36dp"
-                    android:background="@color/transparent"
+                    android:background="@color/primary_color"
+                    android:textColorHint="@color/white"
                     android:id="@+id/dateTimeButton"
                     android:layout_width="match_parent"
                     android:layout_height="36dp"
@@ -92,6 +96,7 @@
                 <TextView
                     android:textSize="18sp"
                     android:text="Antal tillfällen: "
+                    android:textColor="@color/black"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content" />
 
@@ -99,6 +104,7 @@
                 android:inputType="number"
                 android:layout_marginLeft="10dp"
                 android:hint="Ange antal tillfällen"
+                android:textColor="@color/black"
                 android:id="@+id/numberOfCourses"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
@@ -117,12 +123,14 @@
                 <TextView
                     android:textSize="18sp"
                     android:text="Tid (min): "
+                    android:textColor="@color/black"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content" />
 
                 <EditText
                     android:layout_marginLeft="48dp"
                     android:id="@+id/durationOfOneCourse"
+                    android:textColor="@color/black"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="Längd per kurstillfälle" />
@@ -138,12 +146,14 @@
                 <TextView
                     android:textSize="18sp"
                     android:text="Kursens pris: "
+                    android:textColor="@color/black"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content" />
 
                 <EditText
                     android:layout_marginLeft="20dp"
                     android:id="@+id/priceOfCourse"
+                    android:textColor="@color/black"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:hint="Ange pris (kr)" />
@@ -159,12 +169,14 @@
                 <TextView
                     android:textSize="18sp"
                     android:text="Kursens plats: "
+                    android:textColor="@color/black"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content" />
 
                 <EditText
                     android:layout_marginLeft="10dp"
                     android:id="@+id/place"
+                    android:textColor="@color/black"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:hint="Ange plats" />
@@ -182,6 +194,7 @@
                     android:layout_gravity="top"
                     android:textSize="18sp"
                     android:text="Lärare: "
+                    android:textColor="@color/black"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content" />
 
@@ -198,6 +211,7 @@
                         android:id="@+id/ceciliaCitron"
                         android:gravity="right"
                         android:padding="10dp"
+                        android:textColor="@color/black"
                         android:text="Cecilia Citron"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -206,6 +220,7 @@
                         android:id="@+id/annaAndersson"
                         android:gravity="right"
                         android:padding="10dp"
+                        android:textColor="@color/black"
                         android:text="Anna Andersson"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -214,6 +229,7 @@
                         android:id="@+id/beaBearnaisesås"
                         android:gravity="right"
                         android:padding="10dp"
+                        android:textColor="@color/black"
                         android:text="Bea Bearnaisesås"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -222,6 +238,7 @@
                         android:id="@+id/fiaDubbelsnurr"
                         android:gravity="right"
                         android:padding="10dp"
+                        android:textColor="@color/black"
                         android:text="Fia Dubbelsnurr"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -242,12 +259,14 @@
                 android:layout_gravity="center_vertical"
                 android:textSize="18sp"
                 android:text="Status: "
+                android:textColor="@color/black"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
 
                 <Spinner
                     android:layout_marginLeft="60dp"
                     android:id="@+id/statusSpinner"
+                    android:textColor="@color/black"
                     android:textSize="30sp"
                     android:layout_width="match_parent"
                     android:layout_height="30dp"/>
@@ -265,6 +284,7 @@
                     android:layout_gravity="center_vertical"
                     android:textSize="18sp"
                     android:text="Nivå: "
+                    android:textColor="@color/black"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content" />
 
@@ -272,6 +292,7 @@
                     android:layout_marginLeft="75dp"
                     android:id="@+id/levelSpinner"
                     android:textSize="30sp"
+                    android:textColor="@color/black"
                     android:layout_width="match_parent"
                     android:layout_height="30dp"/>
 
@@ -288,6 +309,7 @@
                     android:layout_gravity="center_vertical"
                     android:textSize="18sp"
                     android:text="Dansstil: "
+                    android:textColor="@color/black"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content" />
 
@@ -295,6 +317,7 @@
                     android:layout_marginLeft="45dp"
                     android:id="@+id/danceStyleSpinner"
                     android:textSize="30sp"
+                    android:textColor="@color/black"
                     android:layout_width="match_parent"
                     android:layout_height="30dp"/>
 
@@ -306,6 +329,7 @@
                     android:layout_gravity="center_vertical"
                     android:textSize="18sp"
                     android:text="Beskrivning: "
+                    android:textColor="@color/black"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content" />
 
@@ -313,6 +337,7 @@
             <EditText
                 android:layout_marginTop="10dp"
                 android:id="@+id/description"
+                android:textColor="@color/black"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Description..." />
@@ -335,16 +360,20 @@
         >
 
         <Button
-            android:text="done"
+            android:text="OK"
             android:layout_margin="15dp"
             android:id="@+id/buttonDone"
+            android:textColor="@color/white"
+            android:background="@color/primary_color"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
         <Button
             android:layout_margin="15dp"
-            android:text="Close"
+            android:text="Avbryt"
             android:layout_toRightOf="@id/buttonDone"
             android:id="@+id/buttonCancel"
+            android:textColor="@color/white"
+            android:background="@color/primary_color"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
 

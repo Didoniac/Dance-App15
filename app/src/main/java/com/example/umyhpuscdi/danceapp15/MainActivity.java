@@ -87,7 +87,7 @@ public class MainActivity extends AppCompatActivity {
                 if (loggedIn) {
                     Log.i("TAG_FRAG","boolean"+ loggedIn);
      //               dialogFragCreateEditCourse = new CreateEditCourse(); // ska vara ReadCousrse om man ej är inloggad
-                    Toast.makeText(activity, "Vald kurs:\n" + courses.get(position), Toast.LENGTH_LONG).show();
+       //             Toast.makeText(activity, "Vald kurs:\n" + courses.get(position), Toast.LENGTH_LONG).show();
      //               Bundle bundle = new Bundle();
      //               bundle.putInt("KEY", position);
      //               dialogFragCreateEditCourse.setArguments(bundle);
