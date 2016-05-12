@@ -9,13 +9,6 @@
         <dex dex="C:\Users\umyharumdh\AndroidStudioProjects\Final Dance App15\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-animated-vector-drawable-23.2.1_0991e8d08bf6f4b2313a8b5dfd076ea8f128f3f1\classes.dex" />
     </item>
     <item
-        jar="C:\Users\umyharumdh\AndroidStudioProjects\Final Dance App15\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.2.1\jars\classes.jar"
-        jumboMode="true"
-        revision="23.0.2"
-        sha1="3be474b1b21b31cf2fa93fe6bd641ae108d96452">
-        <dex dex="C:\Users\umyharumdh\AndroidStudioProjects\Final Dance App15\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-v4-23.2.1_6ebb96b1d7d16c36102c8d596f87fcf0849460dd\classes.dex" />
-    </item>
-    <item
         jar="C:\Users\umyharumdh\AndroidStudioProjects\Final Dance App15\app\build\intermediates\exploded-aar\com.android.support\design\23.2.1\jars\classes.jar"
         jumboMode="true"
         revision="23.0.2"
@@ -40,14 +33,14 @@
         jar="C:\Users\umyharumdh\AndroidStudioProjects\Final Dance App15\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
         jumboMode="true"
         revision="23.0.2"
-        sha1="43864fa5d3672ecc706fc18c94b2ae3b363d215d">
+        sha1="4997d506c6d0b34110ee1f08589b9aaf1cbc79fb">
         <dex dex="C:\Users\umyharumdh\AndroidStudioProjects\Final Dance App15\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run-bootstrap_d182db63b77930ec569dbe3e0245a6509b1d2c0e\classes.dex" />
     </item>
     <item
         jar="C:\Users\umyharumdh\AndroidStudioProjects\Final Dance App15\app\build\intermediates\incremental-runtime-classes\debug\instant-run.jar"
         jumboMode="true"
         revision="23.0.2"
-        sha1="2bf216d8d7ba8653a3cbf94cd46168b16c482831">
+        sha1="1737c05a5d3dc873488bd06963fd2e0c7ee35acf">
         <dex dex="C:\Users\umyharumdh\AndroidStudioProjects\Final Dance App15\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run_85ebc11eda8b8d51cf918be4e6569025974c0fa6\classes.dex" />
     </item>
     <item
@@ -58,18 +51,25 @@
         <dex dex="C:\Users\umyharumdh\AndroidStudioProjects\Final Dance App15\app\build\intermediates\transforms\dex\debug\folders\1000\10\support-annotations-23.2.1_858b04edeb47883011e175ac7767e1ccf8eeae58\classes.dex" />
     </item>
     <item
-        jar="C:\Users\umyharumdh\AndroidStudioProjects\Final Dance App15\app\build\intermediates\exploded-aar\com.android.support\recyclerview-v7\23.2.1\jars\classes.jar"
-        jumboMode="true"
-        revision="23.0.2"
-        sha1="e3885783ff8926ed9e2fdcd16816c2e1e73e7aee">
-        <dex dex="C:\Users\umyharumdh\AndroidStudioProjects\Final Dance App15\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-recyclerview-v7-23.2.1_c8ccc5d74c5a85dcea9892ce8bbefd3115b93d00\classes.dex" />
-    </item>
-    <item
         jar="C:\Users\umyharumdh\AndroidStudioProjects\Final Dance App15\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.2.1\jars\libs\internal_impl-23.2.1.jar"
         jumboMode="true"
         revision="23.0.2"
         sha1="607a3d0b8013b4ccbfeb0b7cb293351994e021fb">
         <dex dex="C:\Users\umyharumdh\AndroidStudioProjects\Final Dance App15\app\build\intermediates\transforms\dex\debug\folders\1000\10\internal_impl-23.2.1_272081f6d45031f83c4bc2a0a7c22d164d27b429\classes.dex" />
+    </item>
+    <item
+        jar="C:\Users\umyharumdh\AndroidStudioProjects\Final Dance App15\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.2.1\jars\classes.jar"
+        jumboMode="true"
+        revision="23.0.2"
+        sha1="3be474b1b21b31cf2fa93fe6bd641ae108d96452">
+        <dex dex="C:\Users\umyharumdh\AndroidStudioProjects\Final Dance App15\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-v4-23.2.1_6ebb96b1d7d16c36102c8d596f87fcf0849460dd\classes.dex" />
+    </item>
+    <item
+        jar="C:\Users\umyharumdh\AndroidStudioProjects\Final Dance App15\app\build\intermediates\exploded-aar\com.android.support\recyclerview-v7\23.2.1\jars\classes.jar"
+        jumboMode="true"
+        revision="23.0.2"
+        sha1="e3885783ff8926ed9e2fdcd16816c2e1e73e7aee">
+        <dex dex="C:\Users\umyharumdh\AndroidStudioProjects\Final Dance App15\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-recyclerview-v7-23.2.1_c8ccc5d74c5a85dcea9892ce8bbefd3115b93d00\classes.dex" />
     </item>
 
 </items>
