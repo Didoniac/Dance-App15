@@ -50,6 +50,8 @@ public class login_Dialog_Fragment extends DialogFragment {
                     ((MainActivity)getActivity()).loggedIn = true;
 
                     ((MainActivity)getActivity()).FAB.show();
+
+                    getActivity().invalidateOptionsMenu();
                     //TODO change to admin view.
 
 

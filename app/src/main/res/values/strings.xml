@@ -3,16 +3,17 @@
 
     <string name="hello_world">Hello world!</string>
     <string name="action_log_in">Log in (Admin)</string>
+    <string name="action_log_out">Log out (Admin)</string>
     <string name="action_settings">Settings</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="titel">Titel</string>
-    <string name="teacher">Lärare</string>
-    <string name="dansstil">Dansstil</string>
-    <string name="status">Status</string>
-    <string name="level">Level</string>
-    <string name="date">Date</string>
+    <string name="titel">Kurs:</string>
+    <string name="teacher">Lärare:</string>
+    <string name="dansstil">Dansstil:</string>
+    <string name="status">Status:</string>
+    <string name="level">Nivå:</string>
+    <string name="date">Startdatum:</string>
     <string name="descriptionDefault">Balboa utvecklades i Kalifornien under 1920-1930-talen. Det finns indikation på att dansen har ett samröre med Charleston. Dansen dansas till jazzmusik av swingtyp. Balboan dansas mycket tätt, bröstkorg mot bröstkorg. Balboa kan dansas i alla tempon, inklusive mycket mycket snabbt.
 
 Under 1920-talet korsbefruktades balboan med swingdans såsom den utfördes i Kalifornien vid denna tid, en dans besläktad med men inte identisk med lindy hop. Resultatet av denna </string>
