@@ -39,7 +39,8 @@ public class MainActivity extends AppCompatActivity {
     protected ListView listView;
     protected ReadCourse dialogFragReadCourse;
     protected FloatingActionButton FAB;
-
+    MenuItem menuLogIn;
+    MenuItem menuLogOut;
 
     protected FragmentManager fm;
     static protected boolean loggedIn;
@@ -163,6 +164,12 @@ public class MainActivity extends AppCompatActivity {
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_main, menu);
+
+        menuLogOut = menu.findItem(R.id.action_log_out);
+        menuLogIn = menu.findItem(R.id.action_log_in);
+
+        menuLogOut.setVisible(false);
+
         return true;
     }
 
@@ -174,16 +181,35 @@ public class MainActivity extends AppCompatActivity {
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
+       /*
         if (id == R.id.action_settings) {
             return true;
-        } else if (id == R.id.action_log_in) {
+        }
+        */if (id == R.id.action_log_in) {
 
             loginDialogFragment.show(fm,"logindialogfrag");
+        }else if(id == R.id.action_log_out){
 
-
+            loggedIn = false;
+            FAB.hide();
+            invalidateOptionsMenu();
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public boolean onPrepareOptionsMenu(Menu menu){
+        super.onPrepareOptionsMenu(menu);
+
+        if(loggedIn){
+            menuLogIn.setVisible(false);
+            menuLogOut.setVisible(true);
+        }else{
+            menuLogIn.setVisible(true);
+            menuLogOut.setVisible(false);
+        }
+        return true;
     }
 
     public void getCoursesFromServer() {

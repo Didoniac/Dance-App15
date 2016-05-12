@@ -52,6 +52,8 @@ public class login_Dialog_Fragment extends DialogFragment {
                     ((MainActivity)getActivity()).saveData();           // sparar login-variabel
 
                     ((MainActivity)getActivity()).FAB.show();
+
+                    getActivity().invalidateOptionsMenu();
                     //TODO change to admin view.
 
 
