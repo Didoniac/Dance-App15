@@ -28,6 +28,7 @@ public class MainActivity extends AppCompatActivity {
 
     LayoutInflater inflater;
 
+
     login_Dialog_Fragment loginDialogFragment;
 
     protected ArrayList<Course> courses = new ArrayList<>();
@@ -39,6 +40,8 @@ public class MainActivity extends AppCompatActivity {
 
     protected FragmentManager fm;
     protected boolean loggedIn;
+
+    String teacherString;
 
 
     @Override
@@ -207,11 +210,22 @@ public class MainActivity extends AppCompatActivity {
             TextView levelTextView = (TextView)blowupmenu.findViewById(R.id.levelTextView);
             TextView datesTextView = (TextView)blowupmenu.findViewById(R.id.datesTextView);
             danceCourseTitle.setText(courses.get(position).getTitle());
-            teacherTextView.setText(courses.get(position).getTeacher());
+
             danceStyleTextView.setText(courses.get(position).getDanceStyle());
             statusTextView.setText(courses.get(position).getStatus());
             levelTextView.setText(courses.get(position).getLevel());
             datesTextView.setText(courses.get(position).getDates().get(0));
+
+            StringBuilder builder = new StringBuilder();
+
+            for (int i = 0; i < courses.get(position).getTeacher().size(); i++){
+                builder.append(courses.get(position).getTeacher().get(i).toString());
+                builder.append(", ");
+            }
+
+            builder.delete(builder.length()-2, builder.length()-1);
+            teacherString = builder.toString();
+            teacherTextView.setText(teacherString);
 
             return blowupmenu;                                                      // Här returnerars menuitemblowup.xmls root-layout
         }

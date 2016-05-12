@@ -19,12 +19,14 @@
             android:layout_height="match_parent"
             android:orientation="vertical">
 
-            <ImageView
-                android:scaleType="fitXY"
-                android:background="@drawable/bakgrund_balboa"
-                android:id="@+id/courseImageView"
+            <Button
+                android:id="@+id/courseAttendButton"
+                android:text="Anmälan till kurs >"
+                android:background="@color/primary_color_dark"
+
                 android:layout_width="match_parent"
-                android:layout_height="170dp" />
+                android:layout_height="wrap_content" />
+
 
         <LinearLayout
             android:id="@+id/linLay"
@@ -40,13 +42,13 @@
                 >
 
                <LinearLayout
-                    android:background="@color/green"
+                    android:background="@color/white"
                    android:orientation="vertical"
                    android:layout_width="match_parent"
                    android:layout_height="match_parent">
 
                    <TextView
-                       android:textColor="@color/white"
+                       android:textColor="@color/black"
                        android:layout_marginBottom="5dp"
                        android:layout_marginTop="10dp"
                        android:layout_marginLeft="10dp"
@@ -56,7 +58,7 @@
                        android:layout_height="wrap_content"/>
 
                    <TextView
-                       android:textColor="@color/white"
+                       android:textColor="@color/black"
                        android:layout_marginBottom="5dp"
                        android:layout_marginLeft="10dp"
                        android:id="@+id/danceStyle"
@@ -64,7 +66,7 @@
                        android:layout_width="wrap_content"
                        android:layout_height="wrap_content"/>
                    <TextView
-                       android:textColor="@color/white"
+                       android:textColor="@color/black"
                        android:layout_marginBottom="5dp"
                        android:layout_marginLeft="10dp"
                        android:id="@+id/courseDate"
@@ -75,7 +77,7 @@
 
                    !-- Längd på kurstillfällen --!
                    <TextView
-                       android:textColor="@color/white"
+                       android:textColor="@color/black"
                        android:layout_marginBottom="5dp"
                        android:layout_marginLeft="10dp"
                        android:text="Längd per tillfälle: ??min"
@@ -83,7 +85,7 @@
                        android:layout_width="wrap_content"
                        android:layout_height="wrap_content" />
                    <TextView
-                       android:textColor="@color/white"
+                       android:textColor="@color/black"
                        android:layout_marginBottom="5dp"
                        android:layout_marginLeft="10dp"
                        android:text="Längd per tillfälle: ??min"
@@ -96,7 +98,7 @@
 
                    !-- Kurspris --!
                    <TextView
-                       android:textColor="@color/white"
+                       android:textColor="@color/black"
                        android:layout_marginBottom="10dp"
                        android:layout_marginLeft="10dp"
                        android:id="@+id/priceOfCourse"
@@ -108,22 +110,23 @@
 
                 <TextView
                     android:textSize="15sp"
-                    android:textColor="@color/green"
-                    android:layout_margin="10dp"
+                    android:textColor="@color/white"
+                    android:background="@color/primary_color"
+                    android:padding="10dp"
                     android:id="@+id/status"
                     android:text="Status"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"/>
 
                 <LinearLayout
-                    android:background="@color/green"
+                    android:background="@color/white"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:orientation="vertical">
 
                     !-- Plats --!
                     <TextView
-                        android:textColor="@color/white"
+                        android:textColor="@color/black"
                         android:layout_marginBottom="5dp"
                         android:layout_marginTop="10dp"
                         android:layout_marginLeft="10dp"
@@ -133,7 +136,7 @@
                         android:text="Plats" />
 
                     <TextView
-                        android:textColor="@color/white"
+                        android:textColor="@color/black"
                         android:layout_marginBottom="5dp"
                         android:layout_marginLeft="10dp"
                         android:id="@+id/teacher"
@@ -142,10 +145,11 @@
                         android:layout_height="wrap_content"/>
 
                     <TextView
+                        android:textColor="@color/black"
                         android:layout_marginLeft="10dp"
                         android:layout_marginBottom="10dp"
                         android:text="Kontakt: 070-456 51 52"
-                        android:textColor="@color/white"
+
                         android:id="@+id/kontakt"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content" />
@@ -155,8 +159,12 @@
 
             !-- Description --!
             <TextView
+                android:textSize="15sp"
+                android:textColor="@color/white"
+                android:background="@color/primary_color"
+                android:padding="10dp"
                 android:id="@+id/description"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
 
             <TextView

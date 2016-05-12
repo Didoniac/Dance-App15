@@ -8,6 +8,7 @@ import android.support.v4.app.DialogFragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.Window;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RelativeLayout;
@@ -30,20 +31,23 @@ public class login_Dialog_Fragment extends DialogFragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
       View view = inflater.inflate(R.layout.fragment_login__dialog_, container, false);
-
+        getDialog().getWindow().requestFeature(Window.FEATURE_NO_TITLE);
         RelativeLayout rely_diagfrag = (RelativeLayout)view.findViewById(R.id.rely_dig_frag);
         final EditText username = (EditText)view.findViewById(R.id.edittxt_användernamn);
         final EditText password = (EditText)view.findViewById(R.id.edittxt_lösenord);
         Button btn_login = (Button)view.findViewById(R.id.btn_loggain);
-        Button btn_createaccount = (Button)view.findViewById(R.id.btn_skapakonto);
+        Button btn_cancel = (Button)view.findViewById(R.id.btn_avbryt);
 
         // Logga in
         btn_login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
+                if(username.getText().toString().equals("") && password.getText().toString().equals("")) {
 
-                if (username.getText().toString().equals("admin") &&
+                    Toast.makeText(getContext(), "Skrive användarnamn och lösenord ...", Toast.LENGTH_SHORT).show();
+
+                }else if (username.getText().toString().equals("admin") &&
                         password.getText().toString().equals("admin")) {
 
                     Toast.makeText(getContext(), "Logged In...", Toast.LENGTH_SHORT).show();
@@ -52,17 +56,30 @@ public class login_Dialog_Fragment extends DialogFragment {
                     ((MainActivity)getActivity()).FAB.show();
                     //TODO change to admin view.
 
+                    dismiss();
+
 
                 } else {
 
-                    Toast.makeText(getContext(), "Wrong password.", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getContext(), "Fel användernämn och lösenord...", Toast.LENGTH_SHORT).show();
+                    username.setText("");
+                    password.setText("");
                 }
 
-                username.setText("");
-                password.setText("");
-                dismiss();
+
+               // dismiss();
+
             }
 
+        });
+
+        btn_cancel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                dismiss();
+
+            }
         });
 
       return view;

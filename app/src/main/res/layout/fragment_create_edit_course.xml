@@ -28,66 +28,292 @@
             android:orientation="vertical"
             android:gravity="center">
 
-            <EditText
-                android:textSize="20sp"
-                android:id="@+id/title"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:hint="Kursnamn" />
+            <TextView
+                android:layout_marginBottom="5dp"
+                android:gravity="center"
+                android:textSize="22sp"
+                android:id="@+id/textView_info"
+                android:text="Redigera kursens information"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
 
-            <Button
-                android:id="@+id/dateTimeButton"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:hint="@string/tid_datum" />
+            <LinearLayout
+                android:orientation="horizontal"
+                android:gravity="bottom"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:textSize="18sp"
+                    android:text="Kurstitel: "
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+                <EditText
+                    android:textSize="20sp"
+                    android:id="@+id/title"
+                    android:layout_marginLeft="53dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Ange kursnamn" />
+
+            </LinearLayout>
+
+
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:gravity="bottom"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:textSize="18sp"
+                    android:text="Startdatum: "
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+                <Button
+                    android:layout_marginLeft="36dp"
+                    android:background="@color/transparent"
+                    android:id="@+id/dateTimeButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="36dp"
+                    android:hint="VÄLJ" />
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:gravity="bottom"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:textSize="18sp"
+                    android:text="Antal tillfällen: "
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+            <EditText
+                android:inputType="number"
+                android:layout_marginLeft="10dp"
+                android:hint="Ange antal tillfällen"
+                android:id="@+id/numberOfCourses"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+
+                </LinearLayout>
 
         !-- Kommentar --!
-            <EditText
-                android:id="@+id/durationOfOneCourse"
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:gravity="bottom"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:textSize="18sp"
+                    android:text="Tid (min): "
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+                <EditText
+                    android:layout_marginLeft="48dp"
+                    android:id="@+id/durationOfOneCourse"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Längd per kurstillfälle" />
+
+                </LinearLayout>
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:gravity="bottom"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:textSize="18sp"
+                    android:text="Kursens pris: "
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+                <EditText
+                    android:layout_marginLeft="20dp"
+                    android:id="@+id/priceOfCourse"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:hint="Ange pris (kr)" />
+
+                </LinearLayout>
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:gravity="bottom"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:textSize="18sp"
+                    android:text="Kursens plats: "
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+                <EditText
+                    android:layout_marginLeft="10dp"
+                    android:id="@+id/place"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:hint="Ange plats" />
+
+                </LinearLayout>
+
+            <LinearLayout
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal"
+                android:gravity="bottom"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_gravity="top"
+                    android:textSize="18sp"
+                    android:text="Lärare: "
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+
+                <LinearLayout
+                    android:id="@+id/checkboxes"
+                    android:layout_marginLeft="68dp"
+                    android:gravity="left"
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <CheckBox
+                        android:id="@+id/ceciliaCitron"
+                        android:gravity="right"
+                        android:padding="10dp"
+                        android:text="Cecilia Citron"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        />
+                    <CheckBox
+                        android:id="@+id/annaAndersson"
+                        android:gravity="right"
+                        android:padding="10dp"
+                        android:text="Anna Andersson"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        />
+                    <CheckBox
+                        android:id="@+id/beaBearnaisesås"
+                        android:gravity="right"
+                        android:padding="10dp"
+                        android:text="Bea Bearnaisesås"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        />
+                    <CheckBox
+                        android:id="@+id/fiaDubbelsnurr"
+                        android:gravity="right"
+                        android:padding="10dp"
+                        android:text="Fia Dubbelsnurr"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal"
+            android:gravity="bottom"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_gravity="center_vertical"
+                android:textSize="18sp"
+                android:text="Status: "
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:hint="Längd på kurstillfällen" />
+                android:layout_height="wrap_content" />
+
+                <Spinner
+                    android:layout_marginLeft="60dp"
+                    android:id="@+id/statusSpinner"
+                    android:textSize="30sp"
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp"/>
+
+                </LinearLayout>
+
+            <LinearLayout
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal"
+                android:gravity="bottom"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_gravity="center_vertical"
+                    android:textSize="18sp"
+                    android:text="Nivå: "
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+                <Spinner
+                    android:layout_marginLeft="75dp"
+                    android:id="@+id/levelSpinner"
+                    android:textSize="30sp"
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp"/>
+
+                </LinearLayout>
+
+            <LinearLayout
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal"
+                android:gravity="bottom"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_gravity="center_vertical"
+                    android:textSize="18sp"
+                    android:text="Dansstil: "
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+                <Spinner
+                    android:layout_marginLeft="45dp"
+                    android:id="@+id/danceStyleSpinner"
+                    android:textSize="30sp"
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp"/>
+
+                </LinearLayout>
+
+
+                <TextView
+                    android:layout_marginTop="20dp"
+                    android:layout_gravity="center_vertical"
+                    android:textSize="18sp"
+                    android:text="Beskrivning: "
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
 
             <EditText
-                android:id="@+id/priceOfCourse"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:hint="Kurspris" />
-
-            <EditText
-                android:id="@+id/place"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:hint="Plats" />
-
-            <Spinner
-                android:id="@+id/teacherSpinner"
-                android:textSize="30sp"
-                android:layout_width="200dp"
-                android:layout_height="50dp"/>
-
-            <Spinner
-                android:id="@+id/statusSpinner"
-                android:textSize="30sp"
-                android:layout_width="200dp"
-                android:layout_height="50dp"/>
-
-            <Spinner
-                android:id="@+id/levelSpinner"
-                android:textSize="30sp"
-                android:layout_width="200dp"
-                android:layout_height="40dp"/>
-
-            <Spinner
-                android:id="@+id/danceStyleSpinner"
-                android:textSize="30sp"
-                android:layout_width="200dp"
-                android:layout_height="50dp"/>
-
-            <EditText
-                android:padding="20dp"
+                android:layout_marginTop="10dp"
                 android:id="@+id/description"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Description..." />
 

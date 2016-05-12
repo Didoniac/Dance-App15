@@ -101,12 +101,14 @@ public class AsyncCourse extends AsyncTask<String, Void, String> {
 
                         mainActivity.courses.clear();
                         JSONObject jsonCourse, jsonDescription;
-                        JSONArray jsonDates, jsonParticipants;
-                        ArrayList<String> tempDates;
+                        JSONArray jsonDates, jsonParticipants, jsonTeachers;
+                        ArrayList<String> tempDates, tempTeachers;
                         ArrayList<CourseParticipant> tempParticipants;
                         for (int i = 0; i < jsonCourses.length(); i++) {
                             tempDates = new ArrayList<>();
                             tempParticipants = new ArrayList<>();
+                            tempTeachers = new ArrayList<>();
+
 
                             jsonCourse = (JSONObject) jsonCourses.get(i);
                             Course mCourse = new Course();
@@ -115,13 +117,19 @@ public class AsyncCourse extends AsyncTask<String, Void, String> {
                             mCourse.setDescription(jsonCourse.getString("description"));
 
                             jsonDescription = new JSONObject(mCourse.getDescription());
-                            mCourse.setTeacher(jsonDescription.getString("teacher"));
                             mCourse.setDescription(jsonDescription.getString("description"));
                             mCourse.setLevel(jsonDescription.getString("level"));
                             mCourse.setLocation(jsonDescription.getString("location"));
                             mCourse.setStatus(jsonDescription.getString("status"));
                             mCourse.setDanceStyle(jsonDescription.getString("danceStyle"));
                             mCourse.setPrice((float)jsonDescription.getDouble("price"));
+                            mCourse.setNumberOfCourses(jsonDescription.getInt("numberOfCourses"));
+
+                            jsonTeachers = new JSONArray(jsonDescription.getString("teacher"));
+                            int u;
+                            for (u = 0; u < jsonTeachers.length(); u++){
+                                tempTeachers.add((String)jsonTeachers.get(u));
+                            }
 
                             jsonDates = new JSONArray(jsonDescription.getString("dates"));
                             int j;
@@ -135,7 +143,7 @@ public class AsyncCourse extends AsyncTask<String, Void, String> {
                             for (j = 0; j < jsonParticipants.length(); j++) {
                                 tempParticipants.add((CourseParticipant) jsonParticipants.get(j));
                             }
-
+                            mCourse.setTeacher(tempTeachers);
                             mCourse.setDates(tempDates);
                             mainActivity.courses.add(mCourse);
                         }
@@ -158,7 +166,13 @@ public class AsyncCourse extends AsyncTask<String, Void, String> {
                         mCourse.setDescription(jsonCourse.getString("description"));
 
                         jsonDescription = new JSONObject(mCourse.getDescription());
-                        mCourse.setTeacher(jsonDescription.getString("teacher"));
+                        ArrayList<String> tempTeachers = new ArrayList<>();
+                        JSONArray jsonTeachers = new JSONArray(jsonDescription.getString("teacher"));
+                        int u;
+                        for (u = 0; u < jsonTeachers.length(); u++){
+                            tempTeachers.add((String)jsonTeachers.get(u));
+                        }
+                        mCourse.setTeacher(tempTeachers);
                         mCourse.setDescription(jsonDescription.getString("description"));
                         mCourse.setLevel(jsonDescription.getString("level"));
                         mCourse.setLocation(jsonDescription.getString("location"));
@@ -201,7 +215,13 @@ public class AsyncCourse extends AsyncTask<String, Void, String> {
                         mCourse.setDescription(jsonCourse.getString("description"));
 
                         jsonDescription = new JSONObject(mCourse.getDescription());
-                        mCourse.setTeacher(jsonDescription.getString("teacher"));
+                        ArrayList<String> tempTeachers = new ArrayList<>();
+                        JSONArray jsonTeachers = new JSONArray(jsonDescription.getString("teacher"));
+                        int u;
+                        for (u = 0; u < jsonTeachers.length(); u++){
+                            tempTeachers.add((String)jsonTeachers.get(u));
+                        }
+                        mCourse.setTeacher(tempTeachers);
                         mCourse.setDescription(jsonDescription.getString("description"));
                         mCourse.setLevel(jsonDescription.getString("level"));
                         mCourse.setLocation(jsonDescription.getString("location"));

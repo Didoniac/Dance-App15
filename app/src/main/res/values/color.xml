@@ -10,5 +10,9 @@
     <color name="black">#000000</color>
     <color name="light_green">#00e600</color>
     <color name="water_blue">#66ffff</color>
+    <color name="primary_color">#219eed</color>
+    <color name="primary_color_dark">#1a7ab7</color>
+    <color name="accent_color">#dd3333</color>
+    <color name="transparent">#10000000</color>
     <color name="yellow">#FFCC00</color>
 </resources>
