@@ -1,3 +1,82 @@
 <?xml version="1.0" encoding="utf-8"?>
-<items version="2" />
+<items version="2" >
 
+    <item
+        jar="C:\Agil projektledning 2\app\build\intermediates\incremental-runtime-classes\debug\instant-run.jar"
+        jumboMode="true"
+        revision="23.0.2"
+        sha1="bbd3bde69c85fccbd25a33b128a88b3610a85f2c">
+        <dex dex="C:\Agil projektledning 2\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run_c87accc39430eceabc8941808f00b60c456872e4\classes.dex" />
+    </item>
+    <item
+        jar="C:\Agil projektledning 2\app\build\intermediates\exploded-aar\com.android.support\design\23.2.1\jars\classes.jar"
+        jumboMode="true"
+        revision="23.0.2"
+        sha1="72961d8b453b46e277702f18de9d210bc019e36e">
+        <dex dex="C:\Agil projektledning 2\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-design-23.2.1_fac067bee5639364b620bcf89f3f62ac20dee116\classes.dex" />
+    </item>
+    <item
+        jar="C:\Agil projektledning 2\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
+        jumboMode="true"
+        revision="23.0.2"
+        sha1="68e57c4f8cb1868b43db8dd93b2dd18c071f87c0">
+        <dex dex="C:\Agil projektledning 2\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run-bootstrap_d0c8731621280e2519e0eea8fc2e9da2ccdc79c5\classes.dex" />
+    </item>
+    <item
+        jar="C:\Agil projektledning 2\app\build\intermediates\exploded-aar\com.android.support\recyclerview-v7\23.2.1\jars\classes.jar"
+        jumboMode="true"
+        revision="23.0.2"
+        sha1="e3885783ff8926ed9e2fdcd16816c2e1e73e7aee">
+        <dex dex="C:\Agil projektledning 2\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-recyclerview-v7-23.2.1_9a69efa489fca795e3b3d4efcc60bfac4112604d\classes.dex" />
+    </item>
+    <item
+        jar="C:\Agil projektledning 2\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.2.1\jars\classes.jar"
+        jumboMode="true"
+        revision="23.0.2"
+        sha1="3be474b1b21b31cf2fa93fe6bd641ae108d96452">
+        <dex dex="C:\Agil projektledning 2\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-v4-23.2.1_8418ff21145fb081f3c01ecb6b4296599db70027\classes.dex" />
+    </item>
+    <item
+        jar="C:\Agil projektledning 2\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\23.2.1\jars\classes.jar"
+        jumboMode="true"
+        revision="23.0.2"
+        sha1="e4d0cbb0b999604b349062f0214a0a228a7fd151">
+        <dex dex="C:\Agil projektledning 2\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-appcompat-v7-23.2.1_7489c361d9631e358aaa5ef8a4db86cb37db0809\classes.dex" />
+    </item>
+    <item
+        jar="C:\Agil projektledning 2\app\build\intermediates\exploded-aar\com.android.support\animated-vector-drawable\23.2.1\jars\classes.jar"
+        jumboMode="true"
+        revision="23.0.2"
+        sha1="3469cb457f10f74c28cbc05f069b6c894f6cbdd0">
+        <dex dex="C:\Agil projektledning 2\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-animated-vector-drawable-23.2.1_d92d41c012f40d0dc674f5567ac63cb08a20ecd8\classes.dex" />
+    </item>
+    <item
+        jar="C:\Users\umyhnystma\AppData\Local\Android\sdk\extras\android\m2repository\com\android\support\support-annotations\23.2.1\support-annotations-23.2.1.jar"
+        jumboMode="true"
+        revision="23.0.2"
+        sha1="ccb693bc0774fcb637246f7360de25b4af7df318">
+        <dex dex="C:\Agil projektledning 2\app\build\intermediates\transforms\dex\debug\folders\1000\10\support-annotations-23.2.1_20fc65e76c72ca270d91e04f2adb157c7c1738c5\classes.dex" />
+    </item>
+    <item
+        jar="C:\Agil projektledning 2\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.2.1\jars\libs\internal_impl-23.2.1.jar"
+        jumboMode="true"
+        revision="23.0.2"
+        sha1="607a3d0b8013b4ccbfeb0b7cb293351994e021fb">
+        <dex dex="C:\Agil projektledning 2\app\build\intermediates\transforms\dex\debug\folders\1000\10\internal_impl-23.2.1_26e91a2d833ad71af9d6b78d67d6c61ccb3f93b0\classes.dex" />
+    </item>
+    <item
+        jar="C:\Users\umyhnystma\.gradle\caches\modules-2\files-2.1\org.apache.commons\commons-lang3\3.4\5fe28b9518e58819180a43a850fbc0dd24b7c050\commons-lang3-3.4.jar"
+        jumboMode="true"
+        revision="23.0.2"
+        sha1="5fe28b9518e58819180a43a850fbc0dd24b7c050">
+        <dex dex="C:\Agil projektledning 2\app\build\intermediates\transforms\dex\debug\folders\1000\10\commons-lang3-3.4_58b0e2658e7f6d52fb605d0a4cb017725ed0aa4d\classes.dex" />
+    </item>
+    <item
+        jar="C:\Agil projektledning 2\app\build\intermediates\exploded-aar\com.android.support\support-vector-drawable\23.2.1\jars\classes.jar"
+        jumboMode="true"
+        revision="23.0.2"
+        sha1="673d77a5bbddd766037f088e775df525c46407f0">
+        <dex dex="C:\Agil projektledning 2\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-vector-drawable-23.2.1_75e7ad2d1295025f3d5a44b96194005db7a7ff0c\classes.dex" />
+    </item>
+
+</items>

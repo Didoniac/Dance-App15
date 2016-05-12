@@ -54,7 +54,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         final MainActivity activity = this;
         loadData();
-        Log.i("TAG_FRAG","onCreate i Main"+ loggedIn);
+
 
         String kanAllaSeDet = "Hej önskar Johan";
         String str_dhana = "Hej alla Dance grupp";

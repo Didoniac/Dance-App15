@@ -11,6 +11,7 @@ import android.os.Bundle;
 import android.support.v4.app.DialogFragment;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
+import android.support.v4.util.TimeUtils;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -26,6 +27,7 @@ import android.widget.RelativeLayout;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import org.apache.commons.lang3.text.WordUtils;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -216,8 +218,6 @@ public class Info_TabView extends Fragment {
         buttonDone.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-                ((MainActivity)getActivity()).loggedIn = true;
                 if (fieldsAreFilled()) {
                     JSONObject object = new JSONObject();
                     JSONObject descriptionObject = new JSONObject();
@@ -463,6 +463,7 @@ public class Info_TabView extends Fragment {
                     new SimpleDateFormat("E yyyy-MM-dd", getResources().getConfiguration().locale);
 
             String time = formatter.format(date);
+            time = WordUtils.capitalize(time);
             buttonTime.setText(time);
 
             TimePicker timePicker = new TimePicker();
@@ -490,7 +491,9 @@ public class Info_TabView extends Fragment {
         @Override
         public void onTimeSet(android.widget.TimePicker view, int hourOfDay, int minute) {
             isDataSet = true;
-            chosenTime = buttonTime.getText().toString() + " " + hourOfDay + ":" + minute;
+            String hourString = String.format(getResources().getConfiguration().locale, "%02d", hourOfDay);
+            String minuteString = String.format(getResources().getConfiguration().locale, "%02d", minute);
+            chosenTime = buttonTime.getText().toString() + " " + hourString + ":" + minuteString;
         }
 
         @Override

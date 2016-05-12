@@ -47,7 +47,7 @@ public class ReadCourse extends Fragment {
 
     Button courseAttendButton;
 
-    int courseDurationInt;
+    int courseDurationInt, numberOfCoursesInt;
     float price;
 
 
@@ -112,8 +112,9 @@ public class ReadCourse extends Fragment {
 
 
     public void fillInfo() {
-        assert userDetailActivity.getSupportActionBar() != null;
-        userDetailActivity.getSupportActionBar().setTitle(userDetailActivity.course.getTitle());
+        if (userDetailActivity.getSupportActionBar() != null) {
+            userDetailActivity.getSupportActionBar().setTitle(userDetailActivity.course.getTitle());
+        }
 
         courseTitleString = userDetailActivity.course.getTitle();
         courseLevelString = userDetailActivity.course.getLevel();
@@ -122,10 +123,15 @@ public class ReadCourse extends Fragment {
         courseDateString = userDetailActivity.course.getDates().get(0);
         courseDurationInt = userDetailActivity.course.getCourseDurationInMinutes();
         courseDurationString = String.valueOf(courseDurationInt);
+
+
+        numberOfCoursesInt = userDetailActivity.course.getNumberOfCourses();
+        numberOfCoursesString= String.valueOf(numberOfCoursesInt);
+
+        Log.i("TAG_FRAG","sträng, antal kurser: "+ numberOfCoursesString);
         //numberOfCourses
 
         price = userDetailActivity.course.getPrice();
-       // priceString = String.valueOf(price);
 
         DecimalFormat df = new DecimalFormat();
 
@@ -159,7 +165,8 @@ public class ReadCourse extends Fragment {
 
         courseDate.setText("Startdatum: "+courseDateString);
         durationOfOneCourse.setText("Längd per tillfälle: "+courseDurationString+" min.");
-        numberOfCourses.setText("Antal tillfällen: ");
+
+        numberOfCourses.setText("Antal tillfällen: "+numberOfCoursesString);
 
         priceOfCourse.setText("Pris: "+priceString+" kr");
         status.setText("Status: "+courseStatusString);
