@@ -12,6 +12,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content">
     <ListView
+        android:listSelector="@drawable/list_selector"
         android:layout_weight="9"
         android:background="@drawable/listview_divider"
         android:divider="@color/black"

@@ -287,12 +287,12 @@ public class Info_TabView extends Fragment {
                     if (adminDetailActivity.course == null) {
                         Log.i("TAG", "POST");
                         AsyncCourse asyncCourse = new AsyncCourse(adminDetailActivity, object, 0);
-                        asyncCourse.execute("POST", "lists/" + "258/" + "tasks/");
+                        asyncCourse.execute("POST", "lists/" + "2/" + "tasks/");
                         adminDetailActivity.onBackPressed();
                     } else {
                         Log.i("TAG", "PUT to id: " + adminDetailActivity.course.getId());
                         AsyncCourse asyncCourse = new AsyncCourse(adminDetailActivity, object, 0);
-                        asyncCourse.execute("PUT", "lists/" + "258/" + "tasks/" + adminDetailActivity.course.getId() + "/");
+                        asyncCourse.execute("PUT", "lists/" + "2/" + "tasks/" + adminDetailActivity.course.getId() + "/");
                         adminDetailActivity.onBackPressed();
                 }
                 }

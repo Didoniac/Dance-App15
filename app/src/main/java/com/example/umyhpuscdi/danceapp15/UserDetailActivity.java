@@ -28,7 +28,7 @@ public class UserDetailActivity extends AppCompatActivity {
 
         if (id != -1) {
             AsyncCourse asyncCourse = new AsyncCourse(this, null, 0);
-            asyncCourse.execute("GET", "lists/" + "258" + "/tasks/", "" + id);
+            asyncCourse.execute("GET", "lists/" + "2" + "/tasks/", "" + id);
         }
 
         //Adding Fragment java class here...

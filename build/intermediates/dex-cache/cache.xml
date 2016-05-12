@@ -2,20 +2,6 @@
 <items version="2" >
 
     <item
-        jar="C:\Users\umyhpuscdi\Documents\agilt\DanceApp15\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\23.2.1\jars\classes.jar"
-        jumboMode="true"
-        revision="23.0.2"
-        sha1="e4d0cbb0b999604b349062f0214a0a228a7fd151">
-        <dex dex="C:\Users\umyhpuscdi\Documents\agilt\DanceApp15\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-appcompat-v7-23.2.1_8675d00af8a998f1b39d2ff0b36714765adf1a20\classes.dex" />
-    </item>
-    <item
-        jar="C:\Users\umyhpuscdi\Documents\agilt\DanceApp15\app\build\intermediates\exploded-aar\com.android.support\animated-vector-drawable\23.2.1\jars\classes.jar"
-        jumboMode="true"
-        revision="23.0.2"
-        sha1="3469cb457f10f74c28cbc05f069b6c894f6cbdd0">
-        <dex dex="C:\Users\umyhpuscdi\Documents\agilt\DanceApp15\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-animated-vector-drawable-23.2.1_c3fc8e8810456599f32e0c005f291e4e8a3492df\classes.dex" />
-    </item>
-    <item
         jar="C:\Users\umyhpuscdi\Documents\agilt\DanceApp15\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.2.1\jars\classes.jar"
         jumboMode="true"
         revision="23.0.2"
@@ -30,6 +16,13 @@
         <dex dex="C:\Users\umyhpuscdi\Documents\agilt\DanceApp15\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-design-23.2.1_ec78388be426dac2613c5ed927581a1e696ef8bb\classes.dex" />
     </item>
     <item
+        jar="C:\Users\umyhpuscdi\Documents\agilt\DanceApp15\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\23.2.1\jars\classes.jar"
+        jumboMode="true"
+        revision="23.0.2"
+        sha1="e4d0cbb0b999604b349062f0214a0a228a7fd151">
+        <dex dex="C:\Users\umyhpuscdi\Documents\agilt\DanceApp15\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-appcompat-v7-23.2.1_8675d00af8a998f1b39d2ff0b36714765adf1a20\classes.dex" />
+    </item>
+    <item
         jar="C:\Users\umyhpuscdi\AppData\Local\Android\sdk1\extras\android\m2repository\com\android\support\support-annotations\23.2.1\support-annotations-23.2.1.jar"
         jumboMode="true"
         revision="23.0.2"
@@ -40,7 +33,7 @@
         jar="C:\Users\umyhpuscdi\Documents\agilt\DanceApp15\app\build\intermediates\incremental-runtime-classes\debug\instant-run.jar"
         jumboMode="true"
         revision="23.0.2"
-        sha1="833367e6bb082d71d52458c14d457d60494df8ac">
+        sha1="42edc693b52256485c35550992e15bbdae4bddbd">
         <dex dex="C:\Users\umyhpuscdi\Documents\agilt\DanceApp15\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run_478a9b2110c39cbbb56e810cdd4401a82e10450f\classes.dex" />
     </item>
     <item
@@ -61,8 +54,15 @@
         jar="C:\Users\umyhpuscdi\Documents\agilt\DanceApp15\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
         jumboMode="true"
         revision="23.0.2"
-        sha1="30a8f2fe948eb359f344a5f96f8e8f844b072b70">
+        sha1="e075a37c40818eedd158c3bcde32ae788d9aa931">
         <dex dex="C:\Users\umyhpuscdi\Documents\agilt\DanceApp15\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run-bootstrap_687cd0d9145664c6bb56f6185665b87e0e86ebf7\classes.dex" />
+    </item>
+    <item
+        jar="C:\Users\umyhpuscdi\Documents\agilt\DanceApp15\app\build\intermediates\exploded-aar\com.android.support\animated-vector-drawable\23.2.1\jars\classes.jar"
+        jumboMode="true"
+        revision="23.0.2"
+        sha1="3469cb457f10f74c28cbc05f069b6c894f6cbdd0">
+        <dex dex="C:\Users\umyhpuscdi\Documents\agilt\DanceApp15\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-animated-vector-drawable-23.2.1_c3fc8e8810456599f32e0c005f291e4e8a3492df\classes.dex" />
     </item>
     <item
         jar="C:\Users\umyhpuscdi\Documents\agilt\DanceApp15\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.2.1\jars\libs\internal_impl-23.2.1.jar"

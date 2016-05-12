@@ -142,7 +142,7 @@ public class MainActivity extends AppCompatActivity {
                 }
 
                 AsyncCourse asynk = new AsyncCourse(activity, json, 0);
-                asynk.execute("POST", "lists/" + "258" + "/tasks/"); ///Det här är String... params-arrayen
+                asynk.execute("POST", "lists/" + "2" + "/tasks/"); ///Det här är String... params-arrayen
                 */
 
         //        dialogFragCreateEditCourse = new CreateEditCourse();
@@ -214,7 +214,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void getCoursesFromServer() {
         AsyncCourse asyncCourse = new AsyncCourse(this, null, 0);
-        asyncCourse.execute("GET","lists/258/tasks/");
+        asyncCourse.execute("GET","lists/2/tasks/");
     }
 
     private void buildDanceCourseList(){
