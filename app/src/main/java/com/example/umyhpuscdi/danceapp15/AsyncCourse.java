@@ -179,6 +179,7 @@ public class AsyncCourse extends AsyncTask<String, Void, String> {
                         mCourse.setStatus(jsonDescription.getString("status"));
                         mCourse.setDanceStyle(jsonDescription.getString("danceStyle"));
                         mCourse.setPrice((float)jsonDescription.getDouble("price"));
+                        mCourse.setNumberOfCourses(jsonDescription.getInt("numberOfCourses"));
 
                         jsonDates = new JSONArray(jsonDescription.getString("dates"));
                         int j;
@@ -228,6 +229,7 @@ public class AsyncCourse extends AsyncTask<String, Void, String> {
                         mCourse.setStatus(jsonDescription.getString("status"));
                         mCourse.setDanceStyle(jsonDescription.getString("danceStyle"));
                         mCourse.setPrice((float)jsonDescription.getDouble("price"));
+                        mCourse.setNumberOfCourses(jsonDescription.getInt("numberOfCourses"));
 
                         jsonDates = new JSONArray(jsonDescription.getString("dates"));
                         int j;
