@@ -112,8 +112,9 @@ public class ReadCourse extends Fragment {
 
 
     public void fillInfo() {
-        assert userDetailActivity.getSupportActionBar() != null;
-        userDetailActivity.getSupportActionBar().setTitle(userDetailActivity.course.getTitle());
+        if (userDetailActivity.getSupportActionBar() != null) {
+            userDetailActivity.getSupportActionBar().setTitle(userDetailActivity.course.getTitle());
+        }
 
         courseTitleString = userDetailActivity.course.getTitle();
         courseLevelString = userDetailActivity.course.getLevel();
