@@ -133,7 +133,7 @@
                     android:textColor="@color/black"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="Längd per kurstillfälle" />
+                    android:hint="Ange längd per kurstillfälle" />
 
                 </LinearLayout>
 
@@ -340,7 +340,7 @@
                 android:textColor="@color/black"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Description..." />
+                android:hint="Ange en beskrivning." />
 
 
 

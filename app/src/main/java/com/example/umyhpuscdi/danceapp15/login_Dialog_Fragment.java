@@ -50,7 +50,7 @@ public class login_Dialog_Fragment extends DialogFragment {
                 }else if (username.getText().toString().equals("admin") &&
                         password.getText().toString().equals("admin")) {
 
-                    Toast.makeText(getContext(), "Logged In...", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getContext(), "Inloggad.", Toast.LENGTH_SHORT).show();
 
                     ((MainActivity)getActivity()).loggedIn = true;
                     ((MainActivity)getActivity()).saveData();           // sparar login-variabel
